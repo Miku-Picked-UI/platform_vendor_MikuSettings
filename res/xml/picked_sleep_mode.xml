@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Miku-Picked UI
+     SPDX-License-Identifier: Apache-2.0
+
+     [Evolution X] Sleep mode settings. Keys are Settings.Secure.SLEEP_MODE_*.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="picked_sleep_mode"
+    android:title="@string/picked_sleep_mode_title">
+
+    <com.miku.settings.preferences.SecureSettingSwitchPreference
+        android:key="sleep_mode_enabled"
+        android:title="@string/picked_sleep_mode_enable_title"
+        android:defaultValue="false" />
+
+    <com.miku.settings.preferences.SecureSettingListPreference
+        android:key="sleep_mode_auto_mode"
+        android:title="@string/picked_sleep_mode_auto_title"
+        android:entries="@array/picked_sleep_mode_auto_entries"
+        android:entryValues="@array/picked_sleep_mode_auto_values"
+        android:defaultValue="0" />
+
+    <Preference
+        android:key="sleep_mode_since"
+        android:title="@string/picked_sleep_mode_since_title"
+        android:persistent="false" />
+
+    <Preference
+        android:key="sleep_mode_till"
+        android:title="@string/picked_sleep_mode_till_title"
+        android:persistent="false" />
+
+    <PreferenceCategory
+        android:key="sleep_mode_toggles"
+        android:title="@string/picked_sleep_mode_toggles_category">
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="sleep_mode_wifi_toggle"
+            android:title="@string/picked_sleep_mode_wifi_title"
+            android:defaultValue="true" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="sleep_mode_bluetooth_toggle"
+            android:title="@string/picked_sleep_mode_bluetooth_title"
+            android:defaultValue="true" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="sleep_mode_cellular_toggle"
+            android:title="@string/picked_sleep_mode_cellular_title"
+            android:defaultValue="true" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="sleep_mode_sensors_toggle"
+            android:title="@string/picked_sleep_mode_sensors_title"
+            android:defaultValue="true" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="sleep_mode_idle_toggle"
+            android:title="@string/picked_sleep_mode_idle_title"
+            android:defaultValue="false" />
+
+        <com.miku.settings.preferences.SecureSettingListPreference
+            android:key="sleep_mode_ringer_mode"
+            android:title="@string/picked_sleep_mode_ringer_title"
+            android:entries="@array/picked_sleep_mode_ringer_entries"
+            android:entryValues="@array/picked_sleep_mode_ringer_values"
+            android:defaultValue="0" />
+    </PreferenceCategory>
+</PreferenceScreen>

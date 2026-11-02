@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Miku-Picked UI
+     SPDX-License-Identifier: Apache-2.0
+
+     Settings > About phone > Thanks to
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="picked_thanks"
+    android:title="@string/picked_thanks_title">
+
+    <Preference
+        android:key="picked_thanks_header"
+        android:summary="@string/picked_thanks_header"
+        android:selectable="false" />
+
+    <PreferenceCategory
+        android:key="picked_thanks_base"
+        android:title="@string/picked_thanks_base_category">
+
+        <Preference
+            android:key="thanks_miku"
+            android:title="@string/picked_thanks_miku_title"
+            android:summary="@string/picked_thanks_miku_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Miku-UI" />
+        </Preference>
+
+        <Preference
+            android:key="thanks_aosp"
+            android:title="@string/picked_thanks_aosp_title"
+            android:summary="@string/picked_thanks_aosp_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://source.android.com" />
+        </Preference>
+
+        <Preference
+            android:key="thanks_lineage"
+            android:title="@string/picked_thanks_lineage_title"
+            android:summary="@string/picked_thanks_lineage_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/LineageOS" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="picked_thanks_picked"
+        android:title="@string/picked_thanks_picked_category">
+
+        <Preference
+            android:key="thanks_infinity"
+            android:title="@string/picked_thanks_infinity_title"
+            android:summary="@string/picked_thanks_infinity_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/ProjectInfinity-X" />
+        </Preference>
+
+        <Preference
+            android:key="thanks_axion"
+            android:title="@string/picked_thanks_axion_title"
+            android:summary="@string/picked_thanks_axion_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/AxionAOSP" />
+        </Preference>
+
+        <Preference
+            android:key="thanks_uwu"
+            android:title="@string/picked_thanks_uwu_title"
+            android:summary="@string/picked_thanks_uwu_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/uwuAOSP" />
+        </Preference>
+
+        <Preference
+            android:key="thanks_evolution"
+            android:title="@string/picked_thanks_evolution_title"
+            android:summary="@string/picked_thanks_evolution_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Evolution-X" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="picked_thanks_others"
+        android:title="@string/picked_thanks_others_category">
+
+        <Preference
+            android:key="thanks_upstreams"
+            android:title="@string/picked_thanks_crdroid_title"
+            android:summary="@string/picked_thanks_crdroid_summary"
+            android:selectable="false" />
+
+        <Preference
+            android:key="thanks_authors"
+            android:title="@string/picked_thanks_authors_title"
+            android:summary="@string/picked_thanks_authors_summary"
+            android:selectable="false" />
+
+        <Preference
+            android:key="thanks_claude"
+            android:title="@string/picked_thanks_claude_title"
+            android:summary="@string/picked_thanks_claude_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://www.anthropic.com/claude" />
+        </Preference>
+
+        <Preference
+            android:key="thanks_you"
+            android:title="@string/picked_thanks_you_title"
+            android:summary="@string/picked_thanks_you_summary"
+            android:selectable="false" />
+    </PreferenceCategory>
+</PreferenceScreen>

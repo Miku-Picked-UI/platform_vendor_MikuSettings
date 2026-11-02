@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Miku-Picked UI
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Entry points -->
+    <string name="picked_features_title">Picked features</string>
+    <string name="picked_features_summary">Features picked from Infinity X, AxionOS, uwuAOSP and Evolution X</string>
+    <string name="picked_thanks_title">Thanks to</string>
+    <string name="picked_thanks_summary">Everyone who made Miku-Picked UI possible</string>
+
+    <!-- Categories -->
+    <string name="picked_category_statusbar">Status bar</string>
+    <string name="picked_category_qs">Quick settings</string>
+    <string name="picked_category_power">Power and sleep</string>
+    <string name="picked_category_display">Display</string>
+
+    <!-- [Infinity X] Status bar logo -->
+    <string name="picked_logo_title">Status bar logo</string>
+    <string name="picked_logo_summary">Show a small logo in the status bar (from Infinity X)</string>
+    <string name="picked_logo_position_title">Logo position</string>
+    <string name="picked_logo_style_title">Logo style</string>
+    <string name="picked_logo_color_title">Logo color</string>
+    <string name="picked_logo_color_picker_title">Custom logo color</string>
+
+    <!-- [Infinity X] Battery bar -->
+    <string name="picked_battery_bar_title">Battery bar</string>
+    <string name="picked_battery_bar_summary">Show the battery level as a thin bar at the top of the screen (from Infinity X)</string>
+    <string name="picked_battery_bar_style_title">Battery bar style</string>
+    <string name="picked_battery_bar_thickness_title">Battery bar thickness</string>
+    <string name="picked_battery_bar_animate_title">Animate while charging</string>
+    <string name="picked_battery_bar_color_title">Battery bar color</string>
+    <string name="picked_battery_bar_charging_color_enable_title">Use a charging color</string>
+    <string name="picked_battery_bar_charging_color_title">Charging color</string>
+    <string name="picked_battery_bar_low_color_title">Low battery color</string>
+
+    <!-- [Evolution X] Custom carrier label -->
+    <string name="picked_carrier_label_title">Custom carrier label</string>
+    <string name="picked_carrier_label_summary">Leave empty to show the real network name (from Evolution X)</string>
+
+    <!-- [Evolution X] QS tile animation -->
+    <string name="picked_qs_tile_anim_title">Tile toggle animation</string>
+
+    <!-- [LineageOS / AxionOS] Advanced restart -->
+    <string name="picked_advanced_reboot_title">Advanced restart</string>
+    <string name="picked_advanced_reboot_summary">Restart into recovery or bootloader, or restart only SystemUI, from the power menu (from AxionOS / LineageOS)</string>
+
+    <!-- [Evolution X] Sleep mode -->
+    <string name="picked_sleep_mode_title">Sleep mode</string>
+    <string name="picked_sleep_mode_summary">Quiet your phone at night (from Evolution X)</string>
+    <string name="picked_sleep_mode_enable_title">Use sleep mode</string>
+    <string name="picked_sleep_mode_auto_title">Turn on automatically</string>
+    <string name="picked_sleep_mode_since_title">Start time</string>
+    <string name="picked_sleep_mode_till_title">End time</string>
+    <string name="picked_sleep_mode_toggles_category">While sleep mode is on</string>
+    <string name="picked_sleep_mode_wifi_title">Turn off Wi-Fi</string>
+    <string name="picked_sleep_mode_bluetooth_title">Turn off Bluetooth</string>
+    <string name="picked_sleep_mode_cellular_title">Turn off mobile data</string>
+    <string name="picked_sleep_mode_sensors_title">Turn off sensors</string>
+    <string name="picked_sleep_mode_idle_title">Reduce background activity</string>
+    <string name="picked_sleep_mode_ringer_title">Ringer</string>
+
+    <!-- [uwuAOSP] Cutout force full screen -->
+    <string name="picked_cutout_apps_title">Full screen apps</string>
+    <string name="picked_cutout_apps_summary">Let chosen apps draw behind the display cutout (from uwuAOSP)</string>
+    <string name="picked_cutout_apps_unsupported">This device has no display cutout</string>
+
+    <!-- Thanks to -->
+    <string name="picked_thanks_header">Miku-Picked UI is Miku UI plus features cherry-picked from other projects. Thank you!</string>
+    <string name="picked_thanks_base_category">Base</string>
+    <string name="picked_thanks_picked_category">Picked from</string>
+    <string name="picked_thanks_others_category">Also thanks to</string>
+    <string name="picked_thanks_miku_title">Miku UI</string>
+    <string name="picked_thanks_miku_summary">The base of everything: Miku UI Android 16 (Blooming V2) and all of its features</string>
+    <string name="picked_thanks_aosp_title">Android Open Source Project</string>
+    <string name="picked_thanks_aosp_summary">Android 16 (android-16.0.0_r4)</string>
+    <string name="picked_thanks_lineage_title">LineageOS</string>
+    <string name="picked_thanks_lineage_summary">HALs, LineageOS 23.2 device tree compatibility, advanced restart menu, power menu helpers</string>
+    <string name="picked_thanks_infinity_title">Infinity X</string>
+    <string name="picked_thanks_infinity_summary">Status bar logo, battery bar</string>
+    <string name="picked_thanks_axion_title">AxionOS</string>
+    <string name="picked_thanks_axion_summary">Status/nav bar burn-in protection, advanced restart with Restart SystemUI, flashlight fade, 5G tile</string>
+    <string name="picked_thanks_uwu_title">uwuAOSP</string>
+    <string name="picked_thanks_uwu_summary">Deep sleep time in uptime, auto brightness tile, full screen apps for display cutouts</string>
+    <string name="picked_thanks_evolution_title">Evolution X</string>
+    <string name="picked_thanks_evolution_summary">Sleep mode, QS tile toggle animations, custom carrier label</string>
+    <string name="picked_thanks_crdroid_title">crDroid, AICP, OmniROM, PixelExperience and more</string>
+    <string name="picked_thanks_crdroid_summary">Where many of the picked features were first written</string>
+    <string name="picked_thanks_authors_title">Every original author</string>
+    <string name="picked_thanks_authors_summary">Each picked commit keeps its original author in the git history</string>
+    <string name="picked_thanks_claude_title">Claude (Anthropic)</string>
+    <string name="picked_thanks_claude_summary">Claude Opus 5.5 ported and integrated the picked features, and wrote the LineageOS device tree compatibility</string>
+    <string name="picked_thanks_you_title">You</string>
+    <string name="picked_thanks_you_summary">For using Miku-Picked UI</string>
+</resources>

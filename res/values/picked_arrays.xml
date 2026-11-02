@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 Miku-Picked UI
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string-array name="picked_logo_position_entries">
+        <item>Left</item>
+        <item>Right</item>
+    </string-array>
+    <string-array name="picked_logo_position_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- Must match the switch in SystemUI infinity/logo/LogoImage.java -->
+    <string-array name="picked_logo_style_entries" translatable="false">
+        <item>Infinity</item>
+        <item>Android</item>
+        <item>Adidas</item>
+        <item>Alien</item>
+        <item>Apple</item>
+        <item>Avengers</item>
+        <item>Batman</item>
+        <item>Batman (The Dark Knight)</item>
+        <item>Beats</item>
+        <item>Biohazard</item>
+        <item>BlackBerry</item>
+        <item>Cannabis</item>
+        <item>Emoticon (cool)</item>
+        <item>Emoticon (devil)</item>
+        <item>Fire</item>
+        <item>Heart</item>
+        <item>Nike</item>
+        <item>Pac-Man</item>
+        <item>Puma</item>
+        <item>ROG</item>
+        <item>Spider-Man</item>
+        <item>Superman</item>
+        <item>Windows</item>
+        <item>Xbox</item>
+        <item>Ghost</item>
+        <item>Ninja</item>
+        <item>Robot</item>
+        <item>Iron Man</item>
+        <item>Captain America</item>
+        <item>Flash</item>
+        <item>Tux</item>
+        <item>Ubuntu</item>
+        <item>Mint</item>
+    </string-array>
+    <string-array name="picked_logo_style_values" translatable="false">
+        <item>0</item><item>1</item><item>2</item><item>3</item><item>4</item><item>5</item>
+        <item>6</item><item>7</item><item>8</item><item>9</item><item>10</item><item>11</item>
+        <item>12</item><item>13</item><item>14</item><item>15</item><item>16</item><item>17</item>
+        <item>18</item><item>19</item><item>20</item><item>21</item><item>22</item><item>23</item>
+        <item>24</item><item>25</item><item>26</item><item>27</item><item>28</item><item>29</item>
+        <item>30</item><item>31</item><item>32</item>
+    </string-array>
+
+    <string-array name="picked_logo_color_entries">
+        <item>Follow status bar icons</item>
+        <item>Accent color</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="picked_logo_color_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="picked_battery_bar_style_entries">
+        <item>Regular</item>
+        <item>Centered</item>
+        <item>Reversed</item>
+    </string-array>
+    <string-array name="picked_battery_bar_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Must match TileToggleAnimation.kt in SystemUI -->
+    <string-array name="picked_qs_tile_anim_entries">
+        <item>None</item>
+        <item>Bounce</item>
+        <item>Ripple</item>
+        <item>Flip</item>
+        <item>Fade</item>
+        <item>Pulse</item>
+        <item>Shake</item>
+        <item>Wobble</item>
+        <item>Spin</item>
+        <item>Squish</item>
+        <item>Tilt</item>
+        <item>Heartbeat</item>
+        <item>Swing</item>
+    </string-array>
+    <string-array name="picked_qs_tile_anim_values" translatable="false">
+        <item>0</item><item>1</item><item>2</item><item>3</item><item>4</item><item>5</item>
+        <item>6</item><item>7</item><item>8</item><item>9</item><item>10</item><item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <!-- Must match SleepModeService MODE_* -->
+    <string-array name="picked_sleep_mode_auto_entries">
+        <item>Never</item>
+        <item>From sunset to sunrise</item>
+        <item>At a custom time</item>
+        <item>From sunset to a custom time</item>
+        <item>From a custom time to sunrise</item>
+    </string-array>
+    <string-array name="picked_sleep_mode_auto_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <!-- Must match SleepModeController ringer handling -->
+    <string-array name="picked_sleep_mode_ringer_entries">
+        <item>Don\'t change</item>
+        <item>Vibrate</item>
+        <item>Do not disturb</item>
+        <item>Silent</item>
+    </string-array>
+    <string-array name="picked_sleep_mode_ringer_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+</resources>

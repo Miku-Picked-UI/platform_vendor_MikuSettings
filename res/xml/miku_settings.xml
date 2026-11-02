@@ -18,6 +18,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/miku_settings_title" >
 
+         <!-- Miku-Picked UI -->
+         <Preference
+            android:key="picked_features"
+            android:title="@string/picked_features_title"
+            android:summary="@string/picked_features_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedFeatures" />
+
          <Preference
             android:key="media_notification"
             android:title="@string/artwork_media_title"
@@ -69,4 +76,10 @@
                  android:targetPackage="org.omnirom.device"
                  android:targetClass="org.omnirom.device.DeviceSettings"/>
         </Preference>
+        <!-- Miku-Picked UI: credits -->
+        <Preference
+            android:key="picked_thanks"
+            android:title="@string/picked_thanks_title"
+            android:summary="@string/picked_thanks_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedThanks" />
 </PreferenceScreen>
