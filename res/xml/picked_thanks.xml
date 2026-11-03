@@ -90,6 +90,27 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="picked_thanks_devices"
+        android:title="@string/picked_thanks_devices_category">
+
+        <Preference
+            android:key="thanks_exy2100"
+            android:title="@string/picked_thanks_exy2100_title"
+            android:summary="@string/picked_thanks_exy2100_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/exy2100" />
+        </Preference>
+
+        <Preference
+            android:key="thanks_mack"
+            android:title="@string/picked_thanks_mack_title"
+            android:summary="@string/picked_thanks_mack_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Macktherealonereally" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="picked_thanks_others"
         android:title="@string/picked_thanks_others_category">
 

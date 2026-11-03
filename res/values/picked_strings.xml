@@ -144,6 +144,11 @@
     <string name="picked_thanks_evolution_summary">Sleep mode, QS tile toggle animations, custom carrier label, volume slider haptics switch</string>
     <string name="picked_thanks_lunaris_title">Lunaris AOSP</string>
     <string name="picked_thanks_lunaris_summary">Lunaris Bar (dynamic island, with parts from AxionOS and PenguinOS), separate notifications and quick settings shade, landscape split shade switch, screenshot flash and status bar options</string>
+    <string name="picked_thanks_devices_category">Device trees</string>
+    <string name="picked_thanks_exy2100_title">exy2100</string>
+    <string name="picked_thanks_exy2100_summary">Samsung Galaxy S21 Exynos (o1s) device trees, kernel and vendor, Samsung and SLSI hardware (ata-kaner, mst8981, Flopster101)</string>
+    <string name="picked_thanks_mack_title">Macktherealonereally</string>
+    <string name="picked_thanks_mack_summary">Galaxy S21 Exynos trees and kernel used here, with fixes for VoLTE, eSIM, NFC, WPA3 hotspot, 60 fps video and charge limit</string>
     <string name="picked_thanks_crdroid_title">crDroid, AICP, OmniROM, PixelExperience and more</string>
     <string name="picked_thanks_crdroid_summary">Where many of the picked features were first written</string>
     <string name="picked_thanks_authors_title">Every original author</string>
