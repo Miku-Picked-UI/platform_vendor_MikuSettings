@@ -66,6 +66,51 @@
     <string name="picked_cutout_apps_summary">Let chosen apps draw behind the display cutout (from uwuAOSP)</string>
     <string name="picked_cutout_apps_unsupported">This device has no display cutout</string>
 
+    <!-- [Lunaris AOSP] Split notification shade -->
+    <string name="picked_qs_split_shade_title">Separate notifications and quick settings</string>
+    <string name="picked_qs_split_shade_summary">Swipe down on the left half for notifications and on the right half for quick settings (portrait only)</string>
+    <string name="picked_qs_split_notification_title">Landscape split shade</string>
+    <string name="picked_qs_split_notification_summary">Show notifications and quick settings side by side in landscape on devices that support it</string>
+
+    <!-- [Lunaris AOSP] Lunaris Bar -->
+    <string name="picked_lunaris_bar_title">Lunaris Bar</string>
+    <string name="picked_lunaris_bar_summary">Dynamic island in the status bar for media, calls, timers and system events</string>
+    <string name="picked_lunaris_bar_enable_title">Show Lunaris Bar</string>
+    <string name="picked_lunaris_bar_enable_summary">Ongoing activities appear in an interactive pill around the front camera</string>
+    <string name="picked_lunaris_bar_lockscreen_title">Show on lock screen</string>
+    <string name="picked_lunaris_bar_lockscreen_summary">Also show the Lunaris Bar on the lock screen</string>
+    <string name="picked_lunaris_bar_landscape_title">Hide in landscape</string>
+    <string name="picked_lunaris_bar_landscape_summary">Don't show the Lunaris Bar while the screen is rotated</string>
+    <string name="picked_lunaris_bar_popups_category">Activities</string>
+    <string name="picked_lunaris_bar_media_title">Media</string>
+    <string name="picked_lunaris_bar_redesigned_media_title">Redesigned media controls</string>
+    <string name="picked_lunaris_bar_lyrics_title">Lyrics</string>
+    <string name="picked_lunaris_bar_screen_recording_title">Screen recording</string>
+    <string name="picked_lunaris_bar_alarms_title">Alarms</string>
+    <string name="picked_lunaris_bar_stopwatch_title">Stopwatch</string>
+    <string name="picked_lunaris_bar_flashlight_title">Flashlight</string>
+    <string name="picked_lunaris_bar_events_category">Events</string>
+    <string name="picked_lunaris_bar_calls_title">Calls</string>
+    <string name="picked_lunaris_bar_calls_summary">Show incoming and ongoing calls in the Lunaris Bar instead of a heads-up notification</string>
+    <string name="picked_lunaris_bar_notifications_title">Notifications</string>
+    <string name="picked_lunaris_bar_ongoing_title">Ongoing activities</string>
+    <string name="picked_lunaris_bar_timer_title">Timers</string>
+    <string name="picked_lunaris_bar_audio_recording_title">Audio recording</string>
+    <string name="picked_lunaris_bar_battery_title">Charging</string>
+    <string name="picked_lunaris_bar_unlock_title">Face and fingerprint unlock</string>
+    <string name="picked_lunaris_bar_bluetooth_title">Bluetooth devices</string>
+    <string name="picked_lunaris_bar_hotspot_title">Hotspot</string>
+    <string name="picked_lunaris_bar_vpn_title">VPN</string>
+    <string name="picked_lunaris_bar_ringer_title">Ringer mode</string>
+    <string name="picked_lunaris_bar_appearance_category">Appearance</string>
+    <string name="picked_lunaris_bar_width_title">Width</string>
+    <string name="picked_lunaris_bar_height_title">Height</string>
+    <string name="picked_lunaris_bar_popup_color_title">Popup background</string>
+    <string name="picked_lunaris_bar_seekbar_title">Media seekbar style</string>
+    <string name="picked_lunaris_bar_alt_animation_title">Lunaris Bar animations</string>
+    <string name="picked_lunaris_bar_alt_media_title">Lunaris Bar media popup</string>
+    <string name="picked_lunaris_bar_alt_flashlight_title">Lunaris Bar flashlight popup</string>
+
     <!-- Thanks to -->
     <string name="picked_thanks_header">Miku-Picked UI is Miku UI plus features cherry-picked from other projects. Thank you!</string>
     <string name="picked_thanks_base_category">Base</string>
@@ -85,6 +130,8 @@
     <string name="picked_thanks_uwu_summary">Deep sleep time in uptime, auto brightness tile, full screen apps for display cutouts</string>
     <string name="picked_thanks_evolution_title">Evolution X</string>
     <string name="picked_thanks_evolution_summary">Sleep mode, QS tile toggle animations, custom carrier label</string>
+    <string name="picked_thanks_lunaris_title">Lunaris AOSP</string>
+    <string name="picked_thanks_lunaris_summary">Lunaris Bar (dynamic island, with parts from AxionOS and PenguinOS), separate notifications and quick settings shade, landscape split shade switch</string>
     <string name="picked_thanks_crdroid_title">crDroid, AICP, OmniROM, PixelExperience and more</string>
     <string name="picked_thanks_crdroid_summary">Where many of the picked features were first written</string>
     <string name="picked_thanks_authors_title">Every original author</string>

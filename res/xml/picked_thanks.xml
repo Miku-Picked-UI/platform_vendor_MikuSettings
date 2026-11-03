@@ -79,6 +79,14 @@
             <intent android:action="android.intent.action.VIEW"
                 android:data="https://github.com/Evolution-X" />
         </Preference>
+
+        <Preference
+            android:key="thanks_lunaris"
+            android:title="@string/picked_thanks_lunaris_title"
+            android:summary="@string/picked_thanks_lunaris_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Lunaris-AOSP" />
+        </Preference>
     </PreferenceCategory>
 
     <PreferenceCategory
