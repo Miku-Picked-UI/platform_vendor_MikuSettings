@@ -180,4 +180,24 @@
             android:summary="@string/picked_cutout_apps_summary"
             android:fragment="com.miku.exsettings.fragments.PickedCutoutApps" />
     </PreferenceCategory>
+
+    <!-- ===== Screenshots ===== -->
+    <PreferenceCategory
+        android:key="picked_category_screenshot"
+        android:title="@string/picked_category_screenshot">
+
+        <!-- [Lunaris AOSP] Screenshot flash -->
+        <com.miku.settings.preferences.GlobalSettingSwitchPreference
+            android:key="screenshot_flash_enabled"
+            android:title="@string/picked_screenshot_flash_title"
+            android:summary="@string/picked_screenshot_flash_summary"
+            android:defaultValue="true" />
+
+        <!-- [Lunaris AOSP] Hide status bar in screenshots -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="hide_status_bar_in_screenshot"
+            android:title="@string/picked_screenshot_hide_statusbar_title"
+            android:summary="@string/picked_screenshot_hide_statusbar_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
 </PreferenceScreen>
