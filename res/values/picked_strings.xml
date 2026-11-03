@@ -72,6 +72,11 @@
     <string name="picked_qs_split_notification_title">Landscape split shade</string>
     <string name="picked_qs_split_notification_summary">Show notifications and quick settings side by side in landscape on devices that support it</string>
 
+    <!-- [Evolution X] Volume dialog haptics -->
+    <string name="picked_category_sound">Sound</string>
+    <string name="picked_volume_haptics_title">Volume slider haptics</string>
+    <string name="picked_volume_haptics_summary">Vibrate while dragging the volume dialog sliders</string>
+
     <!-- [Lunaris AOSP] Screenshots -->
     <string name="picked_category_screenshot">Screenshots</string>
     <string name="picked_screenshot_flash_title">Screenshot flash</string>
@@ -136,7 +141,7 @@
     <string name="picked_thanks_uwu_title">uwuAOSP</string>
     <string name="picked_thanks_uwu_summary">Deep sleep time in uptime, auto brightness tile, full screen apps for display cutouts</string>
     <string name="picked_thanks_evolution_title">Evolution X</string>
-    <string name="picked_thanks_evolution_summary">Sleep mode, QS tile toggle animations, custom carrier label</string>
+    <string name="picked_thanks_evolution_summary">Sleep mode, QS tile toggle animations, custom carrier label, volume slider haptics switch</string>
     <string name="picked_thanks_lunaris_title">Lunaris AOSP</string>
     <string name="picked_thanks_lunaris_summary">Lunaris Bar (dynamic island, with parts from AxionOS and PenguinOS), separate notifications and quick settings shade, landscape split shade switch, screenshot flash and status bar options</string>
     <string name="picked_thanks_crdroid_title">crDroid, AICP, OmniROM, PixelExperience and more</string>

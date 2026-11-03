@@ -181,6 +181,19 @@
             android:fragment="com.miku.exsettings.fragments.PickedCutoutApps" />
     </PreferenceCategory>
 
+    <!-- ===== Sound ===== -->
+    <PreferenceCategory
+        android:key="picked_category_sound"
+        android:title="@string/picked_category_sound">
+
+        <!-- [Evolution X] Volume dialog haptics -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="volume_dialog_haptic_feedback"
+            android:title="@string/picked_volume_haptics_title"
+            android:summary="@string/picked_volume_haptics_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
     <!-- ===== Screenshots ===== -->
     <PreferenceCategory
         android:key="picked_category_screenshot"
