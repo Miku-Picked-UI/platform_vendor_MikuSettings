@@ -83,10 +83,10 @@
             android:defaultValue="0"
             android:dependency="statusbar_battery_bar" />
 
-        <com.miku.settings.preferences.CustomSystemSeekBarPreference
+        <com.miku.exsettings.preferences.CustomSystemSeekBarPreference
             android:key="statusbar_battery_bar_thickness"
             android:title="@string/picked_battery_bar_thickness_title"
-            android:min="1"
+            settings:min="1"
             android:max="4"
             android:defaultValue="2"
             settings:units="dp"
