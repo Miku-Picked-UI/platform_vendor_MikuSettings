@@ -77,6 +77,9 @@ public class PickedUdfpsIcons extends SettingsPreferenceFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+        // Creates the preference list that SettingsBasePreferenceFragment.onViewCreated()
+        // sets a divider on; without it the page crashes (same as FontsPicker/IconShapes).
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.item_view, container, false);
         RecyclerView rv = view.findViewById(R.id.recycler_view);
         int span = getResources().getConfiguration().orientation
