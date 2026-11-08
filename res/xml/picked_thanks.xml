@@ -87,6 +87,14 @@
             <intent android:action="android.intent.action.VIEW"
                 android:data="https://github.com/Lunaris-AOSP" />
         </Preference>
+
+        <Preference
+            android:key="thanks_oneuisland"
+            android:title="@string/picked_thanks_oneuisland_title"
+            android:summary="@string/picked_thanks_oneuisland_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/csabaikende-ctrl/OneUisland" />
+        </Preference>
     </PreferenceCategory>
 
     <PreferenceCategory

@@ -131,30 +131,4 @@
         <item>2</item>
         <item>3</item>
     </string-array>
-    <!-- [Lunaris AOSP] Lunaris Bar. Must match DynamicIslandFeatureSettings.POPUP_COLOR_MODE_*;
-         the blur mode (1) is not offered because Miku has no AxionOS blur. -->
-    <string-array name="picked_lunaris_bar_popup_color_entries">
-        <item>Theme color</item>
-        <item>Black</item>
-    </string-array>
-    <string-array name="picked_lunaris_bar_popup_color_values" translatable="false">
-        <item>0</item>
-        <item>2</item>
-    </string-array>
-
-    <!-- Must match com.android.systemui.media.controls.shared.MediaSeekBarStyle -->
-    <string-array name="picked_lunaris_bar_seekbar_entries">
-        <item>Default</item>
-        <item>Waveform</item>
-        <item>Glowing</item>
-        <item>Gradient wave</item>
-        <item>COS</item>
-    </string-array>
-    <string-array name="picked_lunaris_bar_seekbar_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
 </resources>

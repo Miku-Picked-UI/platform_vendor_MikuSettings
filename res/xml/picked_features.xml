@@ -14,12 +14,22 @@
         android:key="picked_category_statusbar"
         android:title="@string/picked_category_statusbar">
 
-        <!-- [Lunaris AOSP] Lunaris Bar -->
+        <!-- [OneUisland] Dynamic island -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="oneuisland_enabled"
+            android:title="@string/picked_oneuisland_enable_title"
+            android:summary="@string/picked_oneuisland_enable_summary"
+            android:defaultValue="true" />
+
         <Preference
-            android:key="picked_lunaris_bar"
-            android:title="@string/picked_lunaris_bar_title"
-            android:summary="@string/picked_lunaris_bar_summary"
-            android:fragment="com.miku.exsettings.fragments.PickedLunarisBar" />
+            android:key="picked_oneuisland_settings"
+            android:title="@string/picked_oneuisland_settings_title"
+            android:summary="@string/picked_oneuisland_settings_summary"
+            android:dependency="oneuisland_enabled">
+            <intent
+                android:targetPackage="dev.flexy.dynamicisland"
+                android:targetClass="dev.flexy.dynamicisland.SettingsActivity" />
+        </Preference>
 
         <!-- [Infinity X] Status bar logo -->
         <com.miku.settings.preferences.SystemSettingSwitchPreference
