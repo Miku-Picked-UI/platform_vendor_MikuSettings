@@ -20,6 +20,20 @@
             android:title="@string/picked_clock_styles_title"
             android:summary="@string/picked_clock_styles_summary"
             android:fragment="com.miku.exsettings.fragments.PickedClockStyles" />
+
+        <!-- [Miku UI] System font (Miku's font picker) -->
+        <Preference
+            android:key="picked_fonts"
+            android:title="@string/theme_customization_font_title"
+            android:summary="@string/picked_fonts_summary"
+            android:fragment="com.miku.exsettings.fragments.FontsPicker" />
+
+        <!-- [Evolution X] Fingerprint icon (under-display sensors) -->
+        <Preference
+            android:key="picked_udfps_icon"
+            android:title="@string/picked_udfps_icon_title"
+            android:summary="@string/picked_udfps_icon_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedUdfpsIcons" />
     </PreferenceCategory>
 
     <!-- ===== Status bar ===== -->

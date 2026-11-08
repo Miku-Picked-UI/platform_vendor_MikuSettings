@@ -144,4 +144,11 @@
     <string name="picked_clock_aod_anim_title">Always-on display animation</string>
     <string name="picked_clock_aod_anim_summary">Animate the clock when the screen goes to and comes back from the always-on display</string>
     <string name="picked_clock_footer">A custom clock style replaces the AOSP lockscreen clock. Color, size, opacity and margin apply to the custom styles only. Weather in the clock styles is not available.</string>
+
+    <!-- Fonts (Miku UI font picker) -->
+    <string name="picked_fonts_summary">Change the system font</string>
+
+    <!-- [Evolution X] Fingerprint icon -->
+    <string name="picked_udfps_icon_title">Fingerprint icon</string>
+    <string name="picked_udfps_icon_summary">Pick the icon shown over the in-display fingerprint sensor</string>
 </resources>

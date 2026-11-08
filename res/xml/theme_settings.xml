@@ -34,5 +34,11 @@
             android:title="@string/theme_customization_icon_shape_title"
             android:summary="@string/theme_customization_icon_shape_summary"
             android:fragment="com.miku.exsettings.fragments.IconShapes"/>
+        <!-- Miku-Picked UI: Miku's font picker, which had no entry -->
+        <Preference
+            android:key="android.theme.customization.font"
+            android:title="@string/theme_customization_font_title"
+            android:summary="@string/picked_fonts_summary"
+            android:fragment="com.miku.exsettings.fragments.FontsPicker"/>
 
 </PreferenceScreen>

@@ -5,6 +5,8 @@
 
 package com.miku.exsettings.fragments;
 
+import android.hardware.fingerprint.FingerprintManager;
+import android.hardware.fingerprint.FingerprintSensorPropertiesInternal;
 import android.os.Bundle;
 import android.text.TextUtils;
 
@@ -21,6 +23,7 @@ import com.android.settings.SettingsPreferenceFragment;
 public class PickedFeatures extends SettingsPreferenceFragment {
 
     private static final String KEY_CUTOUT_APPS = "picked_cutout_apps";
+    private static final String KEY_UDFPS_ICON = "picked_udfps_icon";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,25 @@ public class PickedFeatures extends SettingsPreferenceFragment {
                 cutoutApps.setSummary(R.string.picked_cutout_apps_unsupported);
             }
         }
+
+        // The fingerprint icon is only drawn for under-display fingerprint sensors.
+        final Preference udfpsIcon = findPreference(KEY_UDFPS_ICON);
+        if (udfpsIcon != null) {
+            udfpsIcon.setVisible(hasUdfps() && PickedUdfpsIcons.isAvailable(getContext()));
+        }
+    }
+
+    private boolean hasUdfps() {
+        final FingerprintManager fpm = getContext().getSystemService(FingerprintManager.class);
+        if (fpm == null) return false;
+        try {
+            for (FingerprintSensorPropertiesInternal props : fpm.getSensorPropertiesInternal()) {
+                if (props.isAnyUdfpsType()) return true;
+            }
+        } catch (RuntimeException e) {
+            return false;
+        }
+        return false;
     }
 
     @Override
