@@ -95,6 +95,15 @@
             <intent android:action="android.intent.action.VIEW"
                 android:data="https://github.com/csabaikende-ctrl/OneUisland" />
         </Preference>
+
+        <Preference
+            android:key="thanks_emoji"
+            android:title="@string/picked_thanks_emoji_title"
+            android:summary="@string/picked_thanks_emoji_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Miku-Picked-UI/platform_vendor_miku/blob/picked-16/emoji/LICENSES.md" />
+        </Preference>
     </PreferenceCategory>
 
     <PreferenceCategory

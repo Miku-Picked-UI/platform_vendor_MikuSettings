@@ -105,11 +105,11 @@
     <string name="picked_thanks_infinity_title">Infinity X</string>
     <string name="picked_thanks_infinity_summary">Status bar logo, battery bar</string>
     <string name="picked_thanks_axion_title">AxionOS</string>
-    <string name="picked_thanks_axion_summary">Status/nav bar burn-in protection, advanced restart with Restart SystemUI, flashlight fade, 5G tile</string>
+    <string name="picked_thanks_axion_summary">AxionFx audio effects, status/nav bar burn-in protection, advanced restart with Restart SystemUI, flashlight fade, 5G tile, the emoji style switch</string>
     <string name="picked_thanks_uwu_title">uwuAOSP</string>
     <string name="picked_thanks_uwu_summary">Deep sleep time in uptime, auto brightness tile, full screen apps for display cutouts</string>
     <string name="picked_thanks_evolution_title">Evolution X</string>
-    <string name="picked_thanks_evolution_summary">Sleep mode, QS tile toggle animations, custom carrier label, volume slider haptics switch</string>
+    <string name="picked_thanks_evolution_summary">Custom lockscreen clocks (with crDroid and risingOS), fingerprint icons, selectable emoji, sleep mode, QS tile toggle animations, custom carrier label, volume slider haptics switch</string>
     <string name="picked_thanks_lunaris_title">Lunaris AOSP</string>
     <string name="picked_thanks_lunaris_summary">Separate notifications and quick settings shade, landscape split shade switch, screenshot flash and status bar options</string>
     <string name="picked_thanks_oneuisland_title">OneUisland</string>
@@ -159,4 +159,7 @@
     <string name="picked_emoji_reboot_message">The new emoji style is used after a restart.</string>
     <string name="picked_emoji_reboot_now">Restart now</string>
     <string name="picked_emoji_reboot_later">Later</string>
+
+    <string name="picked_thanks_emoji_title">Blobmoji, OpenMoji and Twemoji</string>
+    <string name="picked_thanks_emoji_summary">The open emoji styles: Blobmoji by C1710 (Apache 2.0), OpenMoji by HfG Schwäbisch Gmünd (CC BY-SA 4.0), Twemoji by Twitter and contributors (CC BY 4.0)</string>
 </resources>
