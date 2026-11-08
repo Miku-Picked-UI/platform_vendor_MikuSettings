@@ -9,6 +9,19 @@
     android:key="picked_features"
     android:title="@string/picked_features_title">
 
+    <!-- ===== Style ===== -->
+    <PreferenceCategory
+        android:key="picked_category_style"
+        android:title="@string/picked_category_style">
+
+        <!-- [Evolution X] Custom lockscreen clocks -->
+        <Preference
+            android:key="picked_clock_styles"
+            android:title="@string/picked_clock_styles_title"
+            android:summary="@string/picked_clock_styles_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedClockStyles" />
+    </PreferenceCategory>
+
     <!-- ===== Status bar ===== -->
     <PreferenceCategory
         android:key="picked_category_statusbar"

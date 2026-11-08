@@ -11,6 +11,7 @@
     <string name="picked_thanks_summary">Everyone who made Miku-Picked UI possible</string>
 
     <!-- Categories -->
+    <string name="picked_category_style">Style</string>
     <string name="picked_category_statusbar">Status bar</string>
     <string name="picked_category_qs">Quick settings</string>
     <string name="picked_category_power">Power and sleep</string>
@@ -126,4 +127,21 @@
     <string name="picked_thanks_claude_summary">Claude Opus 5.5 ported and integrated the picked features, and wrote the LineageOS device tree compatibility</string>
     <string name="picked_thanks_you_title">You</string>
     <string name="picked_thanks_you_summary">For using Miku-Picked UI</string>
+
+    <!-- [Evolution X] Custom lockscreen clocks -->
+    <string name="picked_clock_styles_title">Lockscreen clock</string>
+    <string name="picked_clock_styles_summary">Pick one of 85 custom lockscreen clock styles (from Evolution X)</string>
+    <string name="picked_clock_swipe_hint">Swipe left or right to preview the clock styles</string>
+    <string name="picked_clock_apply_message">SystemUI restarts to apply the new clock style. The screen may flicker for a moment.</string>
+    <string name="picked_clock_color_mode_title">Clock color</string>
+    <string name="picked_clock_color_default">Style default</string>
+    <string name="picked_clock_color_accent">Accent color</string>
+    <string name="picked_clock_color_custom">Custom color</string>
+    <string name="picked_clock_custom_color_title">Custom clock color</string>
+    <string name="picked_clock_size_title">Clock size</string>
+    <string name="picked_clock_opacity_title">Clock opacity</string>
+    <string name="picked_clock_margin_top_title">Top margin</string>
+    <string name="picked_clock_aod_anim_title">Always-on display animation</string>
+    <string name="picked_clock_aod_anim_summary">Animate the clock when the screen goes to and comes back from the always-on display</string>
+    <string name="picked_clock_footer">A custom clock style replaces the AOSP lockscreen clock. Color, size, opacity and margin apply to the custom styles only. Weather in the clock styles is not available.</string>
 </resources>
