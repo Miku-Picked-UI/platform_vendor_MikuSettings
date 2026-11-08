@@ -28,6 +28,16 @@
             android:summary="@string/picked_fonts_summary"
             android:fragment="com.miku.exsettings.fragments.FontsPicker" />
 
+        <!-- [Evolution X / AxionOS] Emoji style (persist.sys.ax_emoji_style) -->
+        <ListPreference
+            android:key="picked_emoji_style"
+            android:title="@string/picked_emoji_style_title"
+            android:summary="%s"
+            android:entries="@array/picked_emoji_style_entries"
+            android:entryValues="@array/picked_emoji_style_values"
+            android:persistent="false" />
+        <!-- The entries above are replaced in PickedFeatures by the installed styles. -->
+
         <!-- [Evolution X] Fingerprint icon (under-display sensors) -->
         <Preference
             android:key="picked_udfps_icon"

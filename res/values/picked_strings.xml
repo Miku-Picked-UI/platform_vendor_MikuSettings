@@ -151,4 +151,12 @@
     <!-- [Evolution X] Fingerprint icon -->
     <string name="picked_udfps_icon_title">Fingerprint icon</string>
     <string name="picked_udfps_icon_summary">Pick the icon shown over the in-display fingerprint sensor</string>
+
+    <!-- [Evolution X / AxionOS] Emoji style -->
+    <string name="picked_emoji_style_title">Emoji style</string>
+    <string name="picked_emoji_android">Android (Noto Color Emoji)</string>
+    <string name="picked_emoji_reboot_title">Restart to change the emoji</string>
+    <string name="picked_emoji_reboot_message">The new emoji style is used after a restart.</string>
+    <string name="picked_emoji_reboot_now">Restart now</string>
+    <string name="picked_emoji_reboot_later">Later</string>
 </resources>

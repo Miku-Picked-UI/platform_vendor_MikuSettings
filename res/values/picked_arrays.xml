@@ -232,4 +232,18 @@
         <item>accent</item>
         <item>custom</item>
     </string-array>
+
+    <!-- [Evolution X / AxionOS] Emoji styles: values match vendor/miku/emoji -->
+    <string-array name="picked_emoji_style_entries">
+        <item>@string/picked_emoji_android</item>
+        <item>Blobmoji</item>
+        <item>OpenMoji</item>
+        <item>Twemoji</item>
+    </string-array>
+    <string-array name="picked_emoji_style_values" translatable="false">
+        <item>android</item>
+        <item>blobmoji</item>
+        <item>openmoji</item>
+        <item>twemoji</item>
+    </string-array>
 </resources>
