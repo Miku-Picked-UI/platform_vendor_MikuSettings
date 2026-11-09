@@ -7,7 +7,11 @@ package com.miku.exsettings.fragments;
 
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.fingerprint.FingerprintSensorPropertiesInternal;
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.widget.Toast;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.SystemProperties;
@@ -36,6 +40,7 @@ public class PickedFeatures extends SettingsPreferenceFragment {
     private static final String KEY_EMOJI_STYLE = "picked_emoji_style";
     private static final String PROP_EMOJI_STYLE = "persist.sys.ax_emoji_style";
     private static final String EMOJI_XML_PREFIX = "fonts_customization_emoji_";
+    private static final int REQUEST_CUSTOM_EMOJI = 1001;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,14 +65,12 @@ public class PickedFeatures extends SettingsPreferenceFragment {
             setupEmojiStyles(emoji);
             emoji.setValue(SystemProperties.get(PROP_EMOJI_STYLE, "android"));
             emoji.setOnPreferenceChangeListener((pref, newValue) -> {
-                SystemProperties.set(PROP_EMOJI_STYLE, (String) newValue);
-                new AlertDialog.Builder(getContext())
-                        .setTitle(R.string.picked_emoji_reboot_title)
-                        .setMessage(R.string.picked_emoji_reboot_message)
-                        .setPositiveButton(R.string.picked_emoji_reboot_now, (d, w) ->
-                                getContext().getSystemService(PowerManager.class).reboot(null))
-                        .setNegativeButton(R.string.picked_emoji_reboot_later, null)
-                        .show();
+                if (PickedCustomEmoji.STYLE.equals(newValue)) {
+                    // Pick the font first; the style is set once it is installed.
+                    pickCustomEmojiFont();
+                    return false;
+                }
+                applyEmojiStyle((String) newValue);
                 return true;
             });
         }
@@ -77,6 +80,50 @@ public class PickedFeatures extends SettingsPreferenceFragment {
         if (udfpsIcon != null) {
             udfpsIcon.setVisible(hasUdfps() && PickedUdfpsIcons.isAvailable(getContext()));
         }
+    }
+
+    private void applyEmojiStyle(String style) {
+        SystemProperties.set(PROP_EMOJI_STYLE, style);
+        new AlertDialog.Builder(getContext())
+                .setTitle(R.string.picked_emoji_reboot_title)
+                .setMessage(R.string.picked_emoji_reboot_message)
+                .setPositiveButton(R.string.picked_emoji_reboot_now, (d, w) ->
+                        getContext().getSystemService(PowerManager.class).reboot(null))
+                .setNegativeButton(R.string.picked_emoji_reboot_later, null)
+                .show();
+    }
+
+    private void pickCustomEmojiFont() {
+        final Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT)
+                .addCategory(Intent.CATEGORY_OPENABLE)
+                .setType("*/*")
+                .putExtra(Intent.EXTRA_MIME_TYPES, new String[] {
+                        "font/ttf", "font/otf", "font/sfnt", "application/x-font-ttf",
+                        "application/x-font-otf", "application/font-sfnt",
+                        "application/octet-stream"});
+        try {
+            startActivityForResult(intent, REQUEST_CUSTOM_EMOJI);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(getContext(), R.string.picked_emoji_custom_failed, Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode != REQUEST_CUSTOM_EMOJI) {
+            super.onActivityResult(requestCode, resultCode, data);
+            return;
+        }
+        if (resultCode != Activity.RESULT_OK || data == null || data.getData() == null) return;
+        if (!PickedCustomEmoji.install(getContext(), data.getData())) {
+            Toast.makeText(getContext(), R.string.picked_emoji_custom_failed, Toast.LENGTH_LONG)
+                    .show();
+            return;
+        }
+        final ListPreference emoji = findPreference(KEY_EMOJI_STYLE);
+        if (emoji != null) emoji.setValue(PickedCustomEmoji.STYLE);
+        applyEmojiStyle(PickedCustomEmoji.STYLE);
     }
 
     private void setupEmojiStyles(ListPreference pref) {
@@ -90,11 +137,16 @@ public class PickedFeatures extends SettingsPreferenceFragment {
             for (String f : files) {
                 if (!f.startsWith(EMOJI_XML_PREFIX) || !f.endsWith(".xml")) continue;
                 final String style = f.substring(EMOJI_XML_PREFIX.length(), f.length() - 4);
-                if (style.isEmpty() || !style.matches("[a-z0-9_]+")) continue;
+                if (style.isEmpty() || !style.matches("[a-z0-9_]+")
+                        || PickedCustomEmoji.STYLE.equals(style)) continue;
                 values.add(style);
                 entries.add(emojiLabel(style));
             }
         }
+        // Custom: an emoji font picked from the user's files (PickedCustomEmoji).
+        values.add(PickedCustomEmoji.STYLE);
+        entries.add(getString(PickedCustomEmoji.isInstalled(getContext())
+                ? R.string.picked_emoji_custom_installed : R.string.picked_emoji_custom));
         pref.setEntries(entries.toArray(new CharSequence[0]));
         pref.setEntryValues(values.toArray(new CharSequence[0]));
     }

@@ -155,6 +155,9 @@
     <!-- [Evolution X / AxionOS] Emoji style -->
     <string name="picked_emoji_style_title">Emoji style</string>
     <string name="picked_emoji_android">Android (Noto Color Emoji)</string>
+    <string name="picked_emoji_custom">Custom (pick your own emoji font)…</string>
+    <string name="picked_emoji_custom_installed">Custom (your emoji font, pick again to change)</string>
+    <string name="picked_emoji_custom_failed">That file could not be used. Pick a TrueType (.ttf) or OpenType (.otf) emoji font.</string>
     <string name="picked_emoji_reboot_title">Restart to change the emoji</string>
     <string name="picked_emoji_reboot_message">The new emoji style is used after a restart.</string>
     <string name="picked_emoji_reboot_now">Restart now</string>
