@@ -154,6 +154,9 @@
 
     <!-- [Evolution X / AxionOS] Emoji style -->
     <string name="picked_emoji_style_title">Emoji style</string>
+    <!-- [Miku-Picked UI] Now Bar -->
+    <string name="picked_now_bar_title">Now Bar</string>
+    <string name="picked_now_bar_summary">Show what is playing at the bottom of the lock screen, with previous, play/pause and next buttons</string>
     <string name="picked_emoji_android">Android (Noto Color Emoji)</string>
     <string name="picked_emoji_custom">Custom (pick your own emoji font)…</string>
     <string name="picked_emoji_custom_installed">Custom (your emoji font, pick again to change)</string>

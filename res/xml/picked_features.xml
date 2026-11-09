@@ -21,6 +21,13 @@
             android:summary="@string/picked_clock_styles_summary"
             android:fragment="com.miku.exsettings.fragments.PickedClockStyles" />
 
+        <!-- [Miku-Picked UI] Now Bar: lockscreen media pill (Settings.System.NOW_BAR_ENABLED) -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="now_bar_enabled"
+            android:title="@string/picked_now_bar_title"
+            android:summary="@string/picked_now_bar_summary"
+            android:defaultValue="true" />
+
         <!-- [Miku UI] System font (Miku's font picker) -->
         <Preference
             android:key="picked_fonts"
