@@ -20,10 +20,10 @@ import java.nio.charset.StandardCharsets;
  * The "custom" emoji style: an emoji font the user picks from their files.
  *
  * The font and its customization XML go to Settings' device protected storage
- * (/data/user_de/0/com.android.settings/files/picked_emoji/), where SystemFonts looks for
- * them when persist.sys.ax_emoji_style=custom. That storage is readable at boot before the
- * first unlock and by system_server, which builds the system font map. The XML adds the font
- * in front of the stock emoji font, so emoji missing from it still show as Noto.
+ * (/data/user_de/0/com.android.settings/files/picked_emoji/, readable at boot before the
+ * first unlock). With persist.sys.ax_emoji_style=custom, FontManagerService copies the font at
+ * boot to /data/fonts/picked/, which every app can read (apps open system fonts by path), and
+ * adds it in front of the stock emoji font, so emoji missing from it still show as Noto.
  */
 final class PickedCustomEmoji {
 
