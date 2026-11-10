@@ -166,6 +166,10 @@
     <string name="picked_emoji_reboot_now">Restart now</string>
     <string name="picked_emoji_reboot_later">Later</string>
 
+    <!-- [Miku-Picked UI] Volume keys track skip -->
+    <string name="picked_volume_music_control_title">Skip tracks with volume keys</string>
+    <string name="picked_volume_music_control_summary">While music plays and the screen is off, hold volume up for the next track or volume down for the previous one</string>
+
     <!-- [GoogleSpoofForWear] Google spoof for wearables -->
     <string name="picked_category_devices">Connected devices</string>
     <string name="picked_google_spoof_wear_title">Google spoof for wearables</string>
