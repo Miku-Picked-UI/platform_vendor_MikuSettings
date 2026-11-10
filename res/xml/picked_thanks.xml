@@ -106,6 +106,15 @@
         </Preference>
 
         <Preference
+            android:key="thanks_viperfx_re"
+            android:title="@string/picked_thanks_viperfx_re_title"
+            android:summary="@string/picked_thanks_viperfx_re_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/AndroidAudioMods/ViPERFX_RE" />
+        </Preference>
+
+        <Preference
             android:key="thanks_google_spoof_wear"
             android:title="@string/picked_thanks_google_spoof_wear_title"
             android:summary="@string/picked_thanks_google_spoof_wear_summary"

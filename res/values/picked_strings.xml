@@ -181,4 +181,6 @@
     <string name="picked_thanks_emoji_summary">The open emoji styles: Blobmoji by C1710 (Apache 2.0), OpenMoji by HfG Schwäbisch Gmünd (CC BY-SA 4.0), Twemoji by Twitter and contributors (CC BY 4.0)</string>
     <string name="picked_thanks_google_spoof_wear_title">73sydney</string>
     <string name="picked_thanks_google_spoof_wear_summary">GoogleSpoofForWear, the idea behind the Google spoof for wearables toggle</string>
+    <string name="picked_thanks_viperfx_re_title">ViPERFX_RE (Iscle / AndroidAudioMods)</string>
+    <string name="picked_thanks_viperfx_re_summary">The reverse engineered ViPER4Android FX: AxionFx Dynamic System and Speaker optimization, used with permission (via WSTxda\'s fork)</string>
 </resources>
