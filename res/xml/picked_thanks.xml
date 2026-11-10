@@ -104,6 +104,12 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/Miku-Picked-UI/platform_vendor_miku/blob/picked-16/emoji/LICENSES.md" />
         </Preference>
+
+        <Preference
+            android:key="thanks_google_spoof_wear"
+            android:title="@string/picked_thanks_google_spoof_wear_title"
+            android:summary="@string/picked_thanks_google_spoof_wear_summary"
+            android:selectable="false" />
     </PreferenceCategory>
 
     <PreferenceCategory

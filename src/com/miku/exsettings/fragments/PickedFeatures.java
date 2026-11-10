@@ -23,6 +23,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import androidx.preference.ListPreference;
+import androidx.preference.TwoStatePreference;
 import androidx.preference.Preference;
 
 import com.android.internal.logging.nano.MetricsProto;
@@ -41,6 +42,8 @@ public class PickedFeatures extends SettingsPreferenceFragment {
     private static final String PROP_EMOJI_STYLE = "persist.sys.ax_emoji_style";
     private static final String EMOJI_XML_PREFIX = "fonts_customization_emoji_";
     private static final int REQUEST_CUSTOM_EMOJI = 1001;
+    private static final String KEY_GOOGLE_SPOOF_WEAR = "picked_google_spoof_wear";
+    private static final String PROP_GOOGLE_SPOOF_WEAR = "persist.sys.picked.google_spoof_wear";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,6 +78,19 @@ public class PickedFeatures extends SettingsPreferenceFragment {
             });
         }
 
+        // Google spoof for wearables: a system property read by android.os.Build when zygote
+        // starts (GoogleSpoofForWear by 73sydney as a built-in toggle).
+        final TwoStatePreference wearSpoof = findPreference(KEY_GOOGLE_SPOOF_WEAR);
+        if (wearSpoof != null) {
+            wearSpoof.setChecked(SystemProperties.getBoolean(PROP_GOOGLE_SPOOF_WEAR, false));
+            wearSpoof.setOnPreferenceChangeListener((pref, newValue) -> {
+                SystemProperties.set(PROP_GOOGLE_SPOOF_WEAR, (Boolean) newValue ? "1" : "0");
+                showRebootDialog(R.string.picked_google_spoof_wear_reboot_title,
+                        R.string.picked_google_spoof_wear_reboot_message);
+                return true;
+            });
+        }
+
         // The fingerprint icon is only drawn for under-display fingerprint sensors.
         final Preference udfpsIcon = findPreference(KEY_UDFPS_ICON);
         if (udfpsIcon != null) {
@@ -84,9 +100,13 @@ public class PickedFeatures extends SettingsPreferenceFragment {
 
     private void applyEmojiStyle(String style) {
         SystemProperties.set(PROP_EMOJI_STYLE, style);
+        showRebootDialog(R.string.picked_emoji_reboot_title, R.string.picked_emoji_reboot_message);
+    }
+
+    private void showRebootDialog(int title, int message) {
         new AlertDialog.Builder(getContext())
-                .setTitle(R.string.picked_emoji_reboot_title)
-                .setMessage(R.string.picked_emoji_reboot_message)
+                .setTitle(title)
+                .setMessage(message)
                 .setPositiveButton(R.string.picked_emoji_reboot_now, (d, w) ->
                         getContext().getSystemService(PowerManager.class).reboot(null))
                 .setNegativeButton(R.string.picked_emoji_reboot_later, null)

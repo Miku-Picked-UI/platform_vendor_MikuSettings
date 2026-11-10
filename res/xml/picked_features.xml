@@ -267,4 +267,18 @@
             android:summary="@string/picked_screenshot_hide_statusbar_summary"
             android:defaultValue="false" />
     </PreferenceCategory>
+
+    <!-- ===== Connected devices ===== -->
+    <PreferenceCategory
+        android:key="picked_category_devices"
+        android:title="@string/picked_category_devices">
+
+        <!-- [GoogleSpoofForWear by 73sydney] Google as brand/manufacturer for watch apps
+             (persist.sys.picked.google_spoof_wear, read by android.os.Build at boot) -->
+        <SwitchPreferenceCompat
+            android:key="picked_google_spoof_wear"
+            android:title="@string/picked_google_spoof_wear_title"
+            android:summary="@string/picked_google_spoof_wear_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
 </PreferenceScreen>

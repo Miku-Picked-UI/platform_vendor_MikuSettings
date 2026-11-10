@@ -166,6 +166,15 @@
     <string name="picked_emoji_reboot_now">Restart now</string>
     <string name="picked_emoji_reboot_later">Later</string>
 
+    <!-- [GoogleSpoofForWear] Google spoof for wearables -->
+    <string name="picked_category_devices">Connected devices</string>
+    <string name="picked_google_spoof_wear_title">Google spoof for wearables</string>
+    <string name="picked_google_spoof_wear_summary">Make apps see this phone as a Google phone, so watch apps that only work with Pixel phones (like Pixel Watch) can pair. Needs a restart.</string>
+    <string name="picked_google_spoof_wear_reboot_title">Restart to apply</string>
+    <string name="picked_google_spoof_wear_reboot_message">The change is used after a restart.</string>
+
     <string name="picked_thanks_emoji_title">Blobmoji, OpenMoji and Twemoji</string>
     <string name="picked_thanks_emoji_summary">The open emoji styles: Blobmoji by C1710 (Apache 2.0), OpenMoji by HfG Schwäbisch Gmünd (CC BY-SA 4.0), Twemoji by Twitter and contributors (CC BY 4.0)</string>
+    <string name="picked_thanks_google_spoof_wear_title">73sydney</string>
+    <string name="picked_thanks_google_spoof_wear_summary">GoogleSpoofForWear, the idea behind the Google spoof for wearables toggle</string>
 </resources>
