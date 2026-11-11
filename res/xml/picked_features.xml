@@ -84,6 +84,13 @@
             android:defaultValue="100"
             settings:units="%" />
 
+        <!-- [PenguinOS] Media volume slider in Quick Settings (Settings.System picked_qs_volume_slider) -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="picked_qs_volume_slider"
+            android:title="@string/picked_qs_volume_slider_title"
+            android:summary="@string/picked_qs_volume_slider_summary"
+            android:defaultValue="true" />
+
         <!-- [PenguinOS] Liquid Glass tab bars in apps (Settings.Secure penguin_glass_tab_bars) -->
         <com.miku.settings.preferences.SecureSettingSwitchPreference
             android:key="penguin_glass_tab_bars"

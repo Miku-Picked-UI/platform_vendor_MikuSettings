@@ -164,6 +164,8 @@
     <string name="picked_liquid_glass_style_title">Glass style</string>
     <string name="picked_cos_app_motion_title">ColorOS app animations</string>
     <string name="picked_shade_blur_title">Shade blur</string>
+    <string name="picked_qs_volume_slider_title">Volume slider in Quick Settings</string>
+    <string name="picked_qs_volume_slider_summary">Media volume under the brightness slider (from PenguinOS)</string>
     <string name="picked_shade_blur_summary">How much the notification shade and Quick Settings blur what is behind them. Lower it if the shade stutters; 0 turns the blur off</string>
     <string name="picked_glass_tab_bars_title">Liquid Glass tab bars in apps</string>
     <string name="picked_glass_tab_bars_summary">Turn apps\' bottom navigation bars into a glass capsule with liquid motion (from PenguinOS). Reopen apps to apply</string>
