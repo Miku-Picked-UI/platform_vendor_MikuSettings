@@ -51,6 +51,8 @@ public class PickedFeatures extends SettingsPreferenceFragment {
     private static final String PROP_LIQUID_GLASS = "persist.sys.penguin.liquid_glass";
     private static final String PROP_LIQUID_GLASS_REFRACTION =
             "persist.sys.penguin.liquid_glass_refraction";
+    private static final String KEY_LIQUID_GLASS_STYLE = "picked_liquid_glass_style";
+    private static final String PROP_LIQUID_GLASS_STYLE = "persist.sys.penguin.liquid_glass_style";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -104,6 +106,15 @@ public class PickedFeatures extends SettingsPreferenceFragment {
             liquidGlass.setChecked(SystemProperties.getBoolean(PROP_LIQUID_GLASS, true));
             liquidGlass.setOnPreferenceChangeListener((pref, newValue) -> {
                 SystemProperties.set(PROP_LIQUID_GLASS, (Boolean) newValue ? "1" : "0");
+                return true;
+            });
+        }
+        final ListPreference glassStyle = findPreference(KEY_LIQUID_GLASS_STYLE);
+        if (glassStyle != null) {
+            glassStyle.setValue(
+                    "cos".equals(SystemProperties.get(PROP_LIQUID_GLASS_STYLE)) ? "cos" : "ios");
+            glassStyle.setOnPreferenceChangeListener((pref, newValue) -> {
+                SystemProperties.set(PROP_LIQUID_GLASS_STYLE, (String) newValue);
                 return true;
             });
         }

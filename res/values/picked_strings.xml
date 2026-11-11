@@ -161,6 +161,9 @@
     <string name="picked_liquid_glass_title">System-wide Liquid Glass</string>
     <string name="picked_liquid_glass_summary">Liquid Glass for the shade, Quick Settings, notifications, the PIN pad, dialogs, the island and the Now Bar (from PenguinOS)</string>
     <string name="picked_liquid_glass_refraction_title">Glass refraction</string>
+    <string name="picked_liquid_glass_style_title">Glass style</string>
+    <string name="picked_liquid_glass_style_ios">Liquid Glass (clear, refracting rims)</string>
+    <string name="picked_liquid_glass_style_cos">ColorOS (frosted, edge lighting)</string>
     <string name="picked_liquid_glass_refraction_summary">How strongly the glass edges bend what is behind them</string>
     <string name="picked_now_bar_style_liquid">Liquid glass</string>
     <string name="picked_now_bar_style_frosted">Frosted glass</string>
