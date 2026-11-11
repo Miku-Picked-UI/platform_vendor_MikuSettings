@@ -23,13 +23,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import androidx.preference.ListPreference;
-import androidx.preference.SeekBarPreference;
 import androidx.preference.TwoStatePreference;
 import androidx.preference.Preference;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.miku.exsettings.preferences.CustomSeekBarPreference;
 
 /**
  * Settings for the features Miku-Picked UI picked from Infinity X, AxionOS, uwuAOSP and
@@ -107,11 +107,10 @@ public class PickedFeatures extends SettingsPreferenceFragment {
                 return true;
             });
         }
-        final SeekBarPreference refraction = findPreference(KEY_LIQUID_GLASS_REFRACTION);
+        final CustomSeekBarPreference refraction = findPreference(KEY_LIQUID_GLASS_REFRACTION);
         if (refraction != null) {
             refraction.setValue(Math.max(0, Math.min(100,
                     SystemProperties.getInt(PROP_LIQUID_GLASS_REFRACTION, 60))));
-            refraction.setUpdatesContinuously(true);
             refraction.setOnPreferenceChangeListener((pref, newValue) -> {
                 SystemProperties.set(PROP_LIQUID_GLASS_REFRACTION,
                         Integer.toString((Integer) newValue));
