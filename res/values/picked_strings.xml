@@ -168,6 +168,8 @@
     <string name="picked_qs_volume_slider_summary">Media volume under the brightness slider (from PenguinOS)</string>
     <string name="picked_shade_blur_summary">How much the notification shade and Quick Settings blur what is behind them. Lower it if the shade stutters; 0 turns the blur off</string>
     <string name="picked_glass_tab_bars_title">Liquid Glass tab bars in apps</string>
+    <string name="picked_glass_buttons_title">Liquid Glass buttons in apps</string>
+    <string name="picked_glass_buttons_summary">Turn apps\' buttons into iOS 26 style glass capsules in their own color, that squish when pressed. Compose apps\' buttons stay as they are. Reopen apps to apply</string>
     <string name="picked_glass_tab_bars_summary">Turn apps\' bottom navigation bars into a glass capsule with liquid motion (from PenguinOS). Reopen apps to apply</string>
     <string name="picked_glass_tab_bars_float_title">Float tab bars over the page</string>
     <string name="picked_glass_tab_bars_float_summary">Let content scroll under the glass tab bar in apps built with Compose</string>

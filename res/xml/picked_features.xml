@@ -105,6 +105,13 @@
             android:defaultValue="false"
             android:dependency="penguin_glass_tab_bars" />
 
+        <!-- [Miku-Picked UI] iOS 26 style glass buttons in apps (Settings.Secure picked_glass_buttons) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_buttons"
+            android:title="@string/picked_glass_buttons_title"
+            android:summary="@string/picked_glass_buttons_summary"
+            android:defaultValue="false" />
+
         <!-- [Miku UI] System font (Miku's font picker) -->
         <Preference
             android:key="picked_fonts"
