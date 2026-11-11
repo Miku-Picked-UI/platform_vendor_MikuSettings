@@ -162,6 +162,8 @@
     <string name="picked_liquid_glass_summary">Liquid Glass for the shade, Quick Settings, notifications, the PIN pad, dialogs, the island and the Now Bar (from PenguinOS)</string>
     <string name="picked_liquid_glass_refraction_title">Glass refraction</string>
     <string name="picked_liquid_glass_style_title">Glass style</string>
+    <string name="picked_cos_app_motion_title">ColorOS app animations</string>
+    <string name="picked_cos_app_motion_summary">Apps grow out of their icon and fly back into it on ColorOS / OxygenOS springs, with a little bounce as they land (from PenguinOS)</string>
     <string name="picked_liquid_glass_style_ios">Liquid Glass (clear, refracting rims)</string>
     <string name="picked_liquid_glass_style_cos">ColorOS (frosted, edge lighting)</string>
     <string name="picked_liquid_glass_refraction_summary">How strongly the glass edges bend what is behind them</string>

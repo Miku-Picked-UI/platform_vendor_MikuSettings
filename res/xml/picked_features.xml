@@ -66,6 +66,14 @@
             android:persistent="false"
             android:dependency="picked_liquid_glass" />
 
+        <!-- [PenguinOS] ColorOS app open / close motion (Settings.Secure penguin_cos_app_motion,
+             read by Launcher3) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="penguin_cos_app_motion"
+            android:title="@string/picked_cos_app_motion_title"
+            android:summary="@string/picked_cos_app_motion_summary"
+            android:defaultValue="true" />
+
         <!-- [Miku UI] System font (Miku's font picker) -->
         <Preference
             android:key="picked_fonts"
