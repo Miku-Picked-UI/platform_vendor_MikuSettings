@@ -163,6 +163,9 @@
     <string name="picked_liquid_glass_refraction_title">Glass refraction</string>
     <string name="picked_liquid_glass_style_title">Glass style</string>
     <string name="picked_cos_app_motion_title">ColorOS app animations</string>
+    <string name="picked_qs_panel_style_title">Quick Settings style</string>
+    <string name="picked_qs_panel_style_stock">Stock</string>
+    <string name="picked_qs_panel_style_penguin">Control Centre (from PenguinOS)</string>
     <string name="picked_cos_app_motion_summary">Apps grow out of their icon and fly back into it on ColorOS / OxygenOS springs, with a little bounce as they land (from PenguinOS)</string>
     <string name="picked_liquid_glass_style_ios">Liquid Glass (clear, refracting rims)</string>
     <string name="picked_liquid_glass_style_cos">ColorOS (frosted, edge lighting)</string>
