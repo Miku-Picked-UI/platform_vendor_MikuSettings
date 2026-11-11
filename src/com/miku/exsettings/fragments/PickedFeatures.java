@@ -23,6 +23,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import androidx.preference.ListPreference;
+import androidx.preference.SeekBarPreference;
 import androidx.preference.TwoStatePreference;
 import androidx.preference.Preference;
 
@@ -44,6 +45,12 @@ public class PickedFeatures extends SettingsPreferenceFragment {
     private static final int REQUEST_CUSTOM_EMOJI = 1001;
     private static final String KEY_GOOGLE_SPOOF_WEAR = "picked_google_spoof_wear";
     private static final String PROP_GOOGLE_SPOOF_WEAR = "persist.sys.picked.google_spoof_wear";
+    // System-wide Liquid Glass (ported from PenguinOS): renderengine reads these live.
+    private static final String KEY_LIQUID_GLASS = "picked_liquid_glass";
+    private static final String KEY_LIQUID_GLASS_REFRACTION = "picked_liquid_glass_refraction";
+    private static final String PROP_LIQUID_GLASS = "persist.sys.penguin.liquid_glass";
+    private static final String PROP_LIQUID_GLASS_REFRACTION =
+            "persist.sys.penguin.liquid_glass_refraction";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,6 +94,27 @@ public class PickedFeatures extends SettingsPreferenceFragment {
                 SystemProperties.set(PROP_GOOGLE_SPOOF_WEAR, (Boolean) newValue ? "1" : "0");
                 showRebootDialog(R.string.picked_google_spoof_wear_reboot_title,
                         R.string.picked_google_spoof_wear_reboot_message);
+                return true;
+            });
+        }
+
+        // System-wide Liquid Glass: SurfaceFlinger picks the properties up on the next frame.
+        final TwoStatePreference liquidGlass = findPreference(KEY_LIQUID_GLASS);
+        if (liquidGlass != null) {
+            liquidGlass.setChecked(SystemProperties.getBoolean(PROP_LIQUID_GLASS, true));
+            liquidGlass.setOnPreferenceChangeListener((pref, newValue) -> {
+                SystemProperties.set(PROP_LIQUID_GLASS, (Boolean) newValue ? "1" : "0");
+                return true;
+            });
+        }
+        final SeekBarPreference refraction = findPreference(KEY_LIQUID_GLASS_REFRACTION);
+        if (refraction != null) {
+            refraction.setValue(Math.max(0, Math.min(100,
+                    SystemProperties.getInt(PROP_LIQUID_GLASS_REFRACTION, 60))));
+            refraction.setUpdatesContinuously(true);
+            refraction.setOnPreferenceChangeListener((pref, newValue) -> {
+                SystemProperties.set(PROP_LIQUID_GLASS_REFRACTION,
+                        Integer.toString((Integer) newValue));
                 return true;
             });
         }

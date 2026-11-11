@@ -6,6 +6,7 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:key="picked_features"
     android:title="@string/picked_features_title">
 
@@ -37,6 +38,24 @@
             android:entryValues="@array/picked_now_bar_style_values"
             android:defaultValue="0"
             android:dependency="now_bar_enabled" />
+
+        <!-- [PenguinOS] System-wide Liquid Glass: SurfaceFlinger draws every blur as glass
+             (persist.sys.penguin.liquid_glass / _refraction, read live by renderengine) -->
+        <SwitchPreferenceCompat
+            android:key="picked_liquid_glass"
+            android:title="@string/picked_liquid_glass_title"
+            android:summary="@string/picked_liquid_glass_summary"
+            android:persistent="false" />
+
+        <SeekBarPreference
+            android:key="picked_liquid_glass_refraction"
+            android:title="@string/picked_liquid_glass_refraction_title"
+            android:summary="@string/picked_liquid_glass_refraction_summary"
+            android:max="100"
+            app:min="0"
+            app:showSeekBarValue="true"
+            android:persistent="false"
+            android:dependency="picked_liquid_glass" />
 
         <!-- [Miku UI] System font (Miku's font picker) -->
         <Preference
