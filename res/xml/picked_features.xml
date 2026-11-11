@@ -28,6 +28,16 @@
             android:summary="@string/picked_now_bar_summary"
             android:defaultValue="true" />
 
+        <!-- [Miku-Picked UI] Now Bar background (Settings.System.NOW_BAR_STYLE) -->
+        <com.miku.settings.preferences.SystemSettingListPreference
+            android:key="now_bar_style"
+            android:title="@string/picked_now_bar_style_title"
+            android:summary="%s"
+            android:entries="@array/picked_now_bar_style_entries"
+            android:entryValues="@array/picked_now_bar_style_values"
+            android:defaultValue="0"
+            android:dependency="now_bar_enabled" />
+
         <!-- [Miku UI] System font (Miku's font picker) -->
         <Preference
             android:key="picked_fonts"

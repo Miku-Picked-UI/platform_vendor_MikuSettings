@@ -246,4 +246,15 @@
         <item>openmoji</item>
         <item>twemoji</item>
     </string-array>
+    <!-- Now Bar style (Settings.System.NOW_BAR_STYLE) -->
+    <string-array name="picked_now_bar_style_entries" translatable="false">
+        <item>@string/picked_now_bar_style_liquid</item>
+        <item>@string/picked_now_bar_style_frosted</item>
+        <item>@string/picked_now_bar_style_black</item>
+    </string-array>
+    <string-array name="picked_now_bar_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>
