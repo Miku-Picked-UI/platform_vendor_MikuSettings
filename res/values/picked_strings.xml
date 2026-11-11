@@ -163,6 +163,12 @@
     <string name="picked_liquid_glass_refraction_title">Glass refraction</string>
     <string name="picked_liquid_glass_style_title">Glass style</string>
     <string name="picked_cos_app_motion_title">ColorOS app animations</string>
+    <string name="picked_shade_blur_title">Shade blur</string>
+    <string name="picked_shade_blur_summary">How much the notification shade and Quick Settings blur what is behind them. Lower it if the shade stutters; 0 turns the blur off</string>
+    <string name="picked_glass_tab_bars_title">Liquid Glass tab bars in apps</string>
+    <string name="picked_glass_tab_bars_summary">Turn apps\' bottom navigation bars into a glass capsule with liquid motion (from PenguinOS). Reopen apps to apply</string>
+    <string name="picked_glass_tab_bars_float_title">Float tab bars over the page</string>
+    <string name="picked_glass_tab_bars_float_summary">Let content scroll under the glass tab bar in apps built with Compose</string>
     <string name="picked_cos_app_motion_summary">Apps grow out of their icon and fly back into it on ColorOS / OxygenOS springs, with a little bounce as they land (from PenguinOS)</string>
     <string name="picked_liquid_glass_style_ios">Liquid Glass (clear, refracting rims)</string>
     <string name="picked_liquid_glass_style_cos">ColorOS (frosted, edge lighting)</string>

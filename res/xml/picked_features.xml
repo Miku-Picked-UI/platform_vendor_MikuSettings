@@ -74,6 +74,30 @@
             android:summary="@string/picked_cos_app_motion_summary"
             android:defaultValue="true" />
 
+        <!-- [Miku-Picked UI] Shade blur strength (Settings.System picked_shade_blur, %) -->
+        <com.miku.exsettings.preferences.CustomSystemSeekBarPreference
+            android:key="picked_shade_blur"
+            android:title="@string/picked_shade_blur_title"
+            android:summary="@string/picked_shade_blur_summary"
+            settings:min="0"
+            android:max="100"
+            android:defaultValue="100"
+            settings:units="%" />
+
+        <!-- [PenguinOS] Liquid Glass tab bars in apps (Settings.Secure penguin_glass_tab_bars) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="penguin_glass_tab_bars"
+            android:title="@string/picked_glass_tab_bars_title"
+            android:summary="@string/picked_glass_tab_bars_summary"
+            android:defaultValue="false" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="penguin_glass_tab_bars_float"
+            android:title="@string/picked_glass_tab_bars_float_title"
+            android:summary="@string/picked_glass_tab_bars_float_summary"
+            android:defaultValue="false"
+            android:dependency="penguin_glass_tab_bars" />
+
         <!-- [Miku UI] System font (Miku's font picker) -->
         <Preference
             android:key="picked_fonts"
