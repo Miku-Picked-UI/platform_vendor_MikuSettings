@@ -159,7 +159,7 @@
     <string name="picked_now_bar_summary">Show music and ongoing activities (flashlight, timers, calls) on the lock screen. Tap the music to open a large player</string>
     <string name="picked_now_bar_style_title">Now Bar style</string>
     <string name="picked_liquid_glass_title">System-wide Liquid Glass</string>
-    <string name="picked_liquid_glass_summary">Draw the blur in the notification shade, dialogs, the island and the Now Bar as Liquid Glass (from PenguinOS)</string>
+    <string name="picked_liquid_glass_summary">Liquid Glass for the shade, Quick Settings, notifications, the PIN pad, dialogs, the island and the Now Bar (from PenguinOS)</string>
     <string name="picked_liquid_glass_refraction_title">Glass refraction</string>
     <string name="picked_liquid_glass_refraction_summary">How strongly the glass edges bend what is behind them</string>
     <string name="picked_now_bar_style_liquid">Liquid glass</string>
@@ -190,7 +190,7 @@
     <string name="picked_thanks_google_spoof_wear_title">73sydney</string>
     <string name="picked_thanks_google_spoof_wear_summary">GoogleSpoofForWear, the idea behind the Google spoof for wearables toggle</string>
     <string name="picked_thanks_penguinos_title">PenguinOS (redducc, Saikiran)</string>
-    <string name="picked_thanks_penguinos_summary">System-wide Liquid Glass in SurfaceFlinger\'s renderengine, backported to Android 16</string>
+    <string name="picked_thanks_penguinos_summary">System-wide Liquid Glass (SurfaceFlinger\'s renderengine) and the glass Quick Settings, PIN pad and notifications, backported to Android 16 with permission</string>
     <string name="picked_thanks_viperfx_re_title">ViPERFX_RE (Iscle / AndroidAudioMods)</string>
     <string name="picked_thanks_viperfx_re_summary">The reverse engineered ViPER4Android FX: AxionFx Dynamic System and Speaker optimization, used with permission (via WSTxda\'s fork)</string>
 </resources>
