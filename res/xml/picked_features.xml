@@ -74,6 +74,14 @@
             android:summary="@string/picked_cos_app_motion_summary"
             android:defaultValue="true" />
 
+        <!-- [PenguinOS] Lockscreen clock flies onto the home screen on unlock
+             (Settings.Secure picked_clock_fly, read by SystemUI and Launcher3) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_clock_fly"
+            android:title="@string/picked_clock_fly_title"
+            android:summary="@string/picked_clock_fly_summary"
+            android:defaultValue="false" />
+
         <!-- [Miku-Picked UI] Shade blur strength (Settings.System picked_shade_blur, %) -->
         <com.miku.exsettings.preferences.CustomSystemSeekBarPreference
             android:key="picked_shade_blur"

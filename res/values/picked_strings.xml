@@ -176,6 +176,8 @@
     <string name="picked_glass_tab_bars_float_title">Float tab bars over the page</string>
     <string name="picked_glass_tab_bars_float_summary">Let content scroll under the glass tab bar in apps built with Compose</string>
     <string name="picked_cos_app_motion_summary">Apps grow out of their icon and fly back into it on ColorOS / OxygenOS springs, with a little bounce as they land (from PenguinOS)</string>
+    <string name="picked_clock_fly_title">Clock flies home on unlock</string>
+    <string name="picked_clock_fly_summary">When you unlock to the home screen, the lockscreen clock flies onto a Lockscreen clock widget while the home screen zooms in. Turning this on adds the widget to your home screen</string>
     <string name="picked_liquid_glass_style_ios">Liquid Glass (clear, refracting rims)</string>
     <string name="picked_liquid_glass_style_cos">ColorOS (frosted, edge lighting)</string>
     <string name="picked_liquid_glass_refraction_summary">How strongly the glass edges bend what is behind them</string>
