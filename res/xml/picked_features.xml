@@ -298,6 +298,13 @@
             android:summary="@string/picked_advanced_reboot_summary"
             android:defaultValue="false" />
 
+        <!-- [Miku-Picked UI] LTE only while tethering (Settings.Secure picked_tether_lte) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_tether_lte"
+            android:title="@string/picked_tether_lte_title"
+            android:summary="@string/picked_tether_lte_summary"
+            android:defaultValue="true" />
+
         <!-- [Evolution X] Sleep mode -->
         <Preference
             android:key="picked_sleep_mode"
