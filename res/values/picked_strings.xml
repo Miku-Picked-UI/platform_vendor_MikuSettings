@@ -230,4 +230,12 @@
     <string name="picked_screenshot_tester_unavailable">Screenshot detection is not available</string>
     <string name="picked_screenshot_tester_secure_title">Make this screen secure</string>
     <string name="picked_screenshot_tester_secure_summary">Blocks screenshots of this screen, like a banking app does. With \"Allow screenshots in secure apps\" on, they still work</string>
+    <!-- [Miku-Picked UI] Charging -->
+    <string name="picked_category_charging">Charging</string>
+    <string name="picked_wireless_fast_charge_title">Fast wireless charging</string>
+    <string name="picked_wireless_fast_charge_summary">Charge faster on fast wireless chargers. The phone gets warmer while it does</string>
+    <string name="picked_powershare_title">Wireless PowerShare</string>
+    <string name="picked_powershare_summary">Charge earbuds, a watch or another phone by placing it on the back of this one. Also a Quick Settings tile</string>
+    <string name="picked_powershare_min_battery_title">Stop sharing at</string>
+    <string name="picked_powershare_min_battery_summary">Wireless PowerShare turns off when the battery drops to this level</string>
 </resources>

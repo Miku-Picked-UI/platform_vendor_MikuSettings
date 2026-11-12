@@ -295,6 +295,36 @@
     </PreferenceCategory>
 
     <!-- ===== Power and sleep ===== -->
+    <!-- ===== Charging ===== -->
+    <PreferenceCategory
+        android:key="picked_category_charging"
+        android:title="@string/picked_category_charging">
+
+        <!-- [Miku-Picked UI] LineageOS IWirelessFastCharge HAL -->
+        <SwitchPreferenceCompat
+            android:key="picked_wireless_fast_charge"
+            android:title="@string/picked_wireless_fast_charge_title"
+            android:summary="@string/picked_wireless_fast_charge_summary"
+            android:persistent="false" />
+
+        <!-- [Miku-Picked UI] LineageOS IPowerShare HAL -->
+        <SwitchPreferenceCompat
+            android:key="picked_powershare"
+            android:title="@string/picked_powershare_title"
+            android:summary="@string/picked_powershare_summary"
+            android:persistent="false" />
+
+        <com.miku.exsettings.preferences.CustomSeekBarPreference
+            android:key="picked_powershare_min_battery"
+            android:title="@string/picked_powershare_min_battery_title"
+            android:summary="@string/picked_powershare_min_battery_summary"
+            settings:min="5"
+            android:max="90"
+            android:defaultValue="30"
+            settings:units="%"
+            android:persistent="false" />
+    </PreferenceCategory>
+
     <!-- ===== Screenshots ===== -->
     <PreferenceCategory
         android:key="picked_category_screenshots"
