@@ -211,5 +211,23 @@
     <string name="picked_thanks_penguinos_title">PenguinOS (redducc, Saikiran)</string>
     <string name="picked_thanks_penguinos_summary">System-wide Liquid Glass (SurfaceFlinger\'s renderengine) and the glass Quick Settings, PIN pad and notifications, backported to Android 16 with permission</string>
     <string name="picked_thanks_viperfx_re_title">ViPERFX_RE (Iscle / AndroidAudioMods)</string>
-    <string name="picked_thanks_viperfx_re_summary">The reverse engineered ViPER4Android FX: AxionFx Dynamic System and Speaker optimization, used with permission (via WSTxda\'s fork)</string>
+    <string name="picked_thanks_viperfx_re_summary">The reverse engineered ViPER4Android FX: AxionFx Clarity, Dynamic System and Speaker optimization, used with permission (via WSTxda\'s fork)</string>
+    <!-- [Miku-Picked UI] Screenshots: FLAG_SECURE and screenshot detection -->
+    <string name="picked_category_screenshots">Screenshots</string>
+    <string name="picked_disable_secure_windows_title">Allow screenshots in secure apps</string>
+    <string name="picked_disable_secure_windows_summary">Apps that block screenshots (banking, private browsing, passwords) can be captured in screenshots, screen recordings and recents. Protected video still shows black</string>
+    <string name="picked_hide_screenshot_detection_title">Hide screenshots from apps</string>
+    <string name="picked_hide_screenshot_detection_summary">Apps aren\'t told when you take a screenshot of them</string>
+    <string name="picked_screenshot_tester_title">Screenshot detection tester</string>
+    <string name="picked_screenshot_tester_summary">Check whether apps can see your screenshots, and whether secure screens can be captured</string>
+    <string name="picked_screenshot_tester_none">No screenshot detected</string>
+    <plurals name="picked_screenshot_tester_count">
+        <item quantity="one">%d screenshot detected</item>
+        <item quantity="other">%d screenshots detected</item>
+    </plurals>
+    <string name="picked_screenshot_tester_how">Take a screenshot while this screen is open. If it is counted here, apps can see your screenshots</string>
+    <string name="picked_screenshot_tester_last">Last one at %1$s. Apps can see your screenshots</string>
+    <string name="picked_screenshot_tester_unavailable">Screenshot detection is not available</string>
+    <string name="picked_screenshot_tester_secure_title">Make this screen secure</string>
+    <string name="picked_screenshot_tester_secure_summary">Blocks screenshots of this screen, like a banking app does. With \"Allow screenshots in secure apps\" on, they still work</string>
 </resources>

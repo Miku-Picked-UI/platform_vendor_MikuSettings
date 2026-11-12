@@ -295,6 +295,32 @@
     </PreferenceCategory>
 
     <!-- ===== Power and sleep ===== -->
+    <!-- ===== Screenshots ===== -->
+    <PreferenceCategory
+        android:key="picked_category_screenshots"
+        android:title="@string/picked_category_screenshots">
+
+        <!-- [Miku-Picked UI] FLAG_SECURE off (AOSP Settings.Secure disable_secure_windows) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="disable_secure_windows"
+            android:title="@string/picked_disable_secure_windows_title"
+            android:summary="@string/picked_disable_secure_windows_summary"
+            android:defaultValue="false" />
+
+        <!-- [Miku-Picked UI] Settings.Secure picked_hide_screenshot_detection -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_hide_screenshot_detection"
+            android:title="@string/picked_hide_screenshot_detection_title"
+            android:summary="@string/picked_hide_screenshot_detection_summary"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="picked_screenshot_tester"
+            android:title="@string/picked_screenshot_tester_title"
+            android:summary="@string/picked_screenshot_tester_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedScreenshotTester" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="picked_category_power"
         android:title="@string/picked_category_power">
