@@ -272,11 +272,7 @@ public class PickedFeatures extends SettingsPreferenceFragment {
                 });
             }
         }
-        final Preference category = findPreference("picked_category_charging");
-        if (category != null && !powerShareSupported
-                && (fastWireless == null || !fastWireless.isVisible())) {
-            category.setVisible(false);
-        }
+        // The category always has the lockscreen charging info switch, so it stays visible.
     }
 
     @Override
