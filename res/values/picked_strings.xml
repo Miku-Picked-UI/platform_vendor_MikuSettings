@@ -175,6 +175,8 @@
     <string name="picked_glass_tab_bars_summary">Turn apps\' bottom navigation bars into a glass capsule with liquid motion (from PenguinOS). Reopen apps to apply</string>
     <string name="picked_glass_tab_bars_float_title">Float tab bars over the page</string>
     <string name="picked_glass_tab_bars_float_summary">Let content scroll under the glass tab bar in apps built with Compose</string>
+    <string name="picked_lockscreen_charging_info_title">Charging info on the lockscreen</string>
+    <string name="picked_lockscreen_charging_info_summary">While charging, show the current, power, voltage and battery temperature under the charging text (from Evolution X / AxionOS)</string>
     <string name="picked_volume_panel_style_title">Volume panel style</string>
     <string name="picked_volume_panel_style_default">Default</string>
     <string name="picked_volume_panel_style_expandable">Expandable (a slider per stream)</string>

@@ -309,6 +309,13 @@
         android:key="picked_category_charging"
         android:title="@string/picked_category_charging">
 
+        <!-- [Evolution X / AxionOS] Lockscreen charging info (Settings.System picked_lockscreen_charging_info) -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="picked_lockscreen_charging_info"
+            android:title="@string/picked_lockscreen_charging_info_title"
+            android:summary="@string/picked_lockscreen_charging_info_summary"
+            android:defaultValue="true" />
+
         <!-- [Miku-Picked UI] LineageOS IWirelessFastCharge HAL -->
         <SwitchPreferenceCompat
             android:key="picked_wireless_fast_charge"
