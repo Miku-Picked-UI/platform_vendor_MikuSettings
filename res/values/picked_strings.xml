@@ -105,7 +105,7 @@
     <string name="picked_thanks_infinity_title">Infinity X</string>
     <string name="picked_thanks_infinity_summary">Status bar logo, battery bar</string>
     <string name="picked_thanks_axion_title">AxionOS</string>
-    <string name="picked_thanks_axion_summary">AxionFx audio effects, status/nav bar burn-in protection, advanced restart with Restart SystemUI, flashlight fade, 5G tile, the emoji style switch</string>
+    <string name="picked_thanks_axion_summary">AxionFx audio effects, resizable home screen folders (Localhorst04, Saikrishna1504, rmp22), status/nav bar burn-in protection, advanced restart with Restart SystemUI, flashlight fade, 5G tile, the emoji style switch</string>
     <string name="picked_thanks_uwu_title">uwuAOSP</string>
     <string name="picked_thanks_uwu_summary">Deep sleep time in uptime, auto brightness tile, full screen apps for display cutouts</string>
     <string name="picked_thanks_evolution_title">Evolution X</string>
