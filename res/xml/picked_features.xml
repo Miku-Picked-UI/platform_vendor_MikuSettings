@@ -83,6 +83,52 @@
             android:entryValues="@array/picked_qs_panel_style_values"
             android:defaultValue="6" />
 
+        <!-- [PenguinOS] Lockscreen clock flies onto the home screen on unlock
+             (Settings.Secure picked_clock_fly, read by SystemUI and Launcher3) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_clock_fly"
+            android:title="@string/picked_clock_fly_title"
+            android:summary="@string/picked_clock_fly_summary"
+            android:defaultValue="false" />
+
+        <!-- [Miku-Picked UI] Shade blur strength (Settings.System picked_shade_blur, %) -->
+        <com.miku.exsettings.preferences.CustomSystemSeekBarPreference
+            android:key="picked_shade_blur"
+            android:title="@string/picked_shade_blur_title"
+            android:summary="@string/picked_shade_blur_summary"
+            settings:min="0"
+            android:max="100"
+            android:defaultValue="100"
+            settings:units="%" />
+
+        <!-- [PenguinOS] Media volume slider in Quick Settings (Settings.System picked_qs_volume_slider) -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="picked_qs_volume_slider"
+            android:title="@string/picked_qs_volume_slider_title"
+            android:summary="@string/picked_qs_volume_slider_summary"
+            android:defaultValue="true" />
+
+        <!-- [PenguinOS] Liquid Glass tab bars in apps (Settings.Secure penguin_glass_tab_bars) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="penguin_glass_tab_bars"
+            android:title="@string/picked_glass_tab_bars_title"
+            android:summary="@string/picked_glass_tab_bars_summary"
+            android:defaultValue="false" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="penguin_glass_tab_bars_float"
+            android:title="@string/picked_glass_tab_bars_float_title"
+            android:summary="@string/picked_glass_tab_bars_float_summary"
+            android:defaultValue="false"
+            android:dependency="penguin_glass_tab_bars" />
+
+        <!-- [Miku-Picked UI] iOS 26 style glass buttons in apps (Settings.Secure picked_glass_buttons) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_buttons"
+            android:title="@string/picked_glass_buttons_title"
+            android:summary="@string/picked_glass_buttons_summary"
+            android:defaultValue="false" />
+
         <!-- [Miku UI] System font (Miku's font picker) -->
         <Preference
             android:key="picked_fonts"
@@ -258,6 +304,62 @@
     </PreferenceCategory>
 
     <!-- ===== Power and sleep ===== -->
+    <!-- ===== Charging ===== -->
+    <PreferenceCategory
+        android:key="picked_category_charging"
+        android:title="@string/picked_category_charging">
+
+        <!-- [Miku-Picked UI] LineageOS IWirelessFastCharge HAL -->
+        <SwitchPreferenceCompat
+            android:key="picked_wireless_fast_charge"
+            android:title="@string/picked_wireless_fast_charge_title"
+            android:summary="@string/picked_wireless_fast_charge_summary"
+            android:persistent="false" />
+
+        <!-- [Miku-Picked UI] LineageOS IPowerShare HAL -->
+        <SwitchPreferenceCompat
+            android:key="picked_powershare"
+            android:title="@string/picked_powershare_title"
+            android:summary="@string/picked_powershare_summary"
+            android:persistent="false" />
+
+        <com.miku.exsettings.preferences.CustomSeekBarPreference
+            android:key="picked_powershare_min_battery"
+            android:title="@string/picked_powershare_min_battery_title"
+            android:summary="@string/picked_powershare_min_battery_summary"
+            settings:min="5"
+            android:max="90"
+            android:defaultValue="30"
+            settings:units="%"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <!-- ===== Screenshots ===== -->
+    <PreferenceCategory
+        android:key="picked_category_screenshots"
+        android:title="@string/picked_category_screenshots">
+
+        <!-- [Miku-Picked UI] FLAG_SECURE off (AOSP Settings.Secure disable_secure_windows) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="disable_secure_windows"
+            android:title="@string/picked_disable_secure_windows_title"
+            android:summary="@string/picked_disable_secure_windows_summary"
+            android:defaultValue="false" />
+
+        <!-- [Miku-Picked UI] Settings.Secure picked_hide_screenshot_detection -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_hide_screenshot_detection"
+            android:title="@string/picked_hide_screenshot_detection_title"
+            android:summary="@string/picked_hide_screenshot_detection_summary"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="picked_screenshot_tester"
+            android:title="@string/picked_screenshot_tester_title"
+            android:summary="@string/picked_screenshot_tester_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedScreenshotTester" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="picked_category_power"
         android:title="@string/picked_category_power">
@@ -268,6 +370,13 @@
             android:title="@string/picked_advanced_reboot_title"
             android:summary="@string/picked_advanced_reboot_summary"
             android:defaultValue="false" />
+
+        <!-- [Miku-Picked UI] LTE only while tethering (Settings.Secure picked_tether_lte) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_tether_lte"
+            android:title="@string/picked_tether_lte_title"
+            android:summary="@string/picked_tether_lte_summary"
+            android:defaultValue="true" />
 
         <!-- [Evolution X] Sleep mode -->
         <Preference

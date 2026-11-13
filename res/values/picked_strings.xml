@@ -105,7 +105,7 @@
     <string name="picked_thanks_infinity_title">Infinity X</string>
     <string name="picked_thanks_infinity_summary">Status bar logo, battery bar</string>
     <string name="picked_thanks_axion_title">AxionOS</string>
-    <string name="picked_thanks_axion_summary">AxionFx audio effects, status/nav bar burn-in protection, advanced restart with Restart SystemUI, flashlight fade, 5G tile, the emoji style switch</string>
+    <string name="picked_thanks_axion_summary">AxionFx audio effects, resizable home screen folders (Localhorst04, Saikrishna1504, rmp22), status/nav bar burn-in protection, advanced restart with Restart SystemUI, flashlight fade, 5G tile, the emoji style switch</string>
     <string name="picked_thanks_uwu_title">uwuAOSP</string>
     <string name="picked_thanks_uwu_summary">Deep sleep time in uptime, auto brightness tile, full screen apps for display cutouts</string>
     <string name="picked_thanks_evolution_title">Evolution X</string>
@@ -166,7 +166,21 @@
     <string name="picked_qs_panel_style_title">Quick Settings style</string>
     <string name="picked_qs_panel_style_stock">Stock</string>
     <string name="picked_qs_panel_style_penguin">Control Centre (from PenguinOS)</string>
+    <string name="picked_shade_blur_title">Shade blur</string>
+    <string name="picked_qs_volume_slider_title">Volume slider in Quick Settings</string>
+    <string name="picked_qs_volume_slider_summary">Media volume under the brightness slider (from PenguinOS)</string>
+    <string name="picked_shade_blur_summary">How much the notification shade and Quick Settings blur what is behind them. Lower it if the shade stutters; 0 turns the blur off</string>
+    <string name="picked_glass_tab_bars_title">Liquid Glass tab bars in apps</string>
+    <string name="picked_glass_buttons_title">Liquid Glass buttons in apps</string>
+    <string name="picked_glass_buttons_summary">Turn apps\' buttons into iOS 26 style glass capsules in their own color, that squish when pressed. Compose apps\' buttons stay as they are. Reopen apps to apply</string>
+    <string name="picked_tether_lte_title">LTE only while tethering</string>
+    <string name="picked_tether_lte_summary">Turn 5G off while the hotspot or USB tethering is on, so the phone runs cooler and uses less battery. Your preferred network type comes back when tethering stops</string>
+    <string name="picked_glass_tab_bars_summary">Turn apps\' bottom navigation bars into a glass capsule with liquid motion (from PenguinOS). Reopen apps to apply</string>
+    <string name="picked_glass_tab_bars_float_title">Float tab bars over the page</string>
+    <string name="picked_glass_tab_bars_float_summary">Let content scroll under the glass tab bar in apps built with Compose</string>
     <string name="picked_cos_app_motion_summary">Apps grow out of their icon and fly back into it on ColorOS / OxygenOS springs, with a little bounce as they land (from PenguinOS)</string>
+    <string name="picked_clock_fly_title">Clock flies home on unlock</string>
+    <string name="picked_clock_fly_summary">When you unlock to the home screen, the lockscreen clock flies onto a Lockscreen clock widget while the home screen zooms in. Turning this on adds the widget to your home screen</string>
     <string name="picked_liquid_glass_style_ios">Liquid Glass (clear, refracting rims)</string>
     <string name="picked_liquid_glass_style_cos">ColorOS (frosted, edge lighting)</string>
     <string name="picked_liquid_glass_refraction_summary">How strongly the glass edges bend what is behind them</string>
@@ -200,5 +214,31 @@
     <string name="picked_thanks_penguinos_title">PenguinOS (redducc, Saikiran)</string>
     <string name="picked_thanks_penguinos_summary">System-wide Liquid Glass (SurfaceFlinger\'s renderengine) and the glass Quick Settings, PIN pad and notifications, backported to Android 16 with permission</string>
     <string name="picked_thanks_viperfx_re_title">ViPERFX_RE (Iscle / AndroidAudioMods)</string>
-    <string name="picked_thanks_viperfx_re_summary">The reverse engineered ViPER4Android FX: AxionFx Dynamic System and Speaker optimization, used with permission (via WSTxda\'s fork)</string>
+    <string name="picked_thanks_viperfx_re_summary">The reverse engineered ViPER4Android FX: AxionFx Clarity, Dynamic System and Speaker optimization, used with permission (via WSTxda\'s fork)</string>
+    <!-- [Miku-Picked UI] Screenshots: FLAG_SECURE and screenshot detection -->
+    <string name="picked_category_screenshots">Screenshots</string>
+    <string name="picked_disable_secure_windows_title">Allow screenshots in secure apps</string>
+    <string name="picked_disable_secure_windows_summary">Apps that block screenshots (banking, private browsing, passwords) can be captured in screenshots, screen recordings and recents. Protected video still shows black</string>
+    <string name="picked_hide_screenshot_detection_title">Hide screenshots from apps</string>
+    <string name="picked_hide_screenshot_detection_summary">Apps aren\'t told when you take a screenshot of them</string>
+    <string name="picked_screenshot_tester_title">Screenshot detection tester</string>
+    <string name="picked_screenshot_tester_summary">Check whether apps can see your screenshots, and whether secure screens can be captured</string>
+    <string name="picked_screenshot_tester_none">No screenshot detected</string>
+    <plurals name="picked_screenshot_tester_count">
+        <item quantity="one">%d screenshot detected</item>
+        <item quantity="other">%d screenshots detected</item>
+    </plurals>
+    <string name="picked_screenshot_tester_how">Take a screenshot while this screen is open. If it is counted here, apps can see your screenshots</string>
+    <string name="picked_screenshot_tester_last">Last one at %1$s. Apps can see your screenshots</string>
+    <string name="picked_screenshot_tester_unavailable">Screenshot detection is not available</string>
+    <string name="picked_screenshot_tester_secure_title">Make this screen secure</string>
+    <string name="picked_screenshot_tester_secure_summary">Blocks screenshots of this screen, like a banking app does. With \"Allow screenshots in secure apps\" on, they still work</string>
+    <!-- [Miku-Picked UI] Charging -->
+    <string name="picked_category_charging">Charging</string>
+    <string name="picked_wireless_fast_charge_title">Fast wireless charging</string>
+    <string name="picked_wireless_fast_charge_summary">Charge faster on fast wireless chargers. The phone gets warmer while it does</string>
+    <string name="picked_powershare_title">Wireless PowerShare</string>
+    <string name="picked_powershare_summary">Charge earbuds, a watch or another phone by placing it on the back of this one. Also a Quick Settings tile</string>
+    <string name="picked_powershare_min_battery_title">Stop sharing at</string>
+    <string name="picked_powershare_min_battery_summary">Wireless PowerShare turns off when the battery drops to this level</string>
 </resources>

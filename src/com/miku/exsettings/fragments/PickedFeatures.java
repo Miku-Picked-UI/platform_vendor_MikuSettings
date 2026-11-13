@@ -30,6 +30,7 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.miku.exsettings.preferences.CustomSeekBarPreference;
+import com.miku.exsettings.utils.PickedCharging;
 
 /**
  * Settings for the features Miku-Picked UI picked from Infinity X, AxionOS, uwuAOSP and
@@ -128,6 +129,9 @@ public class PickedFeatures extends SettingsPreferenceFragment {
                 return true;
             });
         }
+
+        // [Miku-Picked UI] Charging: LineageOS' health and PowerShare HALs, read live.
+        setupCharging();
 
         // The fingerprint icon is only drawn for under-display fingerprint sensors.
         final Preference udfpsIcon = findPreference(KEY_UDFPS_ICON);
@@ -231,6 +235,48 @@ public class PickedFeatures extends SettingsPreferenceFragment {
             return false;
         }
         return false;
+    }
+
+    private void setupCharging() {
+        final TwoStatePreference fastWireless = findPreference("picked_wireless_fast_charge");
+        if (fastWireless != null) {
+            if (!PickedCharging.isWirelessFastChargeSupported()) {
+                fastWireless.setVisible(false);
+            } else {
+                fastWireless.setChecked(PickedCharging.isWirelessFastChargeEnabled());
+                fastWireless.setOnPreferenceChangeListener((pref, newValue) ->
+                        PickedCharging.setWirelessFastChargeEnabled((Boolean) newValue));
+            }
+        }
+        final TwoStatePreference powerShare = findPreference("picked_powershare");
+        final CustomSeekBarPreference minBattery = findPreference("picked_powershare_min_battery");
+        final boolean powerShareSupported = PickedCharging.isPowerShareSupported();
+        if (powerShare != null) {
+            if (!powerShareSupported) {
+                powerShare.setVisible(false);
+            } else {
+                powerShare.setChecked(PickedCharging.isPowerShareEnabled());
+                powerShare.setOnPreferenceChangeListener((pref, newValue) ->
+                        PickedCharging.setPowerShareEnabled((Boolean) newValue));
+            }
+        }
+        if (minBattery != null) {
+            final int level = powerShareSupported ? PickedCharging.getPowerShareMinBattery() : -1;
+            if (level < 0) {
+                minBattery.setVisible(false);
+            } else {
+                minBattery.setValue(level);
+                minBattery.setOnPreferenceChangeListener((pref, newValue) -> {
+                    PickedCharging.setPowerShareMinBattery((Integer) newValue);
+                    return true;
+                });
+            }
+        }
+        final Preference category = findPreference("picked_category_charging");
+        if (category != null && !powerShareSupported
+                && (fastWireless == null || !fastWireless.isVisible())) {
+            category.setVisible(false);
+        }
     }
 
     @Override
