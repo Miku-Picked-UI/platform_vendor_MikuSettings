@@ -275,4 +275,20 @@
         <item>6</item>
         <item>1</item>
     </string-array>
+
+    <!-- [PenguinOS] Volume panel style; values match SystemUI's VolumePanelStyle -->
+    <string-array name="picked_volume_panel_style_entries" translatable="false">
+        <item>@string/picked_volume_panel_style_default</item>
+        <item>@string/picked_volume_panel_style_expandable</item>
+        <item>@string/picked_volume_panel_style_oneui</item>
+        <item>@string/picked_volume_panel_style_myui</item>
+        <item>@string/picked_volume_panel_style_cos</item>
+    </string-array>
+    <string-array name="picked_volume_panel_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
 </resources>
