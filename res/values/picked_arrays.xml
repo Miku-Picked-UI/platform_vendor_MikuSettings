@@ -282,4 +282,22 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+
+    <!-- Mali GPU driver switch: the kernel's KMDs (values match its mali.version token) -->
+    <string-array name="picked_gpu_driver_entries" translatable="false">
+        <item>@string/picked_gpu_driver_r38p0</item>
+        <item>@string/picked_gpu_driver_r38p1</item>
+        <item>@string/picked_gpu_driver_r44p1</item>
+        <item>@string/picked_gpu_driver_r49p1</item>
+        <item>@string/picked_gpu_driver_r54p1</item>
+        <item>@string/picked_gpu_driver_r54p3</item>
+    </string-array>
+    <string-array name="picked_gpu_driver_values" translatable="false">
+        <item>r38p0</item>
+        <item>r38p1</item>
+        <item>r44p1</item>
+        <item>r49p1</item>
+        <item>r54p1</item>
+        <item>r54p3</item>
+    </string-array>
 </resources>

@@ -13,6 +13,9 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.widget.Toast;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.SystemClock;
 import android.os.PowerManager;
 import android.os.SystemProperties;
 import android.text.TextUtils;
@@ -133,11 +136,120 @@ public class PickedFeatures extends SettingsPreferenceFragment {
         // [Miku-Picked UI] Charging: LineageOS' health and PowerShare HALs, read live.
         setupCharging();
 
+        // [FlopKernel] Mali GPU driver switch, on kernels with the Mali KMD selector.
+        setupGpuDriver();
+
         // The fingerprint icon is only drawn for under-display fingerprint sensors.
         final Preference udfpsIcon = findPreference(KEY_UDFPS_ICON);
         if (udfpsIcon != null) {
             udfpsIcon.setVisible(hasUdfps() && PickedUdfpsIcons.isAvailable(getContext()));
         }
+    }
+
+    // [FlopKernel / Exynos_Valhall_GPUDriver] Mali GPU driver switch. The kernel reports the
+    // KMD its mali.version token selected as ro.boot.mali_version (the device mounts the
+    // matching userspace driver from it); picked_mali_switch patches the token in the boot
+    // partition when sys.picked.mali.request is set, and answers in sys.picked.mali.status.
+    private static final String PROP_MALI_ACTIVE = "ro.boot.mali_version";
+    private static final String PROP_MALI_REQUEST = "sys.picked.mali.request";
+    private static final String PROP_MALI_STATUS = "sys.picked.mali.status";
+    private static final long MALI_SWITCH_TIMEOUT_MS = 15000;
+    private static final long MALI_SWITCH_POLL_MS = 250;
+    private final Handler mHandler = new Handler(Looper.getMainLooper());
+
+    private void setupGpuDriver() {
+        final Preference category = findPreference("picked_category_gpu");
+        final ListPreference pref = findPreference("picked_gpu_driver");
+        if (category == null || pref == null) return;
+        final String active = SystemProperties.get(PROP_MALI_ACTIVE, "");
+        if (active.isEmpty()) {
+            // The kernel has no Mali KMD selector: nothing to switch.
+            category.setVisible(false);
+            return;
+        }
+        updateGpuDriverSummary(pref, active);
+        pref.setOnPreferenceChangeListener((p, newValue) -> {
+            final String target = (String) newValue;
+            if (target.equals(pref.getValue())) return false;
+            new AlertDialog.Builder(getContext())
+                    .setTitle(getString(R.string.picked_gpu_driver_confirm_title,
+                            gpuDriverLabel(pref, target)))
+                    .setMessage(R.string.picked_gpu_driver_confirm_message)
+                    .setPositiveButton(R.string.picked_gpu_driver_switch,
+                            (d, w) -> applyGpuDriver(pref, active, target))
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
+            return false; // set once the helper has patched the boot image
+        });
+    }
+
+    /** The driver the boot image now selects: a successful request, or the active one. */
+    private static String pendingGpuDriver(String active) {
+        final String status = SystemProperties.get(PROP_MALI_STATUS, "");
+        for (String prefix : new String[] {"ok:", "unchanged:"}) {
+            if (status.startsWith(prefix)) return status.substring(prefix.length());
+        }
+        return active;
+    }
+
+    private void updateGpuDriverSummary(ListPreference pref, String active) {
+        final String pending = pendingGpuDriver(active);
+        pref.setValue(pending);
+        pref.setSummary(pending.equals(active)
+                ? getString(R.string.picked_gpu_driver_summary, gpuDriverLabel(pref, active))
+                : getString(R.string.picked_gpu_driver_summary_pending,
+                        gpuDriverLabel(pref, active), gpuDriverLabel(pref, pending)));
+    }
+
+    private static CharSequence gpuDriverLabel(ListPreference pref, String value) {
+        final int i = pref.findIndexOfValue(value);
+        return i >= 0 ? pref.getEntries()[i] : value;
+    }
+
+    private void applyGpuDriver(ListPreference pref, String active, String target) {
+        // Clear the last answer first, so a stale one isn't taken for this request's.
+        SystemProperties.set(PROP_MALI_STATUS, "");
+        SystemProperties.set(PROP_MALI_REQUEST, target + ":" + SystemClock.elapsedRealtime());
+        pref.setEnabled(false);
+        pref.setSummary(R.string.picked_gpu_driver_applying);
+        final long deadline = SystemClock.uptimeMillis() + MALI_SWITCH_TIMEOUT_MS;
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                if (getContext() == null) return;
+                final String status = SystemProperties.get(PROP_MALI_STATUS, "");
+                final boolean done = status.startsWith("ok:") || status.startsWith("unchanged:")
+                        || status.startsWith("error:");
+                if (!done && SystemClock.uptimeMillis() < deadline) {
+                    mHandler.postDelayed(this, MALI_SWITCH_POLL_MS);
+                    return;
+                }
+                pref.setEnabled(true);
+                updateGpuDriverSummary(pref, active);
+                if (status.startsWith("ok:")) {
+                    new AlertDialog.Builder(getContext())
+                            .setTitle(getString(R.string.picked_gpu_driver_done_title,
+                                    gpuDriverLabel(pref, target)))
+                            .setMessage(R.string.picked_gpu_driver_done_message)
+                            .setPositiveButton(R.string.picked_emoji_reboot_now, (d, w) ->
+                                    getContext().getSystemService(PowerManager.class).reboot(null))
+                            .setNegativeButton(R.string.picked_emoji_reboot_later, null)
+                            .show();
+                } else if (!status.startsWith("unchanged:")) {
+                    final String reason = status.startsWith("error:")
+                            ? status.substring("error:".length()) : "no answer from the helper";
+                    Toast.makeText(getContext(),
+                            getString(R.string.picked_gpu_driver_failed, reason),
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onDestroy() {
+        mHandler.removeCallbacksAndMessages(null);
+        super.onDestroy();
     }
 
     private void applyEmojiStyle(String style) {
