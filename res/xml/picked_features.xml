@@ -403,6 +403,21 @@
     </PreferenceCategory>
 
     <!-- ===== Display ===== -->
+    <!-- ===== GPU ===== -->
+    <PreferenceCategory
+        android:key="picked_category_gpu"
+        android:title="@string/picked_category_gpu">
+
+        <!-- [FlopKernel / Exynos_Valhall_GPUDriver] Mali GPU driver switch: patches the
+             kernel's mali.version token (picked_mali_switch); hidden without the selector -->
+        <ListPreference
+            android:key="picked_gpu_driver"
+            android:title="@string/picked_gpu_driver_title"
+            android:entries="@array/picked_gpu_driver_entries"
+            android:entryValues="@array/picked_gpu_driver_values"
+            android:persistent="false" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="picked_category_display"
         android:title="@string/picked_category_display">
