@@ -195,6 +195,33 @@
     <string name="picked_gpu_driver_done_title">GPU driver set to %1$s</string>
     <string name="picked_gpu_driver_done_message">Restart to use it.</string>
     <string name="picked_gpu_driver_failed">Couldn\'t switch the GPU driver: %1$s</string>
+
+    <!-- Play Integrity (Evolution X / AxionOS) -->
+    <string name="picked_category_integrity">Play Integrity</string>
+    <string name="picked_pif_title">Play Integrity fix</string>
+    <string name="picked_pif_summary">Show Google Play services a certified Pixel, kept up to date automatically</string>
+    <string name="picked_pif_fingerprint_title">Fingerprint</string>
+    <string name="picked_pif_fingerprint_none">None yet, fetched a couple of minutes after setup when online</string>
+    <string name="picked_pif_fingerprint_auto">%1$s · %2$s (automatic)</string>
+    <string name="picked_pif_fingerprint_manual">%1$s · %2$s (imported)</string>
+    <string name="picked_pif_fingerprint_custom">Imported config</string>
+    <string name="picked_pif_update">Fetch latest</string>
+    <string name="picked_pif_import">Import pif.json</string>
+    <string name="picked_pif_updating">Fetching a new fingerprint, Google Play services restarts when it\'s done</string>
+    <string name="picked_pif_imported">Fingerprint imported</string>
+    <string name="picked_pif_import_failed">That file isn\'t a PIF config with a FINGERPRINT</string>
+    <string name="picked_trickystore_title">Keystore attestation spoof</string>
+    <string name="picked_trickystore_summary">Sign key attestation for Google apps and banking apps with your keybox (TrickyStore)</string>
+    <string name="picked_trickystore_keybox_title">Keybox</string>
+    <string name="picked_trickystore_keybox_none">Not imported: tap to import your keybox.xml</string>
+    <string name="picked_trickystore_keybox_loaded">Imported (%1$d keys)</string>
+    <string name="picked_trickystore_keybox_import">Import keybox.xml</string>
+    <string name="picked_trickystore_keybox_remove">Remove</string>
+    <string name="picked_trickystore_keybox_imported">Keybox imported</string>
+    <string name="picked_trickystore_keybox_removed">Keybox removed</string>
+    <string name="picked_trickystore_keybox_invalid">That file isn\'t a keybox (no &lt;Keybox&gt; with a key and certificates)</string>
+    <string name="picked_bootloader_spoof_title">Bootloader state</string>
+    <string name="picked_bootloader_spoof_summary">Apps always see a locked, verified bootloader and a release build</string>
     <string name="picked_lockscreen_charging_info_title">Charging info on the lockscreen</string>
     <string name="picked_lockscreen_charging_info_summary">While charging, show the current, power, voltage and battery temperature under the charging text (from Evolution X / AxionOS)</string>
     <string name="picked_volume_panel_style_title">Volume panel style</string>
