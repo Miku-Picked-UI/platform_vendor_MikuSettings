@@ -461,6 +461,43 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
+    <!-- ===== Play Integrity ===== -->
+    <PreferenceCategory
+        android:key="picked_category_integrity"
+        android:title="@string/picked_category_integrity">
+
+        <!-- [Evolution X / AxionOS] Pixel fingerprint for DroidGuard and Play Store
+             (Settings.System spoof_pif_enabled, PickedSpoofManager in system_server) -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="spoof_pif_enabled"
+            android:title="@string/picked_pif_title"
+            android:summary="@string/picked_pif_summary"
+            android:defaultValue="true" />
+
+        <Preference
+            android:key="picked_pif_fingerprint"
+            android:title="@string/picked_pif_fingerprint_title"
+            android:dependency="spoof_pif_enabled" />
+
+        <!-- [Evolution X / AxionOS] TrickyStore keystore attestation spoof -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="spoof_trickystore_enabled"
+            android:title="@string/picked_trickystore_title"
+            android:summary="@string/picked_trickystore_summary"
+            android:defaultValue="true" />
+
+        <Preference
+            android:key="picked_trickystore_keybox"
+            android:title="@string/picked_trickystore_keybox_title"
+            android:dependency="spoof_trickystore_enabled" />
+
+        <Preference
+            android:key="picked_bootloader_spoof"
+            android:title="@string/picked_bootloader_spoof_title"
+            android:summary="@string/picked_bootloader_spoof_summary"
+            android:selectable="false" />
+    </PreferenceCategory>
+
     <!-- ===== Connected devices ===== -->
     <PreferenceCategory
         android:key="picked_category_devices"

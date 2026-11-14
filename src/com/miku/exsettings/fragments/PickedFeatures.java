@@ -18,6 +18,7 @@ import android.os.Looper;
 import android.os.SystemClock;
 import android.os.PowerManager;
 import android.os.SystemProperties;
+import android.provider.Settings;
 import android.text.TextUtils;
 
 import java.io.File;
@@ -47,6 +48,8 @@ public class PickedFeatures extends SettingsPreferenceFragment {
     private static final String PROP_EMOJI_STYLE = "persist.sys.ax_emoji_style";
     private static final String EMOJI_XML_PREFIX = "fonts_customization_emoji_";
     private static final int REQUEST_CUSTOM_EMOJI = 1001;
+    private static final int REQUEST_PIF_CONFIG = 1002;
+    private static final int REQUEST_KEYBOX = 1003;
     private static final String KEY_GOOGLE_SPOOF_WEAR = "picked_google_spoof_wear";
     private static final String PROP_GOOGLE_SPOOF_WEAR = "persist.sys.picked.google_spoof_wear";
     // System-wide Liquid Glass (ported from PenguinOS): renderengine reads these live.
@@ -138,6 +141,9 @@ public class PickedFeatures extends SettingsPreferenceFragment {
 
         // [FlopKernel] Mali GPU driver switch, on kernels with the Mali KMD selector.
         setupGpuDriver();
+
+        // [Evolution X / AxionOS] Play Integrity: Pixel fingerprint, keybox, bootloader spoof.
+        setupIntegrity();
 
         // The fingerprint icon is only drawn for under-display fingerprint sensors.
         final Preference udfpsIcon = findPreference(KEY_UDFPS_ICON);
@@ -252,6 +258,201 @@ public class PickedFeatures extends SettingsPreferenceFragment {
         super.onDestroy();
     }
 
+    // [Evolution X / AxionOS] Play Integrity: the switches store their value straight in
+    // Settings.System (spoof_pif_enabled, spoof_trickystore_enabled), which
+    // PickedSpoofManager watches. These wire the fingerprint and keybox rows.
+    private static final String SECURE_PIF_CONFIG = "spoof_pif_config";
+    private static final String SECURE_PIF_REFRESH = "spoof_pif_refresh_request";
+    private static final String SECURE_KEYBOX = "spoof_trickystore_keybox";
+    // The raw keybox holds private keys and can't be read back (SettingsProvider blocks it),
+    // so the key count is kept here for the summary.
+    private static final String SECURE_KEYBOX_COUNT = "spoof_trickystore_keybox_count";
+
+    private void setupIntegrity() {
+        final Preference fingerprint = findPreference("picked_pif_fingerprint");
+        if (fingerprint != null) {
+            updatePifFingerprintSummary(fingerprint);
+            fingerprint.setOnPreferenceClickListener(p -> {
+                new AlertDialog.Builder(getContext())
+                        .setTitle(R.string.picked_pif_fingerprint_title)
+                        .setItems(new CharSequence[] {
+                                getString(R.string.picked_pif_update),
+                                getString(R.string.picked_pif_import)}, (d, which) -> {
+                            if (which == 0) {
+                                Settings.Secure.putString(getContentResolver(), SECURE_PIF_REFRESH,
+                                        Long.toString(System.currentTimeMillis()));
+                                Toast.makeText(getContext(), R.string.picked_pif_updating,
+                                        Toast.LENGTH_LONG).show();
+                            } else {
+                                pickDocument(REQUEST_PIF_CONFIG);
+                            }
+                        })
+                        .show();
+                return true;
+            });
+        }
+
+        final Preference keybox = findPreference("picked_trickystore_keybox");
+        if (keybox != null) {
+            updateKeyboxSummary(keybox);
+            keybox.setOnPreferenceClickListener(p -> {
+                final boolean loaded = Settings.Secure.getInt(getContentResolver(),
+                        SECURE_KEYBOX_COUNT, 0) > 0;
+                final CharSequence[] items = loaded
+                        ? new CharSequence[] {getString(R.string.picked_trickystore_keybox_import),
+                                getString(R.string.picked_trickystore_keybox_remove)}
+                        : new CharSequence[] {getString(R.string.picked_trickystore_keybox_import)};
+                new AlertDialog.Builder(getContext())
+                        .setTitle(R.string.picked_trickystore_keybox_title)
+                        .setItems(items, (d, which) -> {
+                            if (which == 0) {
+                                pickDocument(REQUEST_KEYBOX);
+                            } else {
+                                Settings.Secure.putString(getContentResolver(), SECURE_KEYBOX, "");
+                                Settings.Secure.putInt(getContentResolver(), SECURE_KEYBOX_COUNT, 0);
+                                updateKeyboxSummary(keybox);
+                                Toast.makeText(getContext(),
+                                        R.string.picked_trickystore_keybox_removed,
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .show();
+                return true;
+            });
+        }
+    }
+
+    private void updatePifFingerprintSummary(Preference pref) {
+        final String config = Settings.Secure.getString(getContentResolver(), SECURE_PIF_CONFIG);
+        if (TextUtils.isEmpty(config)) {
+            pref.setSummary(R.string.picked_pif_fingerprint_none);
+            return;
+        }
+        final String trimmed = config.trim();
+        if (!trimmed.startsWith("{")) {
+            pref.setSummary(R.string.picked_pif_fingerprint_custom);
+            return;
+        }
+        try {
+            final org.json.JSONObject json = new org.json.JSONObject(trimmed);
+            final String model = json.optString("MODEL", json.optString("PRODUCT", "?"));
+            final String patch = json.optString("SECURITY_PATCH", "?");
+            pref.setSummary(getString(json.optBoolean("manually_imported", false)
+                    ? R.string.picked_pif_fingerprint_manual
+                    : R.string.picked_pif_fingerprint_auto, model, patch));
+        } catch (Exception e) {
+            pref.setSummary(R.string.picked_pif_fingerprint_custom);
+        }
+    }
+
+    private void updateKeyboxSummary(Preference pref) {
+        final int count = Settings.Secure.getInt(getContentResolver(), SECURE_KEYBOX_COUNT, 0);
+        pref.setSummary(count > 0
+                ? getString(R.string.picked_trickystore_keybox_loaded, count)
+                : getString(R.string.picked_trickystore_keybox_none));
+    }
+
+    private static String decodeKeybox(String payload) {
+        final String trimmed = payload.trim();
+        if (trimmed.startsWith("<")) return trimmed;
+        try {
+            final String xml = new String(android.util.Base64.decode(trimmed,
+                    android.util.Base64.DEFAULT), java.nio.charset.StandardCharsets.UTF_8).trim();
+            return xml.startsWith("<") ? xml : "";
+        } catch (IllegalArgumentException e) {
+            return "";
+        }
+    }
+
+    private static int countKeyboxKeys(String xml) {
+        int count = 0, from = 0;
+        while ((from = xml.indexOf("<Key ", from)) >= 0) {
+            count++;
+            from += 5;
+        }
+        return count;
+    }
+
+    private void pickDocument(int requestCode) {
+        final Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT)
+                .addCategory(Intent.CATEGORY_OPENABLE)
+                .setType("*/*")
+                .putExtra(Intent.EXTRA_MIME_TYPES, new String[] {
+                        "application/json", "application/xml", "text/xml", "text/plain",
+                        "application/octet-stream"});
+        try {
+            startActivityForResult(intent, requestCode);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(getContext(), R.string.picked_emoji_custom_failed, Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
+
+    private String readTextFile(android.net.Uri uri, int maxBytes) {
+        try (java.io.InputStream in = getContext().getContentResolver().openInputStream(uri)) {
+            if (in == null) return null;
+            final java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
+            final byte[] buf = new byte[8192];
+            int n;
+            while ((n = in.read(buf)) > 0) {
+                out.write(buf, 0, n);
+                if (out.size() > maxBytes) return null;
+            }
+            return out.toString(java.nio.charset.StandardCharsets.UTF_8);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private void importPifConfig(android.net.Uri uri) {
+        final String content = readTextFile(uri, 256 * 1024);
+        boolean ok = false;
+        String toStore = null;
+        if (content != null) {
+            final String trimmed = content.trim();
+            if (trimmed.startsWith("{")) {
+                try {
+                    final org.json.JSONObject json = new org.json.JSONObject(trimmed);
+                    if (!TextUtils.isEmpty(json.optString("FINGERPRINT"))) {
+                        json.put("manually_imported", true);
+                        toStore = json.toString();
+                        ok = true;
+                    }
+                } catch (Exception ignored) {
+                }
+            } else if (trimmed.contains("FINGERPRINT")) {
+                toStore = trimmed; // a pif.prop the user keeps as-is
+                ok = true;
+            }
+        }
+        if (ok) {
+            Settings.Secure.putString(getContentResolver(), SECURE_PIF_CONFIG, toStore);
+            final Preference pref = findPreference("picked_pif_fingerprint");
+            if (pref != null) updatePifFingerprintSummary(pref);
+            Toast.makeText(getContext(), R.string.picked_pif_imported, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getContext(), R.string.picked_pif_import_failed, Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
+
+    private void importKeybox(android.net.Uri uri) {
+        final String content = readTextFile(uri, 512 * 1024);
+        final String xml = content == null ? "" : decodeKeybox(content);
+        final int keys = xml.isEmpty() ? 0 : countKeyboxKeys(xml);
+        if (keys > 0 && xml.contains("<Keybox") && xml.contains("<Certificate")) {
+            Settings.Secure.putString(getContentResolver(), SECURE_KEYBOX, content.trim());
+            Settings.Secure.putInt(getContentResolver(), SECURE_KEYBOX_COUNT, keys);
+            final Preference pref = findPreference("picked_trickystore_keybox");
+            if (pref != null) updateKeyboxSummary(pref);
+            Toast.makeText(getContext(), R.string.picked_trickystore_keybox_imported,
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getContext(), R.string.picked_trickystore_keybox_invalid,
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
     private void applyEmojiStyle(String style) {
         SystemProperties.set(PROP_EMOJI_STYLE, style);
         showRebootDialog(R.string.picked_emoji_reboot_title, R.string.picked_emoji_reboot_message);
@@ -285,6 +486,18 @@ public class PickedFeatures extends SettingsPreferenceFragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_PIF_CONFIG) {
+            if (resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
+                importPifConfig(data.getData());
+            }
+            return;
+        }
+        if (requestCode == REQUEST_KEYBOX) {
+            if (resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
+                importKeybox(data.getData());
+            }
+            return;
+        }
         if (requestCode != REQUEST_CUSTOM_EMOJI) {
             super.onActivityResult(requestCode, resultCode, data);
             return;
