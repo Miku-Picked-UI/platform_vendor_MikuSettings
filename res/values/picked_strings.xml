@@ -236,6 +236,8 @@
     <string name="picked_thanks_emoji_summary">The open emoji styles: Blobmoji by C1710 (Apache 2.0), OpenMoji by HfG Schwäbisch Gmünd (CC BY-SA 4.0), Twemoji by Twitter and contributors (CC BY 4.0)</string>
     <string name="picked_thanks_google_spoof_wear_title">73sydney</string>
     <string name="picked_thanks_google_spoof_wear_summary">GoogleSpoofForWear, the idea behind the Google spoof for wearables toggle</string>
+    <string name="picked_thanks_flopkernel_title">FlopKernel (Flopster101)</string>
+    <string name="picked_thanks_flopkernel_summary">The selectable Mali kernel drivers (r38p0 to r54p3) and their selector, the SBWC switch idea and FloppyCompanion\'s boot image patching, plus the Exynos Valhall GPU userspace drivers and their stable-C shim</string>
     <string name="picked_thanks_penguinos_title">PenguinOS (redducc, Saikiran)</string>
     <string name="picked_thanks_penguinos_summary">System-wide Liquid Glass (SurfaceFlinger\'s renderengine) and the glass Quick Settings, PIN pad and notifications, the volume panel styles (One UI, MyUI, ColorOS, expandable), backported to Android 16 with permission</string>
     <string name="picked_thanks_viperfx_re_title">ViPERFX_RE (Iscle / AndroidAudioMods)</string>
