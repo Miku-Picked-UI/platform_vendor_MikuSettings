@@ -300,4 +300,14 @@
         <item>r54p1</item>
         <item>r54p3</item>
     </string-array>
+    <string-array name="picked_perf_overlay_entries" translatable="false">
+        <item>@string/picked_perf_overlay_off</item>
+        <item>@string/picked_perf_overlay_fps</item>
+        <item>@string/picked_perf_overlay_full</item>
+    </string-array>
+    <string-array name="picked_perf_overlay_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

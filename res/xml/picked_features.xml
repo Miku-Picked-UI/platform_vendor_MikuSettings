@@ -394,6 +394,22 @@
     </PreferenceCategory>
 
     <!-- ===== Display ===== -->
+    <!-- ===== Games & performance ===== -->
+    <PreferenceCategory
+        android:key="picked_category_games"
+        android:title="@string/picked_category_games">
+
+        <!-- [crDroid / Evolution X / Lunaris] FPS and CPU/GPU info overlay
+             (Settings.System picked_perf_overlay, SystemUI PerfOverlayController) -->
+        <com.miku.settings.preferences.SystemSettingListPreference
+            android:key="picked_perf_overlay"
+            android:title="@string/picked_perf_overlay_title"
+            android:summary="%s"
+            android:entries="@array/picked_perf_overlay_entries"
+            android:entryValues="@array/picked_perf_overlay_values"
+            android:defaultValue="0" />
+    </PreferenceCategory>
+
     <!-- ===== GPU ===== -->
     <PreferenceCategory
         android:key="picked_category_gpu"

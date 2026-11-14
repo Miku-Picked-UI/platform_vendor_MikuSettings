@@ -193,6 +193,13 @@
     <string name="picked_gpu_driver_done_message">Restart to use it.</string>
     <string name="picked_gpu_driver_failed">Couldn\'t switch the GPU driver: %1$s</string>
 
+    <!-- Games & performance -->
+    <string name="picked_category_games">Games &amp; performance</string>
+    <string name="picked_perf_overlay_title">Performance overlay</string>
+    <string name="picked_perf_overlay_off">Off</string>
+    <string name="picked_perf_overlay_fps">FPS</string>
+    <string name="picked_perf_overlay_full">FPS, CPU, GPU and temperatures</string>
+
     <!-- Play Integrity (Evolution X / AxionOS) -->
     <string name="picked_category_integrity">Play Integrity</string>
     <string name="picked_pif_title">Play Integrity fix</string>
