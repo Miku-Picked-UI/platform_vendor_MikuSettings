@@ -440,4 +440,19 @@
     <string name="picked_sas_device_connected">Connected device (Bluetooth, wired or USB)</string>
     <string name="picked_sas_apps_title">Apps</string>
     <string name="picked_sas_apps_none">None chosen</string>
+    <!-- [Miku-Picked UI] Weather -->
+    <string name="picked_weather_title">Weather</string>
+    <string name="picked_weather_summary">Current weather on the custom lockscreen clocks</string>
+    <string name="picked_weather_enabled_title">Show weather</string>
+    <string name="picked_weather_enabled_summary">Temperature and conditions on lockscreen clock styles that have a weather spot</string>
+    <string name="picked_weather_city_title">City</string>
+    <string name="picked_weather_city_none">Not set</string>
+    <string name="picked_weather_city_hint">e.g. Budapest</string>
+    <string name="picked_weather_search">Search</string>
+    <string name="picked_weather_search_failed">Search failed. Check your internet connection</string>
+    <string name="picked_weather_no_results">No city found with that name</string>
+    <string name="picked_weather_unit_title">Unit</string>
+    <string name="picked_weather_celsius">Celsius (°C)</string>
+    <string name="picked_weather_fahrenheit">Fahrenheit (°F)</string>
+    <string name="picked_weather_footer">Weather data by Open-Meteo.com (CC BY 4.0), updated every 30 minutes while the lockscreen clock is shown. Only the chosen city\'s coordinates are sent; your location is never used.</string>
 </resources>

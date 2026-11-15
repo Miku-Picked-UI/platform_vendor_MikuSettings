@@ -41,6 +41,13 @@
             </intent>
         </Preference>
 
+        <!-- [Miku-Picked UI] Weather for the custom clocks (SystemUI WeatherRepository, Open-Meteo) -->
+        <Preference
+            android:key="picked_weather"
+            android:title="@string/picked_weather_title"
+            android:summary="@string/picked_weather_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedWeather" />
+
         <!-- [Evolution X] Custom lockscreen clocks -->
         <Preference
             android:key="picked_clock_styles"

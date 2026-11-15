@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Miku-Picked UI ; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/picked_weather_title">
+
+    <SwitchPreferenceCompat
+        android:key="picked_weather_enabled_pref"
+        android:title="@string/picked_weather_enabled_title"
+        android:summary="@string/picked_weather_enabled_summary"
+        android:persistent="false" />
+
+    <Preference
+        android:key="picked_weather_city_pref"
+        android:title="@string/picked_weather_city_title"
+        android:persistent="false" />
+
+    <ListPreference
+        android:key="picked_weather_unit_pref"
+        android:title="@string/picked_weather_unit_title"
+        android:summary="%s"
+        android:entries="@array/picked_weather_unit_entries"
+        android:entryValues="@array/picked_weather_unit_values"
+        android:persistent="false" />
+
+    <Preference
+        android:key="picked_weather_footer"
+        android:summary="@string/picked_weather_footer"
+        android:selectable="false"
+        android:persistent="false" />
+</PreferenceScreen>
