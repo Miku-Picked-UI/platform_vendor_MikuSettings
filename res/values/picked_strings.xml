@@ -109,9 +109,9 @@
     <string name="picked_thanks_uwu_title">uwuAOSP</string>
     <string name="picked_thanks_uwu_summary">Deep sleep time in uptime, auto brightness tile, full screen apps for display cutouts</string>
     <string name="picked_thanks_evolution_title">Evolution X</string>
-    <string name="picked_thanks_evolution_summary">Custom lockscreen clocks (with crDroid and risingOS), fingerprint icons, selectable emoji, sleep mode, QS tile toggle animations, custom carrier label, volume slider haptics switch</string>
+    <string name="picked_thanks_evolution_summary">Custom lockscreen clocks (with crDroid and risingOS), fingerprint icons, selectable emoji, sleep mode, QS tile toggle animations, custom carrier label, volume slider haptics switch, pocket mode (Carlo Savignano), performance overlay, Play Integrity and bootloader spoof, Game Space (by chaldeaprjkt)</string>
     <string name="picked_thanks_lunaris_title">Lunaris AOSP</string>
-    <string name="picked_thanks_lunaris_summary">Separate notifications and quick settings shade, landscape split shade switch, screenshot flash and status bar options</string>
+    <string name="picked_thanks_lunaris_summary">Separate notifications and quick settings shade, landscape split shade switch, screenshot flash and status bar options, Edge Aurora and lockscreen app widgets (Ghosuto), performance overlay</string>
     <string name="picked_thanks_oneuisland_title">OneUisland</string>
     <string name="picked_thanks_oneuisland_summary">The dynamic island, by Spottq, with additions by csabaikende-ctrl</string>
     <string name="picked_thanks_devices_category">Device trees</string>
