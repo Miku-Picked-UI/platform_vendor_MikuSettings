@@ -444,6 +444,25 @@
         android:key="picked_category_display"
         android:title="@string/picked_category_display">
 
+        <!-- [Lunaris AOSP] Lockscreen app widgets (Settings.Secure
+             lockscreen_app_widgets_enabled, SystemUI KeyguardAppWidgetSection) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="lockscreen_app_widgets_enabled"
+            android:title="@string/picked_ls_widgets_title"
+            android:summary="@string/picked_ls_widgets_summary"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="picked_ls_widgets_add"
+            android:title="@string/picked_ls_widgets_add_title"
+            android:summary="@string/picked_ls_widgets_add_summary"
+            android:dependency="lockscreen_app_widgets_enabled"
+            android:persistent="false">
+            <intent
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.lockscreen.KeyguardWidgetConfigActivity" />
+        </Preference>
+
         <!-- [Lunaris AOSP] Edge Aurora: notification glows on the screen edges -->
         <Preference
             android:key="picked_edge_aurora"
