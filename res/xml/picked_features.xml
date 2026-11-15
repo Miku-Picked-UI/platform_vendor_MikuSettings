@@ -346,6 +346,13 @@
         android:key="picked_category_charging"
         android:title="@string/picked_category_charging">
 
+        <!-- [Miku-Picked UI] Battery health page -->
+        <Preference
+            android:key="picked_battery_health"
+            android:title="@string/picked_bh_title"
+            android:summary="@string/picked_bh_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedBatteryHealth" />
+
         <!-- [Evolution X / AxionOS] Lockscreen charging info (Settings.System picked_lockscreen_charging_info) -->
         <com.miku.settings.preferences.SystemSettingSwitchPreference
             android:key="picked_lockscreen_charging_info"

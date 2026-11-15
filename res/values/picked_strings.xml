@@ -375,4 +375,31 @@
     <!-- [Miku-Picked UI] Reactive wallpaper -->
     <string name="picked_reactive_wallpaper_title">Reactive wallpaper</string>
     <string name="picked_reactive_wallpaper_summary">A live wallpaper that moves as you tilt the phone, follows the time of day and reacts to your battery</string>
+    <!-- [Miku-Picked UI] Battery health -->
+    <string name="picked_bh_title">Battery health</string>
+    <string name="picked_bh_summary">Cycle count, health, capacity, temperature and live charging power</string>
+    <string name="picked_bh_category_health">Health</string>
+    <string name="picked_bh_category_live">Live</string>
+    <string name="picked_bh_health_title">Health</string>
+    <string name="picked_bh_health_value">%1$d %% · %2$s</string>
+    <string name="picked_bh_cycles_title">Charge cycles</string>
+    <string name="picked_bh_capacity_title">Capacity</string>
+    <string name="picked_bh_capacity_value">%1$d mAh design · about %2$d mAh now</string>
+    <string name="picked_bh_technology_title">Technology</string>
+    <string name="picked_bh_manufactured_title">Manufactured</string>
+    <string name="picked_bh_first_use_title">First used</string>
+    <string name="picked_bh_level_title">Level</string>
+    <string name="picked_bh_power_title">Power</string>
+    <string name="picked_bh_power_charging">Charging at %1$.1f W (peak %2$.1f W)</string>
+    <string name="picked_bh_power_discharging">Using %1$.1f W</string>
+    <string name="picked_bh_current_title">Current</string>
+    <string name="picked_bh_voltage_title">Voltage</string>
+    <string name="picked_bh_temperature_title">Temperature (lowest – highest while open)</string>
+    <string name="picked_bh_good">Good</string>
+    <string name="picked_bh_overheat">Overheating</string>
+    <string name="picked_bh_cold">Too cold</string>
+    <string name="picked_bh_dead">Needs replacing</string>
+    <string name="picked_bh_over_voltage">Over voltage</string>
+    <string name="picked_bh_unknown">Not reported</string>
+    <string name="picked_bh_footer">Values come from the battery\'s fuel gauge. Health and capacity are estimates and can move a few percent between charges. While USB is connected, the current includes what the cable supplies.</string>
 </resources>
