@@ -408,4 +408,7 @@
     <!-- [Miku-Picked UI] LTE while the screen is off -->
     <string name="picked_screen_off_lte_title">Save power with the screen off</string>
     <string name="picked_screen_off_lte_summary">Switch from 5G to LTE 30 seconds after the screen turns off. 5G comes back as soon as you turn the screen on</string>
+    <!-- [Miku-Picked UI] Desktop mode on external displays -->
+    <string name="picked_external_desktop_title">Desktop mode on a monitor</string>
+    <string name="picked_external_desktop_summary">Connect a monitor or TV over USB-C to get a desktop with windows and a taskbar there, while the phone keeps working as usual. Needs a USB-C to HDMI/DisplayPort adapter. Experimental</string>
 </resources>
