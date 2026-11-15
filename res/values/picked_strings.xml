@@ -181,6 +181,10 @@
     <string name="picked_category_gpu">GPU</string>
 
     <!-- Games -->
+    <string name="picked_ls_widgets_title">Lockscreen widgets</string>
+    <string name="picked_ls_widgets_summary">Show app widgets on the lockscreen, under the clock. Long-press one on the lockscreen to resize, move or remove it</string>
+    <string name="picked_ls_widgets_add_title">Add a widget</string>
+    <string name="picked_ls_widgets_add_summary">Pick an app widget for the lockscreen</string>
     <string name="picked_pocket_mode_title">Pocket mode</string>
     <string name="picked_pocket_mode_summary">Uses the proximity sensor to keep the screen from waking up or taking touches in a pocket or bag. Hold the power button to dismiss it</string>
     <string name="picked_games_title">Game list</string>
