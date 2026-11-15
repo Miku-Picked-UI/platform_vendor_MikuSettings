@@ -166,6 +166,16 @@
             android:title="@string/picked_udfps_icon_title"
             android:summary="@string/picked_udfps_icon_summary"
             android:fragment="com.miku.exsettings.fragments.PickedUdfpsIcons" />
+
+        <!-- [Miku-Picked UI] Unlock animation (Settings.System picked_unlock_animation,
+             SystemUI picked/unlock/PickedUnlockEffect drawn by AuthRippleView) -->
+        <com.miku.settings.preferences.SystemSettingListPreference
+            android:key="picked_unlock_animation"
+            android:title="@string/picked_unlock_animation_title"
+            android:summary="%s"
+            android:entries="@array/picked_unlock_animation_entries"
+            android:entryValues="@array/picked_unlock_animation_values"
+            android:defaultValue="0" />
     </PreferenceCategory>
 
     <!-- ===== Status bar ===== -->

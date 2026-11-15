@@ -334,4 +334,18 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+    <string-array name="picked_unlock_animation_entries" translatable="false">
+        <item>@string/picked_unlock_animation_stock</item>
+        <item>@string/picked_unlock_animation_burst</item>
+        <item>@string/picked_unlock_animation_rings</item>
+        <item>@string/picked_unlock_animation_shockwave</item>
+        <item>@string/picked_unlock_animation_none</item>
+    </string-array>
+    <string-array name="picked_unlock_animation_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
 </resources>
