@@ -109,9 +109,9 @@
     <string name="picked_thanks_uwu_title">uwuAOSP</string>
     <string name="picked_thanks_uwu_summary">Deep sleep time in uptime, auto brightness tile, full screen apps for display cutouts</string>
     <string name="picked_thanks_evolution_title">Evolution X</string>
-    <string name="picked_thanks_evolution_summary">Custom lockscreen clocks (with crDroid and risingOS), fingerprint icons, selectable emoji, sleep mode, QS tile toggle animations, custom carrier label, volume slider haptics switch</string>
+    <string name="picked_thanks_evolution_summary">Custom lockscreen clocks (with crDroid and risingOS), fingerprint icons, selectable emoji, sleep mode, QS tile toggle animations, custom carrier label, volume slider haptics switch, pocket mode (Carlo Savignano), performance overlay, Play Integrity and bootloader spoof, Game Space (by chaldeaprjkt)</string>
     <string name="picked_thanks_lunaris_title">Lunaris AOSP</string>
-    <string name="picked_thanks_lunaris_summary">Separate notifications and quick settings shade, landscape split shade switch, screenshot flash and status bar options</string>
+    <string name="picked_thanks_lunaris_summary">Separate notifications and quick settings shade, landscape split shade switch, screenshot flash and status bar options, Edge Aurora and lockscreen app widgets (Ghosuto), performance overlay</string>
     <string name="picked_thanks_oneuisland_title">OneUisland</string>
     <string name="picked_thanks_oneuisland_summary">The dynamic island, by Spottq, with additions by csabaikende-ctrl</string>
     <string name="picked_thanks_devices_category">Device trees</string>
@@ -187,14 +187,8 @@
     <string name="picked_ls_widgets_add_summary">Pick an app widget for the lockscreen</string>
     <string name="picked_pocket_mode_title">Pocket mode</string>
     <string name="picked_pocket_mode_summary">Uses the proximity sensor to keep the screen from waking up or taking touches in a pocket or bag. Hold the power button to dismiss it</string>
-    <string name="picked_games_title">Game list</string>
-    <string name="picked_games_summary">{count, plural,
-        =0 {No apps get the game profile}
-        =1 {1 app gets the game profile: steadier clocks that keep the phone cooler}
-        other {# apps get the game profile: steadier clocks that keep the phone cooler}
-    }</string>
-    <string name="picked_games_summary_loading">Steadier clocks that keep the phone cooler while you play</string>
-    <string name="picked_games_saved">Saved. It applies the next time you open the game</string>
+    <string name="picked_games_title">Game Space</string>
+    <string name="picked_games_summary">In-game overlay bar and your game list; listed games also get steadier, cooler clocks</string>
     <string name="picked_gpu_driver_title">GPU driver</string>
     <string name="picked_gpu_driver_r38p0">Mali r38p0 (stock)</string>
     <string name="picked_gpu_driver_r38p1">Mali r38p1</string>
