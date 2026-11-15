@@ -339,6 +339,16 @@
             android:summary="@string/picked_lockscreen_charging_info_summary"
             android:defaultValue="true" />
 
+        <!-- [Miku-Picked UI] Lockscreen charging animation (Settings.System picked_charging_animation,
+             SystemUI picked/charging/ChargingAnimationController) -->
+        <com.miku.settings.preferences.SystemSettingListPreference
+            android:key="picked_charging_animation"
+            android:title="@string/picked_charging_animation_title"
+            android:summary="%s"
+            android:entries="@array/picked_charging_animation_entries"
+            android:entryValues="@array/picked_charging_animation_values"
+            android:defaultValue="1" />
+
         <!-- [Miku-Picked UI] LineageOS IWirelessFastCharge HAL -->
         <SwitchPreferenceCompat
             android:key="picked_wireless_fast_charge"

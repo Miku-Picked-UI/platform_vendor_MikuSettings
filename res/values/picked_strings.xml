@@ -362,4 +362,10 @@
     <string name="picked_depth_err_not_found">The cut-out does not match the photo. Use a cut-out made from this exact photo</string>
     <string name="picked_depth_err_decode">These images could not be read. The cut-out must be a PNG with transparency</string>
     <string name="picked_depth_err_save">The wallpaper could not be saved</string>
+    <!-- [Miku-Picked UI] Charging animation -->
+    <string name="picked_charging_animation_title">Charging animation</string>
+    <string name="picked_charging_animation_off">Off</string>
+    <string name="picked_charging_animation_liquid">Liquid</string>
+    <string name="picked_charging_animation_ring">Ring</string>
+    <string name="picked_charging_animation_wave">Wave</string>
 </resources>

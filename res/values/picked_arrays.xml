@@ -331,4 +331,16 @@
         <item>60</item>
         <item>90</item>
     </string-array>
+    <string-array name="picked_charging_animation_entries" translatable="false">
+        <item>@string/picked_charging_animation_off</item>
+        <item>@string/picked_charging_animation_liquid</item>
+        <item>@string/picked_charging_animation_ring</item>
+        <item>@string/picked_charging_animation_wave</item>
+    </string-array>
+    <string-array name="picked_charging_animation_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>
