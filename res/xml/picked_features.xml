@@ -416,12 +416,15 @@
             android:entryValues="@array/picked_perf_overlay_values"
             android:defaultValue="0" />
 
-        <!-- [Miku-Picked UI] Game list: the apps GameManager treats as games, so the power
-             HAL's game profile (sustained clocks) applies to them -->
+        <!-- [Game Space] Opens the Game Space app: the in-game overlay bar and the single
+             game list (Settings.System gamespace_game_list, shared with the power profile) -->
         <Preference
             android:key="picked_games"
             android:title="@string/picked_games_title"
-            android:persistent="false" />
+            android:summary="@string/picked_games_summary">
+            <intent android:targetPackage="io.chaldeaprjkt.gamespace"
+                    android:targetClass="io.chaldeaprjkt.gamespace.settings.SettingsActivity" />
+        </Preference>
     </PreferenceCategory>
 
     <!-- ===== GPU ===== -->

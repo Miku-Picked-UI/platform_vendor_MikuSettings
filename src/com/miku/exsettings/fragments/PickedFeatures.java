@@ -33,7 +33,6 @@ import androidx.preference.Preference;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settingslib.utils.StringUtil;
 import com.miku.exsettings.preferences.CustomSeekBarPreference;
 import com.miku.exsettings.utils.PickedCharging;
 
@@ -146,8 +145,6 @@ public class PickedFeatures extends SettingsPreferenceFragment {
         // [Evolution X / AxionOS] Play Integrity: Pixel fingerprint, keybox, bootloader spoof.
         setupIntegrity();
 
-        // [Miku-Picked UI] Games: which apps get GameManager's game mode / the GAME profile.
-        setupGames();
 
         // The fingerprint icon is only drawn for under-display fingerprint sensors.
         final Preference udfpsIcon = findPreference(KEY_UDFPS_ICON);
@@ -271,31 +268,6 @@ public class PickedFeatures extends SettingsPreferenceFragment {
     // The raw keybox holds private keys and can't be read back (SettingsProvider blocks it),
     // so the key count is kept here for the summary.
     private static final String SECURE_KEYBOX_COUNT = "spoof_trickystore_keybox_count";
-
-    private void setupGames() {
-        final Preference pref = findPreference("picked_games");
-        if (pref == null) return;
-        pref.setSummary(R.string.picked_games_summary_loading);
-        updateGamesSummary(pref);
-        pref.setOnPreferenceClickListener(p -> {
-            PickedGames.show(getContext(), () -> {
-                updateGamesSummary(pref);
-                Toast.makeText(getContext(), R.string.picked_games_saved,
-                        Toast.LENGTH_SHORT).show();
-            });
-            return true;
-        });
-    }
-
-    private void updateGamesSummary(Preference pref) {
-        PickedGames.count(getContext(), count -> {
-            if (isAdded()) {
-                pref.setSummary(StringUtil.getIcuPluralsString(getContext(), count,
-                        R.string.picked_games_summary));
-            }
-            return kotlin.Unit.INSTANCE;
-        });
-    }
 
     private void setupIntegrity() {
         final Preference fingerprint = findPreference("picked_pif_fingerprint");
