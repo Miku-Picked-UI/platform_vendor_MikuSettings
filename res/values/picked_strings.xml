@@ -221,6 +221,10 @@
     <string name="picked_pif_fingerprint_custom">Imported config</string>
     <string name="picked_pif_update">Fetch latest</string>
     <string name="picked_pif_import">Import pif.json</string>
+    <string name="picked_pif_profile">Choose device profile</string>
+    <string name="picked_pif_profile_title">Spoofed device</string>
+    <string name="picked_pif_profile_auto">Automatic (recommended)</string>
+    <string name="picked_pif_profile_applying">Using %1$s. Fetching its fingerprint, Google Play services restarts when it\'s done</string>
     <string name="picked_pif_updating">Fetching a new fingerprint, Google Play services restarts when it\'s done</string>
     <string name="picked_pif_imported">Fingerprint imported</string>
     <string name="picked_pif_import_failed">That file isn\'t a PIF config with a FINGERPRINT</string>

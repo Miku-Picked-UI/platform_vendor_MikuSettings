@@ -263,6 +263,7 @@ public class PickedFeatures extends SettingsPreferenceFragment {
     // Settings.System (spoof_pif_enabled, spoof_trickystore_enabled), which
     // PickedSpoofManager watches. These wire the fingerprint and keybox rows.
     private static final String SECURE_PIF_CONFIG = "spoof_pif_config";
+    private static final String SECURE_PIF_PROFILE = "spoof_pif_profile";
     private static final String SECURE_PIF_REFRESH = "spoof_pif_refresh_request";
     private static final String SECURE_KEYBOX = "spoof_trickystore_keybox";
     // The raw keybox holds private keys and can't be read back (SettingsProvider blocks it),
@@ -278,12 +279,15 @@ public class PickedFeatures extends SettingsPreferenceFragment {
                         .setTitle(R.string.picked_pif_fingerprint_title)
                         .setItems(new CharSequence[] {
                                 getString(R.string.picked_pif_update),
+                                getString(R.string.picked_pif_profile),
                                 getString(R.string.picked_pif_import)}, (d, which) -> {
                             if (which == 0) {
                                 Settings.Secure.putString(getContentResolver(), SECURE_PIF_REFRESH,
                                         Long.toString(System.currentTimeMillis()));
                                 Toast.makeText(getContext(), R.string.picked_pif_updating,
                                         Toast.LENGTH_LONG).show();
+                            } else if (which == 1) {
+                                showPifProfilePicker(fingerprint);
                             } else {
                                 pickDocument(REQUEST_PIF_CONFIG);
                             }
@@ -403,6 +407,55 @@ public class PickedFeatures extends SettingsPreferenceFragment {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    // [Integrity-Box-style] Let the user pick which Pixel device the fingerprint comes from.
+    // The codenames come from the framework's PixelDeviceRepository; PickedSpoofManager fetches
+    // the matching fingerprint on the next refresh (spoof_pif_profile).
+    private void showPifProfilePicker(Preference fingerprint) {
+        final java.util.List<String> codenames =
+                com.android.internal.util.picked.PixelDeviceRepository.PICKER_ORDER;
+        final java.util.Map<String, String> models =
+                com.android.internal.util.picked.PixelDeviceRepository.DEVICE_MODEL_MAP;
+        final java.util.List<String> entryCodes = new ArrayList<>();
+        final java.util.List<CharSequence> labels = new ArrayList<>();
+        // First row: automatic (clears the chosen profile).
+        entryCodes.add("");
+        labels.add(getString(R.string.picked_pif_profile_auto));
+        for (String code : codenames) {
+            final String model = models.get(code);
+            if (model != null) {
+                entryCodes.add(code);
+                labels.add(model);
+            }
+        }
+        final String current = Settings.Secure.getString(getContentResolver(), SECURE_PIF_PROFILE);
+        int checked = 0;
+        for (int i = 0; i < entryCodes.size(); i++) {
+            if (entryCodes.get(i).equals(current == null ? "" : current)) {
+                checked = i;
+                break;
+            }
+        }
+        new AlertDialog.Builder(getContext())
+                .setTitle(R.string.picked_pif_profile_title)
+                .setSingleChoiceItems(labels.toArray(new CharSequence[0]), checked, (d, which) -> {
+                    final String code = entryCodes.get(which);
+                    // Clear any imported config so the chosen profile is fetched and applied.
+                    Settings.Secure.putString(getContentResolver(), SECURE_PIF_CONFIG, "");
+                    Settings.Secure.putString(getContentResolver(), SECURE_PIF_PROFILE, code);
+                    Settings.Secure.putString(getContentResolver(), SECURE_PIF_REFRESH,
+                            Long.toString(System.currentTimeMillis()));
+                    d.dismiss();
+                    Toast.makeText(getContext(),
+                            getString(R.string.picked_pif_profile_applying,
+                                    code.isEmpty() ? getString(R.string.picked_pif_profile_auto)
+                                            : models.get(code)),
+                            Toast.LENGTH_LONG).show();
+                    updatePifFingerprintSummary(fingerprint);
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     private void importPifConfig(android.net.Uri uri) {
