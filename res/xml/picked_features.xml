@@ -403,7 +403,35 @@
     </PreferenceCategory>
 
     <!-- ===== Display ===== -->
+    <!-- ===== Games & performance ===== -->
+    <PreferenceCategory
+        android:key="picked_category_games"
+        android:title="@string/picked_category_games">
+
+        <!-- [crDroid / Evolution X / Lunaris] FPS and CPU/GPU info overlay
+             (Settings.System picked_perf_overlay, SystemUI PerfOverlayController) -->
+        <com.miku.settings.preferences.SystemSettingListPreference
+            android:key="picked_perf_overlay"
+            android:title="@string/picked_perf_overlay_title"
+            android:summary="%s"
+            android:entries="@array/picked_perf_overlay_entries"
+            android:entryValues="@array/picked_perf_overlay_values"
+            android:defaultValue="0" />
+    </PreferenceCategory>
+
     <!-- ===== GPU ===== -->
+    <!-- [Miku-Picked UI] Games: the apps GameManager treats as games, so the power HAL's
+         game profile (sustained clocks) applies to them -->
+    <PreferenceCategory
+        android:key="picked_category_games"
+        android:title="@string/picked_category_games">
+
+        <Preference
+            android:key="picked_games"
+            android:title="@string/picked_games_title"
+            android:persistent="false" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="picked_category_gpu"
         android:title="@string/picked_category_gpu">
@@ -421,6 +449,13 @@
     <PreferenceCategory
         android:key="picked_category_display"
         android:title="@string/picked_category_display">
+
+        <!-- [Lunaris AOSP] Edge Aurora: notification glows on the screen edges -->
+        <Preference
+            android:key="picked_edge_aurora"
+            android:title="@string/edge_aurora_title"
+            android:summary="@string/edge_aurora_summary"
+            android:fragment="com.miku.exsettings.fragments.edgeaurora.EdgeAuroraSettings" />
 
         <!-- [uwuAOSP] Cutout force full screen -->
         <Preference
