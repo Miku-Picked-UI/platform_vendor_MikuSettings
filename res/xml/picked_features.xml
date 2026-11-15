@@ -473,6 +473,14 @@
             android:summary="@string/edge_aurora_summary"
             android:fragment="com.miku.exsettings.fragments.edgeaurora.EdgeAuroraSettings" />
 
+        <!-- [Miku-Picked UI] Per-app refresh rate (Settings.System picked_app_refresh_rate,
+             SystemUI PickedRefreshRateController) -->
+        <Preference
+            android:key="picked_refresh_rate"
+            android:title="@string/picked_refresh_rate_title"
+            android:summary="@string/picked_refresh_rate_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedRefreshRate" />
+
         <!-- [uwuAOSP] Cutout force full screen -->
         <Preference
             android:key="picked_cutout_apps"
