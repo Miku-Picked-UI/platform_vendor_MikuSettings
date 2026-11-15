@@ -325,4 +325,25 @@
     <string name="picked_powershare_summary">Charge earbuds, a watch or another phone by placing it on the back of this one. Also a Quick Settings tile</string>
     <string name="picked_powershare_min_battery_title">Stop sharing at</string>
     <string name="picked_powershare_min_battery_summary">Wireless PowerShare turns off when the battery drops to this level</string>
+    <!-- [Miku-Picked UI] Boot animation picker -->
+    <string name="picked_bootanim_title">Boot animation</string>
+    <string name="picked_bootanim_summary">Pick a bundled animation or import your own zip, GIF or video</string>
+    <string name="picked_bootanim_style_title">Animation</string>
+    <string name="picked_bootanim_default">Miku (default)</string>
+    <string name="picked_bootanim_pulse">Pulse</string>
+    <string name="picked_bootanim_orbit">Orbit</string>
+    <string name="picked_bootanim_glitch">Glitch</string>
+    <string name="picked_bootanim_custom">Imported</string>
+    <string name="picked_bootanim_preview_title">Preview</string>
+    <string name="picked_bootanim_preview_summary">Play the selected animation</string>
+    <string name="picked_bootanim_preview_failed">This animation cannot be previewed</string>
+    <string name="picked_bootanim_loading">Loading…</string>
+    <string name="picked_bootanim_import_title">Import your own</string>
+    <string name="picked_bootanim_import_summary">A bootanimation.zip, a GIF or a video (the first 10 seconds are used, sized to your screen)</string>
+    <string name="picked_bootanim_importing">Importing… videos can take a minute</string>
+    <string name="picked_bootanim_import_done">Boot animation imported. You will see it on the next boot</string>
+    <string name="picked_bootanim_import_failed">That file could not be used as a boot animation</string>
+    <string name="picked_bootanim_remove_title">Remove imported animation</string>
+    <string name="picked_bootanim_clock_title">Show clock</string>
+    <string name="picked_bootanim_clock_summary">Show the time during the boot animation (bundled and imported GIF/video animations)</string>
 </resources>
