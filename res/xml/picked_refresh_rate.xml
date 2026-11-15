@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Miku-Picked UI ; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/picked_refresh_rate_title">
+
+    <com.miku.settings.preferences.SystemSettingListPreference
+        android:key="picked_default_refresh_rate"
+        android:title="@string/picked_rr_global_title"
+        android:summary="%s"
+        android:entries="@array/picked_rr_global_entries"
+        android:entryValues="@array/picked_rr_global_values"
+        android:defaultValue="0" />
+
+    <Preference
+        android:key="picked_rr_add"
+        android:title="@string/picked_rr_add"
+        android:summary="@string/picked_rr_add_summary"
+        android:persistent="false" />
+
+    <PreferenceCategory
+        android:key="picked_rr_apps"
+        android:title="@string/picked_rr_apps_title" />
+
+</PreferenceScreen>

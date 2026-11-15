@@ -187,6 +187,15 @@
     <string name="picked_ls_widgets_add_summary">Pick an app widget for the lockscreen</string>
     <string name="picked_pocket_mode_title">Pocket mode</string>
     <string name="picked_pocket_mode_summary">Uses the proximity sensor to keep the screen from waking up or taking touches in a pocket or bag. Hold the power button to dismiss it</string>
+    <!-- Per-app refresh rate -->
+    <string name="picked_refresh_rate_title">Per-app refresh rate</string>
+    <string name="picked_refresh_rate_summary">Hold chosen apps at a lower refresh rate to save battery</string>
+    <string name="picked_rr_global_title">Limit all apps</string>
+    <string name="picked_rr_add">Add an app</string>
+    <string name="picked_rr_add_summary">Pick an app and the refresh rate it may use</string>
+    <string name="picked_rr_apps_title">Per-app limits</string>
+    <string name="picked_rr_hz">%1$d Hz</string>
+    <string name="picked_rr_remove">Remove</string>
     <string name="picked_games_title">Game Space</string>
     <string name="picked_games_summary">In-game overlay bar and your game list; listed games also get steadier, cooler clocks</string>
     <string name="picked_gpu_driver_title">GPU driver</string>
