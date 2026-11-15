@@ -177,6 +177,22 @@
             android:selectable="false" />
 
         <Preference
+            android:key="thanks_openmeteo"
+            android:title="@string/picked_thanks_openmeteo_title"
+            android:summary="@string/picked_thanks_openmeteo_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://open-meteo.com" />
+        </Preference>
+
+        <Preference
+            android:key="thanks_hosts_lists"
+            android:title="@string/picked_thanks_hosts_lists_title"
+            android:summary="@string/picked_thanks_hosts_lists_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/StevenBlack/hosts" />
+        </Preference>
+
+        <Preference
             android:key="thanks_claude"
             android:title="@string/picked_thanks_claude_title"
             android:summary="@string/picked_thanks_claude_summary">

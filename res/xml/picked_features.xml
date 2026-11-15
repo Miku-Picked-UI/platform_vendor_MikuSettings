@@ -446,6 +446,13 @@
             android:summary="@string/picked_tether_lte_summary"
             android:defaultValue="true" />
 
+        <!-- [Miku-Picked UI] Ad blocker (hosts file bind-mounted over /system/etc/hosts) -->
+        <Preference
+            android:key="picked_adblock"
+            android:title="@string/picked_adblock_title"
+            android:summary="@string/picked_adblock_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedAdblock" />
+
         <!-- [Miku-Picked UI] Per-app network firewall (system_server PickedFirewall) -->
         <Preference
             android:key="picked_firewall"

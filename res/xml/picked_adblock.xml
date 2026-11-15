@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Miku-Picked UI ; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/picked_adblock_title">
+
+    <!-- persist.sys.picked.adblock: init bind-mounts the hosts file over /system/etc/hosts -->
+    <SwitchPreferenceCompat
+        android:key="picked_adblock_enabled"
+        android:title="@string/picked_adblock_enabled_title"
+        android:summary="@string/picked_adblock_enabled_summary"
+        android:persistent="false" />
+
+    <Preference
+        android:key="picked_adblock_update"
+        android:title="@string/picked_adblock_update_title"
+        android:persistent="false" />
+
+    <PreferenceCategory
+        android:key="picked_adblock_sources"
+        android:title="@string/picked_adblock_sources_title" />
+
+    <PreferenceCategory android:title="@string/picked_adblock_custom_title">
+        <Preference
+            android:key="picked_adblock_blocklist"
+            android:title="@string/picked_adblock_blocklist_title"
+            android:summary="@string/picked_adblock_blocklist_summary"
+            android:persistent="false" />
+        <Preference
+            android:key="picked_adblock_allowlist"
+            android:title="@string/picked_adblock_allowlist_title"
+            android:summary="@string/picked_adblock_allowlist_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <Preference
+        android:key="picked_adblock_footer"
+        android:summary="@string/picked_adblock_footer"
+        android:selectable="false"
+        android:persistent="false" />
+</PreferenceScreen>
