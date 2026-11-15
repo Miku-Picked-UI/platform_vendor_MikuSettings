@@ -368,4 +368,11 @@
     <string name="picked_charging_animation_liquid">Liquid</string>
     <string name="picked_charging_animation_ring">Ring</string>
     <string name="picked_charging_animation_wave">Wave</string>
+    <!-- [Miku-Picked UI] Unlock animation -->
+    <string name="picked_unlock_animation_title">Unlock animation</string>
+    <string name="picked_unlock_animation_stock">Ripple (stock)</string>
+    <string name="picked_unlock_animation_burst">Burst</string>
+    <string name="picked_unlock_animation_rings">Rings</string>
+    <string name="picked_unlock_animation_shockwave">Shockwave</string>
+    <string name="picked_unlock_animation_none">None</string>
 </resources>
