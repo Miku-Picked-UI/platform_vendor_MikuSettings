@@ -23,7 +23,7 @@ import com.miku.exsettings.fragments.edgeaurora.AuroraApps
  */
 class PickedRefreshRate : SettingsPreferenceFragment() {
 
-    private val rates = intArrayOf(60, 90, 120)
+    private val rates = intArrayOf(48, 60, 90, 120)
     private var apps = emptyList<AuroraApp>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
