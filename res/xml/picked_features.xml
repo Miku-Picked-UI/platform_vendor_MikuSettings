@@ -394,6 +394,13 @@
             android:summary="@string/picked_tether_lte_summary"
             android:defaultValue="true" />
 
+        <!-- [Evolution X] Pocket mode (Settings.System pocket_judge, frameworks PocketService) -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="pocket_judge"
+            android:title="@string/picked_pocket_mode_title"
+            android:summary="@string/picked_pocket_mode_summary"
+            android:defaultValue="false" />
+
         <!-- [Evolution X] Sleep mode -->
         <Preference
             android:key="picked_sleep_mode"
@@ -417,20 +424,16 @@
             android:entries="@array/picked_perf_overlay_entries"
             android:entryValues="@array/picked_perf_overlay_values"
             android:defaultValue="0" />
-    </PreferenceCategory>
 
-    <!-- ===== GPU ===== -->
-    <!-- [Miku-Picked UI] Games: the apps GameManager treats as games, so the power HAL's
-         game profile (sustained clocks) applies to them -->
-    <PreferenceCategory
-        android:key="picked_category_games"
-        android:title="@string/picked_category_games">
-
+        <!-- [Miku-Picked UI] Game list: the apps GameManager treats as games, so the power
+             HAL's game profile (sustained clocks) applies to them -->
         <Preference
             android:key="picked_games"
             android:title="@string/picked_games_title"
             android:persistent="false" />
     </PreferenceCategory>
+
+    <!-- ===== GPU ===== -->
 
     <PreferenceCategory
         android:key="picked_category_gpu"
