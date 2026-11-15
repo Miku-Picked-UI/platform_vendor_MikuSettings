@@ -21,6 +21,13 @@
             android:summary="@string/picked_bootanim_summary"
             android:fragment="com.miku.exsettings.fragments.PickedBootAnimation" />
 
+        <!-- [Miku-Picked UI] Depth wallpaper (SystemUI DepthWallpaperSection) -->
+        <Preference
+            android:key="picked_depth_wallpaper"
+            android:title="@string/picked_depth_title"
+            android:summary="@string/picked_depth_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedDepthWallpaper" />
+
         <!-- [Evolution X] Custom lockscreen clocks -->
         <Preference
             android:key="picked_clock_styles"

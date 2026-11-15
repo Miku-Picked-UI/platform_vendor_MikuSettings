@@ -346,4 +346,20 @@
     <string name="picked_bootanim_remove_title">Remove imported animation</string>
     <string name="picked_bootanim_clock_title">Show clock</string>
     <string name="picked_bootanim_clock_summary">Show the time during the boot animation (bundled and imported GIF/video animations)</string>
+    <!-- [Miku-Picked UI] Depth wallpaper -->
+    <string name="picked_depth_title">Depth wallpaper</string>
+    <string name="picked_depth_summary">The subject of your lockscreen photo stands in front of the clock</string>
+    <string name="picked_depth_enabled_title">Depth effect</string>
+    <string name="picked_depth_enabled_summary">Draw the subject over the clock. Set up a photo below first</string>
+    <string name="picked_depth_pick_title">Choose photo and subject</string>
+    <string name="picked_depth_pick_summary">Becomes your lockscreen wallpaper</string>
+    <string name="picked_depth_how">You need two images: the photo, and a cut-out of its subject as a transparent PNG. Most galleries make one: long-press the person or object in the photo and save or share the cut-out. Pick the photo first.</string>
+    <string name="picked_depth_choose_photo">Choose photo</string>
+    <string name="picked_depth_now_subject">Now pick the cut-out (transparent PNG) of the same photo. It is lined up with the photo automatically.</string>
+    <string name="picked_depth_choose_subject">Choose cut-out</string>
+    <string name="picked_depth_working">Lining up the subject…</string>
+    <string name="picked_depth_done">Depth wallpaper set. Lock your phone to see it</string>
+    <string name="picked_depth_err_not_found">The cut-out does not match the photo. Use a cut-out made from this exact photo</string>
+    <string name="picked_depth_err_decode">These images could not be read. The cut-out must be a PNG with transparency</string>
+    <string name="picked_depth_err_save">The wallpaper could not be saved</string>
 </resources>
