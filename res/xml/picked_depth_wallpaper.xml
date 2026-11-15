@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Miku-Picked UI ; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/picked_depth_title">
+
+    <!-- Settings.Secure picked_depth_wallpaper_enabled (SystemUI DepthWallpaperSection) -->
+    <SwitchPreferenceCompat
+        android:key="picked_depth_enabled"
+        android:title="@string/picked_depth_enabled_title"
+        android:summary="@string/picked_depth_enabled_summary"
+        android:persistent="false" />
+
+    <Preference
+        android:key="picked_depth_pick"
+        android:title="@string/picked_depth_pick_title"
+        android:summary="@string/picked_depth_pick_summary"
+        android:persistent="false" />
+
+</PreferenceScreen>
