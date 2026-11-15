@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Miku-Picked UI ; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/picked_fw_title">
+
+    <Preference
+        android:key="picked_fw_add"
+        android:title="@string/picked_fw_add"
+        android:summary="@string/picked_fw_add_summary"
+        android:persistent="false" />
+
+    <PreferenceCategory
+        android:key="picked_fw_apps"
+        android:title="@string/picked_fw_apps_title" />
+
+</PreferenceScreen>

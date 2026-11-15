@@ -411,4 +411,13 @@
     <!-- [Miku-Picked UI] Desktop mode on external displays -->
     <string name="picked_external_desktop_title">Desktop mode on a monitor</string>
     <string name="picked_external_desktop_summary">Connect a monitor or TV over USB-C to get a desktop with windows and a taskbar there, while the phone keeps working as usual. Needs a USB-C to HDMI/DisplayPort adapter. Experimental</string>
+    <!-- [Miku-Picked UI] Network firewall -->
+    <string name="picked_fw_title">Network firewall</string>
+    <string name="picked_fw_summary">Block mobile data or all internet access for individual apps</string>
+    <string name="picked_fw_add">Restrict an app</string>
+    <string name="picked_fw_add_summary">Pick an app and what it may use</string>
+    <string name="picked_fw_apps_title">Restricted apps</string>
+    <string name="picked_fw_allowed">Allowed</string>
+    <string name="picked_fw_no_mobile">No mobile data (Wi-Fi only)</string>
+    <string name="picked_fw_no_internet">No internet</string>
 </resources>

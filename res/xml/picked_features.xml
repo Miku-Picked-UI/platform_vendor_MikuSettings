@@ -448,6 +448,13 @@
             android:summary="@string/picked_tether_lte_summary"
             android:defaultValue="true" />
 
+        <!-- [Miku-Picked UI] Per-app network firewall (system_server PickedFirewall) -->
+        <Preference
+            android:key="picked_firewall"
+            android:title="@string/picked_fw_title"
+            android:summary="@string/picked_fw_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedFirewall" />
+
         <!-- [Miku-Picked UI] LTE only while the screen is off (Settings.Secure picked_screen_off_lte,
              SystemUI TetherLteController) -->
         <com.miku.settings.preferences.SecureSettingSwitchPreference
