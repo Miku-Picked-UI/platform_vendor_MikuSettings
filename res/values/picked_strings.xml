@@ -420,4 +420,21 @@
     <!-- [Miku-Picked UI] Clipboard history -->
     <string name="picked_clipboard_history_title">Clipboard history</string>
     <string name="picked_clipboard_history_summary">Keep your last 20 copied texts, with any keyboard. Open them with the Clipboard Quick Settings tile. Passwords marked sensitive are never saved</string>
+    <!-- [Miku-Picked UI] Per-app audio -->
+    <string name="picked_app_audio_title">Per-app audio</string>
+    <string name="picked_app_audio_summary">Separate volume for each app, and play chosen apps on another speaker or headphones</string>
+    <string name="picked_av_category">App volume</string>
+    <string name="picked_av_add">Set an app\'s volume</string>
+    <string name="picked_av_add_summary">Make one app quieter than the rest, on top of the normal volume</string>
+    <string name="picked_av_apps_title">Apps with their own volume</string>
+    <string name="picked_av_percent">%1$d %%</string>
+    <string name="picked_av_reset">Reset</string>
+    <string name="picked_sas_category">Separate app sound</string>
+    <string name="picked_sas_enabled_title">Separate app sound</string>
+    <string name="picked_sas_enabled_summary">Play the chosen apps on another audio device than everything else, e.g. music on Bluetooth while games stay on the phone speaker</string>
+    <string name="picked_sas_device_title">Play these apps on</string>
+    <string name="picked_sas_device_speaker">Phone speaker</string>
+    <string name="picked_sas_device_connected">Connected device (Bluetooth, wired or USB)</string>
+    <string name="picked_sas_apps_title">Apps</string>
+    <string name="picked_sas_apps_none">None chosen</string>
 </resources>

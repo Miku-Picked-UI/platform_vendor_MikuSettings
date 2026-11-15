@@ -563,6 +563,13 @@
         android:key="picked_category_sound"
         android:title="@string/picked_category_sound">
 
+        <!-- [Miku-Picked UI] Per-app volume and separate app sound (system_server PickedAppAudio) -->
+        <Preference
+            android:key="picked_app_audio"
+            android:title="@string/picked_app_audio_title"
+            android:summary="@string/picked_app_audio_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedAppAudio" />
+
         <!-- [Evolution X] Volume dialog haptics -->
         <com.miku.settings.preferences.SecureSettingSwitchPreference
             android:key="volume_dialog_haptic_feedback"

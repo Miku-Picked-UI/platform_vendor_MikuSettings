@@ -348,4 +348,12 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+    <string-array name="picked_sas_device_entries" translatable="false">
+        <item>@string/picked_sas_device_speaker</item>
+        <item>@string/picked_sas_device_connected</item>
+    </string-array>
+    <string-array name="picked_sas_device_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 </resources>

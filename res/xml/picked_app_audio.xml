@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Miku-Picked UI ; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/picked_app_audio_title">
+
+    <PreferenceCategory android:title="@string/picked_av_category">
+        <Preference
+            android:key="picked_av_add"
+            android:title="@string/picked_av_add"
+            android:summary="@string/picked_av_add_summary"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="picked_av_apps"
+        android:title="@string/picked_av_apps_title" />
+
+    <PreferenceCategory android:title="@string/picked_sas_category">
+        <SwitchPreferenceCompat
+            android:key="picked_sas_enabled"
+            android:title="@string/picked_sas_enabled_title"
+            android:summary="@string/picked_sas_enabled_summary"
+            android:persistent="false" />
+
+        <ListPreference
+            android:key="picked_sas_device"
+            android:title="@string/picked_sas_device_title"
+            android:summary="%s"
+            android:entries="@array/picked_sas_device_entries"
+            android:entryValues="@array/picked_sas_device_values"
+            android:dependency="picked_sas_enabled"
+            android:persistent="false" />
+
+        <Preference
+            android:key="picked_sas_apps"
+            android:title="@string/picked_sas_apps_title"
+            android:dependency="picked_sas_enabled"
+            android:persistent="false" />
+    </PreferenceCategory>
+</PreferenceScreen>
