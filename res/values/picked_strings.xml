@@ -375,4 +375,7 @@
     <string name="picked_unlock_animation_rings">Rings</string>
     <string name="picked_unlock_animation_shockwave">Shockwave</string>
     <string name="picked_unlock_animation_none">None</string>
+    <!-- [Miku-Picked UI] Reactive wallpaper -->
+    <string name="picked_reactive_wallpaper_title">Reactive wallpaper</string>
+    <string name="picked_reactive_wallpaper_summary">A live wallpaper that moves as you tilt the phone, follows the time of day and reacts to your battery</string>
 </resources>

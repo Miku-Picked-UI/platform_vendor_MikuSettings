@@ -28,6 +28,19 @@
             android:summary="@string/picked_depth_summary"
             android:fragment="com.miku.exsettings.fragments.PickedDepthWallpaper" />
 
+        <!-- [Miku-Picked UI] Reactive live wallpaper (vendor/miku/picked/reactive_wallpaper) -->
+        <Preference
+            android:key="picked_reactive_wallpaper"
+            android:title="@string/picked_reactive_wallpaper_title"
+            android:summary="@string/picked_reactive_wallpaper_summary">
+            <intent
+                android:action="android.service.wallpaper.CHANGE_LIVE_WALLPAPER">
+                <extra
+                    android:name="android.service.wallpaper.extra.LIVE_WALLPAPER_COMPONENT"
+                    android:value="com.mikupicked.reactivewallpaper/.ReactiveWallpaperService" />
+            </intent>
+        </Preference>
+
         <!-- [Evolution X] Custom lockscreen clocks -->
         <Preference
             android:key="picked_clock_styles"
