@@ -420,4 +420,7 @@
     <string name="picked_fw_allowed">Allowed</string>
     <string name="picked_fw_no_mobile">No mobile data (Wi-Fi only)</string>
     <string name="picked_fw_no_internet">No internet</string>
+    <!-- [Miku-Picked UI] Clipboard history -->
+    <string name="picked_clipboard_history_title">Clipboard history</string>
+    <string name="picked_clipboard_history_summary">Keep your last 20 copied texts, with any keyboard. Open them with the Clipboard Quick Settings tile. Passwords marked sensitive are never saved</string>
 </resources>
