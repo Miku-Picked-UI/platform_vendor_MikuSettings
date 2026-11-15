@@ -583,6 +583,14 @@
         android:key="picked_category_screenshot"
         android:title="@string/picked_category_screenshot">
 
+        <!-- [Miku-Picked UI] Clipboard history (Settings.Secure picked_clipboard_history, SystemUI
+             ClipboardHistory + Clipboard Quick Settings tile) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_clipboard_history"
+            android:title="@string/picked_clipboard_history_title"
+            android:summary="@string/picked_clipboard_history_summary"
+            android:defaultValue="true" />
+
         <!-- [Lunaris AOSP] Screenshot flash -->
         <com.miku.settings.preferences.GlobalSettingSwitchPreference
             android:key="screenshot_flash_enabled"
