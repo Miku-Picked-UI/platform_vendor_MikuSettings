@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Miku-Picked UI ; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/picked_bh_title">
+
+    <PreferenceCategory android:title="@string/picked_bh_category_health">
+        <Preference
+            android:key="picked_bh_health"
+            android:title="@string/picked_bh_health_title"
+            android:selectable="false"
+            android:persistent="false" />
+        <Preference
+            android:key="picked_bh_cycles"
+            android:title="@string/picked_bh_cycles_title"
+            android:selectable="false"
+            android:persistent="false" />
+        <Preference
+            android:key="picked_bh_capacity"
+            android:title="@string/picked_bh_capacity_title"
+            android:selectable="false"
+            android:persistent="false" />
+        <Preference
+            android:key="picked_bh_technology"
+            android:title="@string/picked_bh_technology_title"
+            android:selectable="false"
+            android:persistent="false" />
+        <Preference
+            android:key="picked_bh_manufactured"
+            android:title="@string/picked_bh_manufactured_title"
+            android:selectable="false"
+            android:persistent="false" />
+        <Preference
+            android:key="picked_bh_first_use"
+            android:title="@string/picked_bh_first_use_title"
+            android:selectable="false"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/picked_bh_category_live">
+        <Preference
+            android:key="picked_bh_level"
+            android:title="@string/picked_bh_level_title"
+            android:selectable="false"
+            android:persistent="false" />
+        <Preference
+            android:key="picked_bh_power"
+            android:title="@string/picked_bh_power_title"
+            android:selectable="false"
+            android:persistent="false" />
+        <Preference
+            android:key="picked_bh_current"
+            android:title="@string/picked_bh_current_title"
+            android:selectable="false"
+            android:persistent="false" />
+        <Preference
+            android:key="picked_bh_voltage"
+            android:title="@string/picked_bh_voltage_title"
+            android:selectable="false"
+            android:persistent="false" />
+        <Preference
+            android:key="picked_bh_temperature"
+            android:title="@string/picked_bh_temperature_title"
+            android:selectable="false"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <Preference
+        android:key="picked_bh_footer"
+        android:summary="@string/picked_bh_footer"
+        android:selectable="false"
+        android:persistent="false" />
+</PreferenceScreen>
