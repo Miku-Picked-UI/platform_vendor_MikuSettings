@@ -455,4 +455,32 @@
     <string name="picked_weather_celsius">Celsius (°C)</string>
     <string name="picked_weather_fahrenheit">Fahrenheit (°F)</string>
     <string name="picked_weather_footer">Weather data by Open-Meteo.com (CC BY 4.0), updated every 30 minutes while the lockscreen clock is shown. Only the chosen city\'s coordinates are sent; your location is never used.</string>
+    <!-- [Miku-Picked UI] Ad blocker -->
+    <string name="picked_adblock_title">Ad blocker</string>
+    <string name="picked_adblock_summary">Block ads and trackers in every app with hosts lists, like AdAway</string>
+    <string name="picked_adblock_enabled_title">Block ads</string>
+    <string name="picked_adblock_enabled_summary">Applies at once, no restart needed</string>
+    <string name="picked_adblock_update_title">Update lists now</string>
+    <string name="picked_adblock_never">Not downloaded yet</string>
+    <string name="picked_adblock_status">%1$d domains blocked · updated %2$s</string>
+    <string name="picked_adblock_sources_title">Lists</string>
+    <string name="picked_adblock_src_stevenblack">StevenBlack unified hosts</string>
+    <string name="picked_adblock_src_adaway">AdAway default list</string>
+    <string name="picked_adblock_src_pgl">Peter Lowe\'s ad server list</string>
+    <string name="picked_adblock_custom_title">Your rules</string>
+    <string name="picked_adblock_blocklist_title">Also block</string>
+    <string name="picked_adblock_blocklist_summary">Extra domains to block</string>
+    <string name="picked_adblock_allowlist_title">Always allow</string>
+    <string name="picked_adblock_allowlist_summary">Domains to never block, if a list breaks an app or site</string>
+    <string name="picked_adblock_list_hint">One domain per line, e.g. ads.example.com</string>
+    <string name="picked_adblock_save_apply">Save and apply</string>
+    <string name="picked_adblock_updating">Downloading lists…</string>
+    <string name="picked_adblock_done">%1$d domains blocked</string>
+    <string name="picked_adblock_failed">The lists could not be downloaded. Check your internet connection</string>
+    <string name="picked_adblock_footer">Works for every app that uses the system\'s DNS, also with Private DNS. Apps and browsers with their own secure DNS (e.g. Chrome\'s \"Use secure DNS\") skip it. Lists: StevenBlack (MIT), AdAway (CC BY 3.0), Peter Lowe (pgl.yoyo.org).</string>
+    <!-- [Miku-Picked UI] Thanks: services and lists -->
+    <string name="picked_thanks_openmeteo_title">Open-Meteo</string>
+    <string name="picked_thanks_openmeteo_summary">Free weather and geocoding data for the lockscreen clock weather (CC BY 4.0)</string>
+    <string name="picked_thanks_hosts_lists_title">StevenBlack, AdAway and Peter Lowe</string>
+    <string name="picked_thanks_hosts_lists_summary">The hosts lists behind the ad blocker</string>
 </resources>
