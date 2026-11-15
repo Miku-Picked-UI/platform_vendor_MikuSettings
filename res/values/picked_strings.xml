@@ -178,7 +178,8 @@
     <string name="picked_category_gpu">GPU</string>
 
     <!-- Games -->
-    <string name="picked_category_games">Games</string>
+    <string name="picked_pocket_mode_title">Pocket mode</string>
+    <string name="picked_pocket_mode_summary">Uses the proximity sensor to keep the screen from waking up or taking touches in a pocket or bag. Hold the power button to dismiss it</string>
     <string name="picked_games_title">Game list</string>
     <string name="picked_games_summary">{count, plural,
         =0 {No apps get the game profile}
