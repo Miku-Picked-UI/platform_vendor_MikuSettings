@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Colour picker preference (Lunaris AOSP / Sergey Margaritov / Daniel Nilsson, Apache 2.0) -->
+<resources>
+    <string name="colorpicker_hex" translatable="false">Hex</string>
+    <string name="colorpicker_hex_hint" translatable="false">#ff000000</string>
+    <string name="colorpicker_press_to_apply">Tap a colour below to apply it</string>
+    <string name="colorpicker_arrow" translatable="false">→</string>
+    <dimen name="colorpicker_swatch_size">28dp</dimen>
+</resources>

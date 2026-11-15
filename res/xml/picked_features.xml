@@ -429,6 +429,13 @@
         android:key="picked_category_display"
         android:title="@string/picked_category_display">
 
+        <!-- [Lunaris AOSP] Edge Aurora: notification glows on the screen edges -->
+        <Preference
+            android:key="picked_edge_aurora"
+            android:title="@string/edge_aurora_title"
+            android:summary="@string/edge_aurora_summary"
+            android:fragment="com.miku.exsettings.fragments.edgeaurora.EdgeAuroraSettings" />
+
         <!-- [uwuAOSP] Cutout force full screen -->
         <Preference
             android:key="picked_cutout_apps"
