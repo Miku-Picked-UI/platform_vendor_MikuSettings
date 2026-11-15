@@ -176,6 +176,17 @@
     <string name="picked_glass_tab_bars_float_title">Float tab bars over the page</string>
     <string name="picked_glass_tab_bars_float_summary">Let content scroll under the glass tab bar in apps built with Compose</string>
     <string name="picked_category_gpu">GPU</string>
+
+    <!-- Games -->
+    <string name="picked_category_games">Games</string>
+    <string name="picked_games_title">Game list</string>
+    <string name="picked_games_summary">{count, plural,
+        =0 {No apps get the game profile}
+        =1 {1 app gets the game profile: steadier clocks that keep the phone cooler}
+        other {# apps get the game profile: steadier clocks that keep the phone cooler}
+    }</string>
+    <string name="picked_games_summary_loading">Steadier clocks that keep the phone cooler while you play</string>
+    <string name="picked_games_saved">Saved. It applies the next time you open the game</string>
     <string name="picked_gpu_driver_title">GPU driver</string>
     <string name="picked_gpu_driver_r38p0">Mali r38p0 (stock)</string>
     <string name="picked_gpu_driver_r38p1">Mali r38p1</string>
