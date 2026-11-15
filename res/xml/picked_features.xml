@@ -14,6 +14,13 @@
         android:key="picked_category_style"
         android:title="@string/picked_category_style">
 
+        <!-- [Miku-Picked UI] Boot animation picker (persist.sys.picked.bootanim) -->
+        <Preference
+            android:key="picked_bootanim"
+            android:title="@string/picked_bootanim_title"
+            android:summary="@string/picked_bootanim_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedBootAnimation" />
+
         <!-- [Evolution X] Custom lockscreen clocks -->
         <Preference
             android:key="picked_clock_styles"

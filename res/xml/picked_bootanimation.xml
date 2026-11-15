@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Miku-Picked UI ; SPDX-License-Identifier: Apache-2.0 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/picked_bootanim_title">
+
+    <!-- persist.sys.picked.bootanim, read by bootanimation (entries filled in code) -->
+    <ListPreference
+        android:key="picked_bootanim_style"
+        android:title="@string/picked_bootanim_style_title"
+        android:summary="%s"
+        android:persistent="false" />
+
+    <Preference
+        android:key="picked_bootanim_preview"
+        android:title="@string/picked_bootanim_preview_title"
+        android:summary="@string/picked_bootanim_preview_summary"
+        android:persistent="false" />
+
+    <Preference
+        android:key="picked_bootanim_import"
+        android:title="@string/picked_bootanim_import_title"
+        android:summary="@string/picked_bootanim_import_summary"
+        android:persistent="false" />
+
+    <Preference
+        android:key="picked_bootanim_remove"
+        android:title="@string/picked_bootanim_remove_title"
+        android:persistent="false" />
+
+    <!-- persist.sys.bootanim.clock.enabled (stock bootanimation clock) -->
+    <SwitchPreferenceCompat
+        android:key="picked_bootanim_clock"
+        android:title="@string/picked_bootanim_clock_title"
+        android:summary="@string/picked_bootanim_clock_summary"
+        android:persistent="false" />
+
+</PreferenceScreen>
