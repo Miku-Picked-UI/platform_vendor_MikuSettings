@@ -640,5 +640,13 @@
             android:title="@string/picked_google_spoof_wear_title"
             android:summary="@string/picked_google_spoof_wear_summary"
             android:persistent="false" />
+
+        <!-- [Miku-Picked UI] Desktop mode on external displays (Android 16 connected displays:
+             persist.wm.debug.desktop_experience_devopts + force desktop on external displays) -->
+        <SwitchPreferenceCompat
+            android:key="picked_external_desktop"
+            android:title="@string/picked_external_desktop_title"
+            android:summary="@string/picked_external_desktop_summary"
+            android:persistent="false" />
     </PreferenceCategory>
 </PreferenceScreen>

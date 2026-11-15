@@ -51,6 +51,10 @@ public class PickedFeatures extends SettingsPreferenceFragment {
     private static final int REQUEST_PIF_CONFIG = 1002;
     private static final int REQUEST_KEYBOX = 1003;
     private static final String KEY_GOOGLE_SPOOF_WEAR = "picked_google_spoof_wear";
+    // Desktop mode on external displays: Android 16 connected-display desktops, behind the
+    // desktop experience dev option property (read at boot by DesktopExperienceFlags).
+    private static final String KEY_EXTERNAL_DESKTOP = "picked_external_desktop";
+    private static final String PROP_DESKTOP_EXPERIENCE = "persist.wm.debug.desktop_experience_devopts";
     private static final String PROP_GOOGLE_SPOOF_WEAR = "persist.sys.picked.google_spoof_wear";
     // System-wide Liquid Glass (ported from PenguinOS): renderengine reads these live.
     private static final String KEY_LIQUID_GLASS = "picked_liquid_glass";
@@ -101,6 +105,23 @@ public class PickedFeatures extends SettingsPreferenceFragment {
             wearSpoof.setChecked(SystemProperties.getBoolean(PROP_GOOGLE_SPOOF_WEAR, false));
             wearSpoof.setOnPreferenceChangeListener((pref, newValue) -> {
                 SystemProperties.set(PROP_GOOGLE_SPOOF_WEAR, (Boolean) newValue ? "1" : "0");
+                showRebootDialog(R.string.picked_google_spoof_wear_reboot_title,
+                        R.string.picked_google_spoof_wear_reboot_message);
+                return true;
+            });
+        }
+
+        final TwoStatePreference externalDesktop = findPreference(KEY_EXTERNAL_DESKTOP);
+        if (externalDesktop != null) {
+            externalDesktop.setChecked(SystemProperties.getBoolean(PROP_DESKTOP_EXPERIENCE, false));
+            externalDesktop.setOnPreferenceChangeListener((pref, newValue) -> {
+                final boolean on = (Boolean) newValue;
+                SystemProperties.set(PROP_DESKTOP_EXPERIENCE, on ? "1" : "0");
+                Settings.Global.putInt(getContentResolver(),
+                        Settings.Global.DEVELOPMENT_FORCE_DESKTOP_MODE_ON_EXTERNAL_DISPLAYS,
+                        on ? 1 : 0);
+                Settings.Global.putInt(getContentResolver(),
+                        Settings.Global.DEVELOPMENT_ENABLE_FREEFORM_WINDOWS_SUPPORT, on ? 1 : 0);
                 showRebootDialog(R.string.picked_google_spoof_wear_reboot_title,
                         R.string.picked_google_spoof_wear_reboot_message);
                 return true;
