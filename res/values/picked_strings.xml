@@ -402,4 +402,7 @@
     <string name="picked_bh_over_voltage">Over voltage</string>
     <string name="picked_bh_unknown">Not reported</string>
     <string name="picked_bh_footer">Values come from the battery\'s fuel gauge. Health and capacity are estimates and can move a few percent between charges. While USB is connected, the current includes what the cable supplies.</string>
+    <!-- [Miku-Picked UI] LTE while the screen is off -->
+    <string name="picked_screen_off_lte_title">Save power with the screen off</string>
+    <string name="picked_screen_off_lte_summary">Switch from 5G to LTE 30 seconds after the screen turns off. 5G comes back as soon as you turn the screen on</string>
 </resources>
