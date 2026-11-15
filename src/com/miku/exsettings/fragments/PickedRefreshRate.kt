@@ -9,6 +9,7 @@ import android.os.UserHandle
 import android.provider.Settings
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 import com.miku.exsettings.fragments.edgeaurora.AuroraApp
@@ -123,6 +124,8 @@ class PickedRefreshRate : SettingsPreferenceFragment() {
             map.entries.joinToString(";") { "${it.key}=${it.value}" },
             UserHandle.myUserId())
     }
+
+    override fun getMetricsCategory() = MetricsEvent.MIKU
 
     companion object {
         private const val KEY = "picked_app_refresh_rate"
