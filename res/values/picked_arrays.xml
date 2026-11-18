@@ -266,6 +266,17 @@
         <item>ios</item>
         <item>cos</item>
     </string-array>
+    <!-- Quick Settings style (Settings.Secure qs_panel_style, PenguinOS' QsPanelStyle values) -->
+    <string-array name="picked_qs_panel_style_entries" translatable="false">
+        <item>@string/picked_qs_panel_style_stock</item>
+        <item>@string/picked_qs_panel_style_penguin</item>
+        <item>@string/picked_qs_panel_style_colorcc</item>
+    </string-array>
+    <string-array name="picked_qs_panel_style_values" translatable="false">
+        <item>6</item>
+        <item>1</item>
+        <item>7</item>
+    </string-array>
 
     <!-- [PenguinOS] Volume panel style; values match SystemUI's VolumePanelStyle -->
     <string-array name="picked_volume_panel_style_entries" translatable="false">

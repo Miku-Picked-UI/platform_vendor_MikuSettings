@@ -124,6 +124,15 @@
             android:summary="@string/picked_cos_app_motion_summary"
             android:defaultValue="true" />
 
+        <!-- [PenguinOS] Quick Settings panel style (Settings.Secure qs_panel_style) -->
+        <com.miku.settings.preferences.SecureSettingListPreference
+            android:key="qs_panel_style"
+            android:title="@string/picked_qs_panel_style_title"
+            android:summary="%s"
+            android:entries="@array/picked_qs_panel_style_entries"
+            android:entryValues="@array/picked_qs_panel_style_values"
+            android:defaultValue="6" />
+
         <!-- [PenguinOS] Lockscreen clock flies onto the home screen on unlock
              (Settings.Secure picked_clock_fly, read by SystemUI and Launcher3) -->
         <com.miku.settings.preferences.SecureSettingSwitchPreference

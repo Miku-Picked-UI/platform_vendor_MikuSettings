@@ -124,6 +124,15 @@
         </Preference>
 
         <Preference
+            android:key="thanks_colorcc"
+            android:title="@string/picked_thanks_colorcc_title"
+            android:summary="@string/picked_thanks_colorcc_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/addictedcaf/ColorCC" />
+        </Preference>
+
+        <Preference
             android:key="thanks_flopkernel"
             android:title="@string/picked_thanks_flopkernel_title"
             android:summary="@string/picked_thanks_flopkernel_summary">
