@@ -109,7 +109,7 @@
     <string name="picked_thanks_uwu_title">uwuAOSP</string>
     <string name="picked_thanks_uwu_summary">Deep sleep time in uptime, auto brightness tile, full screen apps for display cutouts</string>
     <string name="picked_thanks_evolution_title">Evolution X</string>
-    <string name="picked_thanks_evolution_summary">Custom lockscreen clocks (with crDroid and risingOS), fingerprint icons, selectable emoji, sleep mode, QS tile toggle animations, custom carrier label, volume slider haptics switch, pocket mode (Carlo Savignano), performance overlay, Play Integrity and bootloader spoof, Game Space (by chaldeaprjkt)</string>
+    <string name="picked_thanks_evolution_summary">Custom lockscreen clocks (with crDroid and risingOS), fingerprint icons, selectable emoji, sleep mode, QS tile toggle animations, custom carrier label, volume slider haptics switch, pocket mode (Carlo Savignano), performance overlay, Game Space (by chaldeaprjkt)</string>
     <string name="picked_thanks_lunaris_title">Lunaris AOSP</string>
     <string name="picked_thanks_lunaris_summary">Separate notifications and quick settings shade, landscape split shade switch, screenshot flash and status bar options, Edge Aurora and lockscreen app widgets (Ghosuto), performance overlay</string>
     <string name="picked_thanks_oneuisland_title">OneUisland</string>
@@ -228,36 +228,6 @@
     <string name="picked_perf_overlay_fps">FPS</string>
     <string name="picked_perf_overlay_full">FPS, CPU, GPU and temperatures</string>
 
-    <!-- Play Integrity (Evolution X / AxionOS) -->
-    <string name="picked_category_integrity">Play Integrity</string>
-    <string name="picked_pif_title">Play Integrity fix</string>
-    <string name="picked_pif_summary">Show Google Play services a certified Pixel, kept up to date automatically</string>
-    <string name="picked_pif_fingerprint_title">Fingerprint</string>
-    <string name="picked_pif_fingerprint_none">None yet, fetched a couple of minutes after setup when online</string>
-    <string name="picked_pif_fingerprint_auto">%1$s · %2$s (automatic)</string>
-    <string name="picked_pif_fingerprint_manual">%1$s · %2$s (imported)</string>
-    <string name="picked_pif_fingerprint_custom">Imported config</string>
-    <string name="picked_pif_update">Fetch latest</string>
-    <string name="picked_pif_import">Import pif.json</string>
-    <string name="picked_pif_profile">Choose device profile</string>
-    <string name="picked_pif_profile_title">Spoofed device</string>
-    <string name="picked_pif_profile_auto">Automatic (recommended)</string>
-    <string name="picked_pif_profile_applying">Using %1$s. Fetching its fingerprint, Google Play services restarts when it\'s done</string>
-    <string name="picked_pif_updating">Fetching a new fingerprint, Google Play services restarts when it\'s done</string>
-    <string name="picked_pif_imported">Fingerprint imported</string>
-    <string name="picked_pif_import_failed">That file isn\'t a PIF config with a FINGERPRINT</string>
-    <string name="picked_trickystore_title">Keystore attestation spoof</string>
-    <string name="picked_trickystore_summary">Sign key attestation for Google apps and banking apps with your keybox (TrickyStore)</string>
-    <string name="picked_trickystore_keybox_title">Keybox</string>
-    <string name="picked_trickystore_keybox_none">Not imported: tap to import your keybox.xml</string>
-    <string name="picked_trickystore_keybox_loaded">Imported (%1$d keys)</string>
-    <string name="picked_trickystore_keybox_import">Import keybox.xml</string>
-    <string name="picked_trickystore_keybox_remove">Remove</string>
-    <string name="picked_trickystore_keybox_imported">Keybox imported</string>
-    <string name="picked_trickystore_keybox_removed">Keybox removed</string>
-    <string name="picked_trickystore_keybox_invalid">That file isn\'t a keybox (no &lt;Keybox&gt; with a key and certificates)</string>
-    <string name="picked_bootloader_spoof_title">Bootloader state</string>
-    <string name="picked_bootloader_spoof_summary">Apps always see a locked, verified bootloader and a release build</string>
     <string name="picked_lockscreen_charging_info_title">Charging info on the lockscreen</string>
     <string name="picked_lockscreen_charging_info_summary">While charging, show the current, power, voltage and battery temperature under the charging text (from Evolution X / AxionOS)</string>
     <string name="picked_volume_panel_style_title">Volume panel style</string>
