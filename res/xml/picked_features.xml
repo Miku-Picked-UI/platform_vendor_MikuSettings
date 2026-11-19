@@ -33,12 +33,11 @@
             android:key="picked_reactive_wallpaper"
             android:title="@string/picked_reactive_wallpaper_title"
             android:summary="@string/picked_reactive_wallpaper_summary">
+            <!-- The preview needs a ComponentName extra, which an XML intent can't carry (it
+                 sent a String and the picker closed at once): the app's own activity opens it. -->
             <intent
-                android:action="android.service.wallpaper.CHANGE_LIVE_WALLPAPER">
-                <extra
-                    android:name="android.service.wallpaper.extra.LIVE_WALLPAPER_COMPONENT"
-                    android:value="com.mikupicked.reactivewallpaper/.ReactiveWallpaperService" />
-            </intent>
+                android:targetPackage="com.mikupicked.reactivewallpaper"
+                android:targetClass="com.mikupicked.reactivewallpaper.SetWallpaperActivity" />
         </Preference>
 
         <!-- [Miku-Picked UI] Weather for the custom clocks (SystemUI WeatherRepository, Open-Meteo) -->
