@@ -9,17 +9,9 @@
     android:key="picked_features"
     android:title="@string/picked_features_title">
 
-    <!-- ===== Style ===== -->
     <PreferenceCategory
-        android:key="picked_category_style"
-        android:title="@string/picked_category_style">
-
-        <!-- [Miku-Picked UI] Boot animation picker (persist.sys.picked.bootanim) -->
-        <Preference
-            android:key="picked_bootanim"
-            android:title="@string/picked_bootanim_title"
-            android:summary="@string/picked_bootanim_summary"
-            android:fragment="com.miku.exsettings.fragments.PickedBootAnimation" />
+        android:key="picked_category_lockscreen"
+        android:title="@string/picked_category_lockscreen">
 
         <!-- [Miku-Picked UI] Depth wallpaper (SystemUI DepthWallpaperSection) -->
         <Preference
@@ -40,19 +32,27 @@
                 android:targetClass="com.mikupicked.reactivewallpaper.SetWallpaperActivity" />
         </Preference>
 
-        <!-- [Miku-Picked UI] Weather for the custom clocks (SystemUI WeatherRepository, Open-Meteo) -->
-        <Preference
-            android:key="picked_weather"
-            android:title="@string/picked_weather_title"
-            android:summary="@string/picked_weather_summary"
-            android:fragment="com.miku.exsettings.fragments.PickedWeather" />
-
         <!-- [Evolution X] Custom lockscreen clocks -->
         <Preference
             android:key="picked_clock_styles"
             android:title="@string/picked_clock_styles_title"
             android:summary="@string/picked_clock_styles_summary"
             android:fragment="com.miku.exsettings.fragments.PickedClockStyles" />
+
+        <!-- [PenguinOS] Lockscreen clock flies onto the home screen on unlock
+             (Settings.Secure picked_clock_fly, read by SystemUI and Launcher3) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_clock_fly"
+            android:title="@string/picked_clock_fly_title"
+            android:summary="@string/picked_clock_fly_summary"
+            android:defaultValue="false" />
+
+        <!-- [Miku-Picked UI] Weather for the custom clocks (SystemUI WeatherRepository, Open-Meteo) -->
+        <Preference
+            android:key="picked_weather"
+            android:title="@string/picked_weather_title"
+            android:summary="@string/picked_weather_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedWeather" />
 
         <!-- [Miku-Picked UI] Now Bar: lockscreen media pill (Settings.System.NOW_BAR_ENABLED) -->
         <com.miku.settings.preferences.SystemSettingSwitchPreference
@@ -87,6 +87,63 @@
             android:summary="@string/picked_ls_visualizer_summary"
             android:defaultValue="false" />
 
+        <!-- [Lunaris AOSP] Lockscreen app widgets (Settings.Secure
+             lockscreen_app_widgets_enabled, SystemUI KeyguardAppWidgetSection) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="lockscreen_app_widgets_enabled"
+            android:title="@string/picked_ls_widgets_title"
+            android:summary="@string/picked_ls_widgets_summary"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="picked_ls_widgets_add"
+            android:title="@string/picked_ls_widgets_add_title"
+            android:summary="@string/picked_ls_widgets_add_summary"
+            android:dependency="lockscreen_app_widgets_enabled"
+            android:persistent="false">
+            <intent
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.lockscreen.KeyguardWidgetConfigActivity" />
+        </Preference>
+
+        <!-- [Evolution X] Custom carrier label -->
+        <com.miku.settings.preferences.SystemSettingEditTextPreference
+            android:key="lockscreen_show_custom_carrier_text"
+            android:title="@string/picked_carrier_label_title"
+            android:summary="@string/picked_carrier_label_summary"
+            android:dialogTitle="@string/picked_carrier_label_title"
+            android:singleLine="true" />
+
+        <!-- [Miku-Picked UI] Unlock animation (Settings.System picked_unlock_animation,
+             SystemUI picked/unlock/PickedUnlockEffect drawn by AuthRippleView) -->
+        <com.miku.settings.preferences.SystemSettingListPreference
+            android:key="picked_unlock_animation"
+            android:title="@string/picked_unlock_animation_title"
+            android:summary="%s"
+            android:entries="@array/picked_unlock_animation_entries"
+            android:entryValues="@array/picked_unlock_animation_values"
+            android:defaultValue="0" />
+
+        <!-- The entries above are replaced in PickedFeatures by the installed styles. -->
+        <!-- [Evolution X] Fingerprint icon (under-display sensors) -->
+        <Preference
+            android:key="picked_udfps_icon"
+            android:title="@string/picked_udfps_icon_title"
+            android:summary="@string/picked_udfps_icon_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedUdfpsIcons" />
+
+        <!-- [Miku-Picked UI] Boot animation picker (persist.sys.picked.bootanim) -->
+        <Preference
+            android:key="picked_bootanim"
+            android:title="@string/picked_bootanim_title"
+            android:summary="@string/picked_bootanim_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedBootAnimation" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="picked_category_style"
+        android:title="@string/picked_category_look">
+
         <!-- [PenguinOS] System-wide Liquid Glass: SurfaceFlinger draws every blur as glass
              (persist.sys.penguin.liquid_glass / _refraction, read live by renderengine) -->
         <SwitchPreferenceCompat
@@ -115,57 +172,6 @@
             android:persistent="false"
             android:dependency="picked_liquid_glass" />
 
-        <!-- [PenguinOS] ColorOS app open / close motion (Settings.Secure penguin_cos_app_motion,
-             read by Launcher3) -->
-        <com.miku.settings.preferences.SecureSettingSwitchPreference
-            android:key="penguin_cos_app_motion"
-            android:title="@string/picked_cos_app_motion_title"
-            android:summary="@string/picked_cos_app_motion_summary"
-            android:defaultValue="true" />
-
-        <!-- [PenguinOS] Quick Settings panel style (Settings.Secure qs_panel_style) -->
-        <com.miku.settings.preferences.SecureSettingListPreference
-            android:key="qs_panel_style"
-            android:title="@string/picked_qs_panel_style_title"
-            android:summary="%s"
-            android:entries="@array/picked_qs_panel_style_entries"
-            android:entryValues="@array/picked_qs_panel_style_values"
-            android:defaultValue="6" />
-
-        <!-- [PenguinOS] Lockscreen clock flies onto the home screen on unlock
-             (Settings.Secure picked_clock_fly, read by SystemUI and Launcher3) -->
-        <com.miku.settings.preferences.SecureSettingSwitchPreference
-            android:key="picked_clock_fly"
-            android:title="@string/picked_clock_fly_title"
-            android:summary="@string/picked_clock_fly_summary"
-            android:defaultValue="false" />
-
-        <!-- [Miku-Picked UI] Shade blur strength (Settings.System picked_shade_blur, %) -->
-        <com.miku.exsettings.preferences.CustomSystemSeekBarPreference
-            android:key="picked_shade_blur"
-            android:title="@string/picked_shade_blur_title"
-            android:summary="@string/picked_shade_blur_summary"
-            settings:min="0"
-            android:max="100"
-            android:defaultValue="100"
-            settings:units="%" />
-
-        <!-- [PenguinOS] Media volume slider in Quick Settings (Settings.System picked_qs_volume_slider) -->
-        <com.miku.settings.preferences.SystemSettingSwitchPreference
-            android:key="picked_qs_volume_slider"
-            android:title="@string/picked_qs_volume_slider_title"
-            android:summary="@string/picked_qs_volume_slider_summary"
-            android:defaultValue="true" />
-
-        <!-- [PenguinOS] Volume panel style (Settings.Secure volume_panel_style) -->
-        <com.miku.settings.preferences.SecureSettingListPreference
-            android:key="volume_panel_style"
-            android:title="@string/picked_volume_panel_style_title"
-            android:summary="%s"
-            android:entries="@array/picked_volume_panel_style_entries"
-            android:entryValues="@array/picked_volume_panel_style_values"
-            android:defaultValue="0" />
-
         <!-- [PenguinOS] Liquid Glass tab bars in apps (Settings.Secure penguin_glass_tab_bars) -->
         <com.miku.settings.preferences.SecureSettingSwitchPreference
             android:key="penguin_glass_tab_bars"
@@ -187,6 +193,24 @@
             android:summary="@string/picked_glass_buttons_summary"
             android:defaultValue="false" />
 
+        <!-- [PenguinOS] ColorOS app open / close motion (Settings.Secure penguin_cos_app_motion,
+             read by Launcher3) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="penguin_cos_app_motion"
+            android:title="@string/picked_cos_app_motion_title"
+            android:summary="@string/picked_cos_app_motion_summary"
+            android:defaultValue="true" />
+
+        <!-- [Miku-Picked UI] Shade blur strength (Settings.System picked_shade_blur, %) -->
+        <com.miku.exsettings.preferences.CustomSystemSeekBarPreference
+            android:key="picked_shade_blur"
+            android:title="@string/picked_shade_blur_title"
+            android:summary="@string/picked_shade_blur_summary"
+            settings:min="0"
+            android:max="100"
+            android:defaultValue="100"
+            settings:units="%" />
+
         <!-- [Miku UI] System font (Miku's font picker) -->
         <Preference
             android:key="picked_fonts"
@@ -202,27 +226,8 @@
             android:entries="@array/picked_emoji_style_entries"
             android:entryValues="@array/picked_emoji_style_values"
             android:persistent="false" />
-        <!-- The entries above are replaced in PickedFeatures by the installed styles. -->
-
-        <!-- [Evolution X] Fingerprint icon (under-display sensors) -->
-        <Preference
-            android:key="picked_udfps_icon"
-            android:title="@string/picked_udfps_icon_title"
-            android:summary="@string/picked_udfps_icon_summary"
-            android:fragment="com.miku.exsettings.fragments.PickedUdfpsIcons" />
-
-        <!-- [Miku-Picked UI] Unlock animation (Settings.System picked_unlock_animation,
-             SystemUI picked/unlock/PickedUnlockEffect drawn by AuthRippleView) -->
-        <com.miku.settings.preferences.SystemSettingListPreference
-            android:key="picked_unlock_animation"
-            android:title="@string/picked_unlock_animation_title"
-            android:summary="%s"
-            android:entries="@array/picked_unlock_animation_entries"
-            android:entryValues="@array/picked_unlock_animation_values"
-            android:defaultValue="0" />
     </PreferenceCategory>
 
-    <!-- ===== Status bar ===== -->
     <PreferenceCategory
         android:key="picked_category_statusbar"
         android:title="@string/picked_category_statusbar">
@@ -334,20 +339,20 @@
             android:title="@string/picked_battery_bar_low_color_title"
             settings:defaultColorValue="0xfff90028"
             android:dependency="statusbar_battery_bar" />
-
-        <!-- [Evolution X] Custom carrier label -->
-        <com.miku.settings.preferences.SystemSettingEditTextPreference
-            android:key="lockscreen_show_custom_carrier_text"
-            android:title="@string/picked_carrier_label_title"
-            android:summary="@string/picked_carrier_label_summary"
-            android:dialogTitle="@string/picked_carrier_label_title"
-            android:singleLine="true" />
     </PreferenceCategory>
 
-    <!-- ===== Quick settings ===== -->
     <PreferenceCategory
         android:key="picked_category_qs"
-        android:title="@string/picked_category_qs">
+        android:title="@string/picked_category_qs_volume">
+
+        <!-- [PenguinOS] Quick Settings panel style (Settings.Secure qs_panel_style) -->
+        <com.miku.settings.preferences.SecureSettingListPreference
+            android:key="qs_panel_style"
+            android:title="@string/picked_qs_panel_style_title"
+            android:summary="%s"
+            android:entries="@array/picked_qs_panel_style_entries"
+            android:entryValues="@array/picked_qs_panel_style_values"
+            android:defaultValue="6" />
 
         <!-- [Evolution X] Tile toggle animation -->
         <com.miku.settings.preferences.SystemSettingListPreference
@@ -369,10 +374,24 @@
             android:title="@string/picked_qs_split_notification_title"
             android:summary="@string/picked_qs_split_notification_summary"
             android:defaultValue="true" />
+
+        <!-- [PenguinOS] Media volume slider in Quick Settings (Settings.System picked_qs_volume_slider) -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="picked_qs_volume_slider"
+            android:title="@string/picked_qs_volume_slider_title"
+            android:summary="@string/picked_qs_volume_slider_summary"
+            android:defaultValue="true" />
+
+        <!-- [PenguinOS] Volume panel style (Settings.Secure volume_panel_style) -->
+        <com.miku.settings.preferences.SecureSettingListPreference
+            android:key="volume_panel_style"
+            android:title="@string/picked_volume_panel_style_title"
+            android:summary="%s"
+            android:entries="@array/picked_volume_panel_style_entries"
+            android:entryValues="@array/picked_volume_panel_style_values"
+            android:defaultValue="0" />
     </PreferenceCategory>
 
-    <!-- ===== Power and sleep ===== -->
-    <!-- ===== Charging ===== -->
     <PreferenceCategory
         android:key="picked_category_charging"
         android:title="@string/picked_category_charging">
@@ -433,159 +452,9 @@
             android:persistent="false" />
     </PreferenceCategory>
 
-    <!-- ===== Screenshots ===== -->
-    <PreferenceCategory
-        android:key="picked_category_screenshots"
-        android:title="@string/picked_category_screenshots">
-
-        <!-- [Miku-Picked UI] FLAG_SECURE off (AOSP Settings.Secure disable_secure_windows) -->
-        <com.miku.settings.preferences.SecureSettingSwitchPreference
-            android:key="disable_secure_windows"
-            android:title="@string/picked_disable_secure_windows_title"
-            android:summary="@string/picked_disable_secure_windows_summary"
-            android:defaultValue="false" />
-
-        <!-- [Miku-Picked UI] Settings.Secure picked_hide_screenshot_detection -->
-        <com.miku.settings.preferences.SecureSettingSwitchPreference
-            android:key="picked_hide_screenshot_detection"
-            android:title="@string/picked_hide_screenshot_detection_title"
-            android:summary="@string/picked_hide_screenshot_detection_summary"
-            android:defaultValue="false" />
-
-        <Preference
-            android:key="picked_screenshot_tester"
-            android:title="@string/picked_screenshot_tester_title"
-            android:summary="@string/picked_screenshot_tester_summary"
-            android:fragment="com.miku.exsettings.fragments.PickedScreenshotTester" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="picked_category_power"
-        android:title="@string/picked_category_power">
-
-        <!-- [LineageOS / AxionOS] Advanced restart -->
-        <com.miku.settings.preferences.SecureSettingSwitchPreference
-            android:key="advanced_reboot"
-            android:title="@string/picked_advanced_reboot_title"
-            android:summary="@string/picked_advanced_reboot_summary"
-            android:defaultValue="false" />
-
-        <!-- [Miku-Picked UI] LTE only while tethering (Settings.Secure picked_tether_lte) -->
-        <com.miku.settings.preferences.SecureSettingSwitchPreference
-            android:key="picked_tether_lte"
-            android:title="@string/picked_tether_lte_title"
-            android:summary="@string/picked_tether_lte_summary"
-            android:defaultValue="true" />
-
-        <!-- [Miku-Picked UI] Ad blocker (hosts file bind-mounted over /system/etc/hosts) -->
-        <Preference
-            android:key="picked_adblock"
-            android:title="@string/picked_adblock_title"
-            android:summary="@string/picked_adblock_summary"
-            android:fragment="com.miku.exsettings.fragments.PickedAdblock" />
-
-        <!-- [Miku-Picked UI] Per-app network firewall (system_server PickedFirewall) -->
-        <Preference
-            android:key="picked_firewall"
-            android:title="@string/picked_fw_title"
-            android:summary="@string/picked_fw_summary"
-            android:fragment="com.miku.exsettings.fragments.PickedFirewall" />
-
-        <!-- [Miku-Picked UI] LTE only while the screen is off (Settings.Secure picked_screen_off_lte,
-             SystemUI TetherLteController) -->
-        <com.miku.settings.preferences.SecureSettingSwitchPreference
-            android:key="picked_screen_off_lte"
-            android:title="@string/picked_screen_off_lte_title"
-            android:summary="@string/picked_screen_off_lte_summary"
-            android:defaultValue="true" />
-
-        <!-- [Evolution X] Pocket mode (Settings.System pocket_judge, frameworks PocketService) -->
-        <com.miku.settings.preferences.SystemSettingSwitchPreference
-            android:key="pocket_judge"
-            android:title="@string/picked_pocket_mode_title"
-            android:summary="@string/picked_pocket_mode_summary"
-            android:defaultValue="false" />
-
-        <!-- [Evolution X] Sleep mode -->
-        <Preference
-            android:key="picked_sleep_mode"
-            android:title="@string/picked_sleep_mode_title"
-            android:summary="@string/picked_sleep_mode_summary"
-            android:fragment="com.miku.exsettings.fragments.PickedSleepMode" />
-    </PreferenceCategory>
-
-    <!-- ===== Display ===== -->
-    <!-- ===== Games & performance ===== -->
-    <PreferenceCategory
-        android:key="picked_category_games"
-        android:title="@string/picked_category_games">
-
-        <!-- [crDroid / Evolution X / Lunaris] FPS and CPU/GPU info overlay
-             (Settings.System picked_perf_overlay, SystemUI PerfOverlayController) -->
-        <com.miku.settings.preferences.SystemSettingListPreference
-            android:key="picked_perf_overlay"
-            android:title="@string/picked_perf_overlay_title"
-            android:summary="%s"
-            android:entries="@array/picked_perf_overlay_entries"
-            android:entryValues="@array/picked_perf_overlay_values"
-            android:defaultValue="0" />
-
-        <!-- [Game Space] Opens the Game Space app: the in-game overlay bar and the single
-             game list (Settings.System gamespace_game_list, shared with the power profile) -->
-        <Preference
-            android:key="picked_games"
-            android:title="@string/picked_games_title"
-            android:summary="@string/picked_games_summary">
-            <intent android:targetPackage="io.chaldeaprjkt.gamespace"
-                    android:targetClass="io.chaldeaprjkt.gamespace.settings.SettingsActivity" />
-        </Preference>
-    </PreferenceCategory>
-
-    <!-- ===== GPU ===== -->
-
-    <PreferenceCategory
-        android:key="picked_category_gpu"
-        android:title="@string/picked_category_gpu">
-
-        <!-- [FlopKernel / Exynos_Valhall_GPUDriver] Mali GPU driver switch: patches the
-             kernel's mali.version token (picked_mali_switch); hidden without the selector -->
-        <ListPreference
-            android:key="picked_gpu_driver"
-            android:title="@string/picked_gpu_driver_title"
-            android:entries="@array/picked_gpu_driver_entries"
-            android:entryValues="@array/picked_gpu_driver_values"
-            android:persistent="false" />
-    </PreferenceCategory>
-
     <PreferenceCategory
         android:key="picked_category_display"
         android:title="@string/picked_category_display">
-
-        <!-- [Lunaris AOSP] Lockscreen app widgets (Settings.Secure
-             lockscreen_app_widgets_enabled, SystemUI KeyguardAppWidgetSection) -->
-        <com.miku.settings.preferences.SecureSettingSwitchPreference
-            android:key="lockscreen_app_widgets_enabled"
-            android:title="@string/picked_ls_widgets_title"
-            android:summary="@string/picked_ls_widgets_summary"
-            android:defaultValue="false" />
-
-        <Preference
-            android:key="picked_ls_widgets_add"
-            android:title="@string/picked_ls_widgets_add_title"
-            android:summary="@string/picked_ls_widgets_add_summary"
-            android:dependency="lockscreen_app_widgets_enabled"
-            android:persistent="false">
-            <intent
-                android:targetPackage="com.android.systemui"
-                android:targetClass="com.android.systemui.lockscreen.KeyguardWidgetConfigActivity" />
-        </Preference>
-
-        <!-- [Lunaris AOSP] Edge Aurora: notification glows on the screen edges -->
-        <Preference
-            android:key="picked_edge_aurora"
-            android:title="@string/edge_aurora_title"
-            android:summary="@string/edge_aurora_summary"
-            android:fragment="com.miku.exsettings.fragments.edgeaurora.EdgeAuroraSettings" />
 
         <!-- [Miku-Picked UI] Per-app refresh rate (Settings.System picked_app_refresh_rate,
              SystemUI PickedRefreshRateController) -->
@@ -595,6 +464,13 @@
             android:summary="@string/picked_refresh_rate_summary"
             android:fragment="com.miku.exsettings.fragments.PickedRefreshRate" />
 
+        <!-- [Lunaris AOSP] Edge Aurora: notification glows on the screen edges -->
+        <Preference
+            android:key="picked_edge_aurora"
+            android:title="@string/edge_aurora_title"
+            android:summary="@string/edge_aurora_summary"
+            android:fragment="com.miku.exsettings.fragments.edgeaurora.EdgeAuroraSettings" />
+
         <!-- [uwuAOSP] Cutout force full screen -->
         <Preference
             android:key="picked_cutout_apps"
@@ -603,7 +479,6 @@
             android:fragment="com.miku.exsettings.fragments.PickedCutoutApps" />
     </PreferenceCategory>
 
-    <!-- ===== Sound ===== -->
     <PreferenceCategory
         android:key="picked_category_sound"
         android:title="@string/picked_category_sound">
@@ -630,18 +505,9 @@
             android:defaultValue="true" />
     </PreferenceCategory>
 
-    <!-- ===== Screenshots ===== -->
     <PreferenceCategory
         android:key="picked_category_screenshot"
         android:title="@string/picked_category_screenshot">
-
-        <!-- [Miku-Picked UI] Clipboard history (Settings.Secure picked_clipboard_history, SystemUI
-             ClipboardHistory + Clipboard Quick Settings tile) -->
-        <com.miku.settings.preferences.SecureSettingSwitchPreference
-            android:key="picked_clipboard_history"
-            android:title="@string/picked_clipboard_history_title"
-            android:summary="@string/picked_clipboard_history_summary"
-            android:defaultValue="true" />
 
         <!-- [Lunaris AOSP] Screenshot flash -->
         <com.miku.settings.preferences.GlobalSettingSwitchPreference
@@ -656,9 +522,130 @@
             android:title="@string/picked_screenshot_hide_statusbar_title"
             android:summary="@string/picked_screenshot_hide_statusbar_summary"
             android:defaultValue="false" />
+
+        <!-- [Miku-Picked UI] Clipboard history (Settings.Secure picked_clipboard_history, SystemUI
+             ClipboardHistory + Clipboard Quick Settings tile) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_clipboard_history"
+            android:title="@string/picked_clipboard_history_title"
+            android:summary="@string/picked_clipboard_history_summary"
+            android:defaultValue="true" />
+
+        <!-- [Miku-Picked UI] FLAG_SECURE off (AOSP Settings.Secure disable_secure_windows) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="disable_secure_windows"
+            android:title="@string/picked_disable_secure_windows_title"
+            android:summary="@string/picked_disable_secure_windows_summary"
+            android:defaultValue="false" />
+
+        <!-- [Miku-Picked UI] Settings.Secure picked_hide_screenshot_detection -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_hide_screenshot_detection"
+            android:title="@string/picked_hide_screenshot_detection_title"
+            android:summary="@string/picked_hide_screenshot_detection_summary"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="picked_screenshot_tester"
+            android:title="@string/picked_screenshot_tester_title"
+            android:summary="@string/picked_screenshot_tester_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedScreenshotTester" />
     </PreferenceCategory>
 
-    <!-- ===== Connected devices ===== -->
+    <PreferenceCategory
+        android:key="picked_category_network"
+        android:title="@string/picked_category_network">
+
+        <!-- [Miku-Picked UI] Ad blocker (hosts file bind-mounted over /system/etc/hosts) -->
+        <Preference
+            android:key="picked_adblock"
+            android:title="@string/picked_adblock_title"
+            android:summary="@string/picked_adblock_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedAdblock" />
+
+        <!-- [Miku-Picked UI] Per-app network firewall (system_server PickedFirewall) -->
+        <Preference
+            android:key="picked_firewall"
+            android:title="@string/picked_fw_title"
+            android:summary="@string/picked_fw_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedFirewall" />
+
+        <!-- [Miku-Picked UI] LTE only while tethering (Settings.Secure picked_tether_lte) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_tether_lte"
+            android:title="@string/picked_tether_lte_title"
+            android:summary="@string/picked_tether_lte_summary"
+            android:defaultValue="true" />
+
+        <!-- [Miku-Picked UI] LTE only while the screen is off (Settings.Secure picked_screen_off_lte,
+             SystemUI TetherLteController) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_screen_off_lte"
+            android:title="@string/picked_screen_off_lte_title"
+            android:summary="@string/picked_screen_off_lte_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="picked_category_power"
+        android:title="@string/picked_category_power">
+
+        <!-- [LineageOS / AxionOS] Advanced restart -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="advanced_reboot"
+            android:title="@string/picked_advanced_reboot_title"
+            android:summary="@string/picked_advanced_reboot_summary"
+            android:defaultValue="false" />
+
+        <!-- [Evolution X] Pocket mode (Settings.System pocket_judge, frameworks PocketService) -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="pocket_judge"
+            android:title="@string/picked_pocket_mode_title"
+            android:summary="@string/picked_pocket_mode_summary"
+            android:defaultValue="false" />
+
+        <!-- [Evolution X] Sleep mode -->
+        <Preference
+            android:key="picked_sleep_mode"
+            android:title="@string/picked_sleep_mode_title"
+            android:summary="@string/picked_sleep_mode_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedSleepMode" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="picked_category_games"
+        android:title="@string/picked_category_games">
+
+        <!-- [Game Space] Opens the Game Space app: the in-game overlay bar and the single
+             game list (Settings.System gamespace_game_list, shared with the power profile) -->
+        <Preference
+            android:key="picked_games"
+            android:title="@string/picked_games_title"
+            android:summary="@string/picked_games_summary">
+            <intent android:targetPackage="io.chaldeaprjkt.gamespace"
+                    android:targetClass="io.chaldeaprjkt.gamespace.settings.SettingsActivity" />
+        </Preference>
+
+        <!-- [crDroid / Evolution X / Lunaris] FPS and CPU/GPU info overlay
+             (Settings.System picked_perf_overlay, SystemUI PerfOverlayController) -->
+        <com.miku.settings.preferences.SystemSettingListPreference
+            android:key="picked_perf_overlay"
+            android:title="@string/picked_perf_overlay_title"
+            android:summary="%s"
+            android:entries="@array/picked_perf_overlay_entries"
+            android:entryValues="@array/picked_perf_overlay_values"
+            android:defaultValue="0" />
+
+        <!-- [FlopKernel / Exynos_Valhall_GPUDriver] Mali GPU driver switch: patches the
+             kernel's mali.version token (picked_mali_switch); hidden without the selector -->
+        <ListPreference
+            android:key="picked_gpu_driver"
+            android:title="@string/picked_gpu_driver_title"
+            android:entries="@array/picked_gpu_driver_entries"
+            android:entryValues="@array/picked_gpu_driver_values"
+            android:persistent="false" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="picked_category_devices"
         android:title="@string/picked_category_devices">

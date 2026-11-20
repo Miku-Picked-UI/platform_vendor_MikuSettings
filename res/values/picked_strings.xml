@@ -11,9 +11,13 @@
     <string name="picked_thanks_summary">Everyone who made Miku-Picked UI possible</string>
 
     <!-- Categories -->
-    <string name="picked_category_style">Style</string>
+    <string name="picked_category_lockscreen">Lockscreen &amp; wallpaper</string>
+    <string name="picked_category_look">Look &amp; feel</string>
     <string name="picked_category_statusbar">Status bar</string>
-    <string name="picked_category_qs">Quick settings</string>
+    <string name="picked_category_qs_volume">Quick settings &amp; volume panel</string>
+    <string name="picked_category_network">Network &amp; privacy</string>
+    <!-- Picked features menu entry summary: a few setting names, then more. -->
+    <string name="picked_menu_summary_more"><xliff:g id="names">%1$s</xliff:g> and more</string>
     <string name="picked_category_power">Power and sleep</string>
     <string name="picked_category_display">Display</string>
 
@@ -184,7 +188,6 @@
     <string name="picked_glass_tab_bars_summary">Turn apps\' bottom navigation bars into a glass capsule with liquid motion (from PenguinOS). Reopen apps to apply</string>
     <string name="picked_glass_tab_bars_float_title">Float tab bars over the page</string>
     <string name="picked_glass_tab_bars_float_summary">Let content scroll under the glass tab bar in apps built with Compose</string>
-    <string name="picked_category_gpu">GPU</string>
 
     <!-- Games -->
     <string name="picked_ls_widgets_title">Lockscreen widgets</string>
@@ -278,7 +281,6 @@
     <string name="picked_thanks_viperfx_re_title">ViPERFX_RE (Iscle / AndroidAudioMods)</string>
     <string name="picked_thanks_viperfx_re_summary">The reverse engineered ViPER4Android FX: AxionFx Clarity, Dynamic System and Speaker optimization, used with permission (via WSTxda\'s fork)</string>
     <!-- [Miku-Picked UI] Screenshots: FLAG_SECURE and screenshot detection -->
-    <string name="picked_category_screenshots">Screenshots</string>
     <string name="picked_disable_secure_windows_title">Allow screenshots in secure apps</string>
     <string name="picked_disable_secure_windows_summary">Apps that block screenshots (banking, private browsing, passwords) can be captured in screenshots, screen recordings and recents. Protected video still shows black</string>
     <string name="picked_hide_screenshot_detection_title">Hide screenshots from apps</string>

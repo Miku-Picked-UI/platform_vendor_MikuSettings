@@ -29,6 +29,8 @@ import java.util.List;
 import androidx.preference.ListPreference;
 import androidx.preference.TwoStatePreference;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
@@ -39,8 +41,18 @@ import com.miku.exsettings.utils.PickedCharging;
 /**
  * Settings for the features Miku-Picked UI picked from Infinity X, AxionOS, uwuAOSP and
  * Evolution X. Most preferences store their value directly in Settings.System/Secure.
+ *
+ * The page is a menu: one entry per PreferenceCategory of picked_features.xml, which opens this
+ * fragment again with {@link #ARG_CATEGORY} so it shows that category only. Every screen
+ * inflates the whole XML and runs the same setup (so dependencies and the setup code keep
+ * working) and hides the categories it doesn't show.
  */
 public class PickedFeatures extends SettingsPreferenceFragment {
+
+    /** Fragment argument: key of the only PreferenceCategory to show. */
+    private static final String ARG_CATEGORY = "picked_category";
+    /** How many setting names a menu entry lists as its summary. */
+    private static final int MENU_SUMMARY_ITEMS = 3;
 
     private static final String KEY_CUTOUT_APPS = "picked_cutout_apps";
     private static final String KEY_UDFPS_ICON = "picked_udfps_icon";
@@ -166,6 +178,74 @@ public class PickedFeatures extends SettingsPreferenceFragment {
         if (udfpsIcon != null) {
             udfpsIcon.setVisible(hasUdfps() && PickedUdfpsIcons.isAvailable(getContext()));
         }
+
+        // Last, once the setup above has hidden what this device doesn't support.
+        final Bundle args = getArguments();
+        showCategory(args != null ? args.getString(ARG_CATEGORY) : null);
+    }
+
+    /** Shows one category, or with {@code null} the menu of all categories. */
+    private void showCategory(String only) {
+        final PreferenceScreen screen = getPreferenceScreen();
+        final List<PreferenceCategory> categories = new ArrayList<>();
+        for (int i = 0; i < screen.getPreferenceCount(); i++) {
+            if (screen.getPreference(i) instanceof PreferenceCategory) {
+                categories.add((PreferenceCategory) screen.getPreference(i));
+            }
+        }
+        if (only != null) {
+            for (PreferenceCategory category : categories) {
+                final boolean show = only.equals(category.getKey());
+                category.setVisible(show);
+                // The screen title already names it.
+                if (show) category.setTitle(null);
+            }
+            return;
+        }
+        int order = 0;
+        for (PreferenceCategory category : categories) {
+            final boolean wasVisible = category.isVisible();
+            category.setVisible(false);
+            if (!wasVisible) continue; // e.g. nothing in it is supported here
+            final List<CharSequence> names = new ArrayList<>();
+            for (int i = 0; i < category.getPreferenceCount(); i++) {
+                final Preference p = category.getPreference(i);
+                if (p.isVisible() && !TextUtils.isEmpty(p.getTitle())) names.add(p.getTitle());
+            }
+            if (names.isEmpty()) continue;
+            final Preference entry = new Preference(getPrefContext());
+            entry.setKey(category.getKey() + "_menu");
+            entry.setTitle(category.getTitle());
+            final CharSequence summary = TextUtils.join(", ",
+                    names.subList(0, Math.min(MENU_SUMMARY_ITEMS, names.size())));
+            entry.setSummary(names.size() > MENU_SUMMARY_ITEMS
+                    ? getString(R.string.picked_menu_summary_more, summary) : summary);
+            entry.setFragment(PickedFeatures.class.getName());
+            entry.getExtras().putString(ARG_CATEGORY, category.getKey());
+            final int icon = menuIcon(category.getKey());
+            if (icon != 0) entry.setIcon(icon);
+            entry.setOrder(order++);
+            entry.setPersistent(false);
+            screen.addPreference(entry);
+        }
+    }
+
+    private static int menuIcon(String category) {
+        switch (category) {
+            case "picked_category_lockscreen": return R.drawable.ic_homepage_security;
+            case "picked_category_style": return R.drawable.ic_homepage_wallpaper;
+            case "picked_category_statusbar": return R.drawable.ic_homepage_notification;
+            case "picked_category_qs": return R.drawable.ic_homepage_system_dashboard;
+            case "picked_category_charging": return R.drawable.ic_homepage_battery;
+            case "picked_category_display": return R.drawable.ic_homepage_display;
+            case "picked_category_sound": return R.drawable.ic_homepage_sound;
+            case "picked_category_screenshot": return R.drawable.ic_homepage_privacy;
+            case "picked_category_network": return R.drawable.ic_homepage_network;
+            case "picked_category_power": return R.drawable.ic_settings_gestures;
+            case "picked_category_games": return R.drawable.ic_videogame_vd_theme_24;
+            case "picked_category_devices": return R.drawable.ic_homepage_connected_device;
+            default: return 0;
+        }
     }
 
     // [FlopKernel / Exynos_Valhall_GPUDriver] Mali GPU driver switch. The kernel reports the
@@ -180,13 +260,12 @@ public class PickedFeatures extends SettingsPreferenceFragment {
     private final Handler mHandler = new Handler(Looper.getMainLooper());
 
     private void setupGpuDriver() {
-        final Preference category = findPreference("picked_category_gpu");
         final ListPreference pref = findPreference("picked_gpu_driver");
-        if (category == null || pref == null) return;
+        if (pref == null) return;
         final String active = SystemProperties.get(PROP_MALI_ACTIVE, "");
         if (active.isEmpty()) {
             // The kernel has no Mali KMD selector: nothing to switch.
-            category.setVisible(false);
+            pref.setVisible(false);
             return;
         }
         updateGpuDriverSummary(pref, active);
