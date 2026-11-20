@@ -8,14 +8,22 @@ package com.miku.exsettings.fragments;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -26,6 +34,8 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -40,6 +50,14 @@ public class PickedDepthWallpaper extends SettingsPreferenceFragment {
     private static final int REQUEST_PHOTO = 1;
     private static final int REQUEST_SUBJECT = 2;
     private static final int REQUEST_PHOTO_AUTO = 3;
+
+    // Built-in wallpapers: Miku UI's own (vendor/miku/wallpaper, MikuWallpapers), the ones
+    // whose subject the cut-out finds cleanly. The others are full-frame scenes with no
+    // background to cut away, so their "subject" would cover the clock.
+    private static final String WALLPAPER_PKG = "com.miku.wallpaper";
+    private static final String[] BUILT_IN = {
+            "miku_02", "miku_03", "miku_06", "miku_07", "miku_08", "miku_09", "miku_13",
+            "miku_14", "miku_15"};
 
     private final ExecutorService mExecutor = Executors.newSingleThreadExecutor();
     private final Handler mHandler = new Handler(Looper.getMainLooper());
@@ -65,13 +83,21 @@ public class PickedDepthWallpaper extends SettingsPreferenceFragment {
                 showOwnCutoutHelp();
                 return true;
             }
+            final boolean builtIn = !builtInWallpapers().isEmpty();
+            final List<CharSequence> items = new ArrayList<>();
+            if (builtIn) items.add(getString(R.string.picked_depth_source_builtin));
+            items.add(getString(R.string.picked_depth_source_photo));
+            items.add(getString(R.string.picked_depth_source_own));
+            final int offset = builtIn ? 0 : 1;
             showDialog(new AlertDialog.Builder(getContext())
                     .setTitle(R.string.picked_depth_pick_title)
-                    .setMessage(R.string.picked_depth_auto_how)
-                    .setPositiveButton(R.string.picked_depth_choose_photo,
-                            (d, w) -> pick(REQUEST_PHOTO_AUTO, "image/*"))
-                    .setNeutralButton(R.string.picked_depth_own_cutout,
-                            (d, w) -> showOwnCutoutHelp())
+                    .setItems(items.toArray(new CharSequence[0]), (d, which) -> {
+                        switch (which + offset) {
+                            case 0: showBuiltIn(); break;
+                            case 1: pick(REQUEST_PHOTO_AUTO, "image/*"); break;
+                            default: showOwnCutoutHelp();
+                        }
+                    })
                     .setNegativeButton(android.R.string.cancel, null));
             return true;
         });
@@ -102,6 +128,95 @@ public class PickedDepthWallpaper extends SettingsPreferenceFragment {
             mPending.recycle();
             mPending = null;
         }
+    }
+
+    /** {resource id, thumbnail id} of the built-in wallpapers that are installed. */
+    private List<int[]> builtInWallpapers() {
+        final List<int[]> list = new ArrayList<>();
+        final Resources res = wallpaperResources();
+        if (res == null) return list;
+        for (String name : BUILT_IN) {
+            final int id = res.getIdentifier(name, "drawable", WALLPAPER_PKG);
+            if (id == 0) continue;
+            final int thumb = res.getIdentifier(name + "_small", "drawable", WALLPAPER_PKG);
+            list.add(new int[] {id, thumb != 0 ? thumb : id});
+        }
+        return list;
+    }
+
+    private Resources wallpaperResources() {
+        try {
+            return getContext().getPackageManager().getResourcesForApplication(WALLPAPER_PKG);
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
+        }
+    }
+
+    /** A grid of the built-in wallpapers; the picked one is cut out like a photo. */
+    private void showBuiltIn() {
+        final Context context = getContext();
+        final Resources res = wallpaperResources();
+        final List<int[]> wallpapers = builtInWallpapers();
+        if (res == null || wallpapers.isEmpty()) return;
+        final float density = context.getResources().getDisplayMetrics().density;
+        final int pad = Math.round(16 * density);
+        final int gap = Math.round(8 * density);
+        final int height = Math.round(180 * density);
+        final GridView grid = new GridView(context);
+        grid.setNumColumns(3);
+        grid.setHorizontalSpacing(gap);
+        grid.setVerticalSpacing(gap);
+        grid.setPadding(pad, pad, pad, 0);
+        grid.setClipToPadding(false);
+        grid.setAdapter(new BaseAdapter() {
+            @Override
+            public int getCount() {
+                return wallpapers.size();
+            }
+
+            @Override
+            public Object getItem(int position) {
+                return wallpapers.get(position);
+            }
+
+            @Override
+            public long getItemId(int position) {
+                return position;
+            }
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                final ImageView image = convertView instanceof ImageView
+                        ? (ImageView) convertView : new ImageView(parent.getContext());
+                image.setLayoutParams(new AbsListView.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT, height));
+                image.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                image.setClipToOutline(true);
+                try {
+                    image.setImageDrawable(res.getDrawable(wallpapers.get(position)[1], null));
+                } catch (Resources.NotFoundException e) {
+                    image.setImageDrawable(null);
+                }
+                return image;
+            }
+        });
+        grid.setOnItemClickListener((parent, view, position, id) -> {
+            if (mDialog != null) mDialog.dismiss();
+            autoCutout(new Uri.Builder()
+                    .scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
+                    .authority(WALLPAPER_PKG)
+                    .appendPath(Integer.toString(wallpapers.get(position)[0]))
+                    .build());
+        });
+        showDialog(new AlertDialog.Builder(context)
+                .setTitle(R.string.picked_depth_source_builtin)
+                .setView(grid)
+                .setNegativeButton(android.R.string.cancel, null));
+    }
+
+    /** Built-in wallpapers come with no cut-out of their own to pick. */
+    private static boolean isBuiltIn(Uri photo) {
+        return ContentResolver.SCHEME_ANDROID_RESOURCE.equals(photo.getScheme());
     }
 
     /** The original flow: the photo, then a cut-out of it made elsewhere. */
@@ -149,14 +264,19 @@ public class PickedDepthWallpaper extends SettingsPreferenceFragment {
                             Toast.LENGTH_LONG).show();
                     return;
                 }
-                showDialog(new AlertDialog.Builder(getContext())
+                final AlertDialog.Builder error = new AlertDialog.Builder(getContext())
                         .setTitle(R.string.picked_depth_pick_title)
                         .setMessage(cutout.code == PickedDepthWallpaperStore.ERR_NO_SUBJECT
                                 ? R.string.picked_depth_err_no_subject
-                                : R.string.picked_depth_err_cutout)
-                        .setPositiveButton(R.string.picked_depth_own_cutout,
-                                (d, w) -> askOwnCutout(photo))
-                        .setNegativeButton(android.R.string.cancel, null));
+                                : R.string.picked_depth_err_cutout);
+                if (isBuiltIn(photo)) {
+                    error.setPositiveButton(android.R.string.ok, null);
+                } else {
+                    error.setPositiveButton(R.string.picked_depth_own_cutout,
+                            (d, w) -> askOwnCutout(photo))
+                            .setNegativeButton(android.R.string.cancel, null);
+                }
+                showDialog(error);
             });
         });
     }
@@ -182,17 +302,20 @@ public class PickedDepthWallpaper extends SettingsPreferenceFragment {
         frame.addView(image, new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT,
                 android.view.Gravity.CENTER_HORIZONTAL));
-        showDialog(new AlertDialog.Builder(context)
+        final AlertDialog.Builder dialog = new AlertDialog.Builder(context)
                 .setTitle(R.string.picked_depth_preview_title)
                 .setMessage(R.string.picked_depth_preview_message)
                 .setView(frame)
                 .setPositiveButton(R.string.picked_depth_preview_set, (d, w) -> savePending())
-                .setNeutralButton(R.string.picked_depth_own_cutout, (d, w) -> {
-                    clearPending();
-                    askOwnCutout(photo);
-                })
                 .setNegativeButton(android.R.string.cancel, (d, w) -> clearPending())
-                .setOnCancelListener(d -> clearPending()));
+                .setOnCancelListener(d -> clearPending());
+        if (!isBuiltIn(photo)) {
+            dialog.setNeutralButton(R.string.picked_depth_own_cutout, (d, w) -> {
+                clearPending();
+                askOwnCutout(photo);
+            });
+        }
+        showDialog(dialog);
     }
 
     private void savePending() {
