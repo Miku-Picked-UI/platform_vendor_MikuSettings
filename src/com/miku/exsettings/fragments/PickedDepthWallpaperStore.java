@@ -10,9 +10,13 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.ImageDecoder;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.hardware.display.DisplayManager;
 import android.net.Uri;
 import android.provider.Settings;
@@ -26,7 +30,13 @@ import java.io.IOException;
 /**
  * Depth wallpaper processing (SystemUI picked/depthwallpaper/DepthWallpaperSection draws it).
  *
- * The user picks a photo and a cut-out of its subject (a transparent PNG, e.g. from the
+ * Automatic ({@link #autoCutout}): the user picks just a photo. Its subject is found on device by
+ * vendor/miku/picked/depth_cutout (U²-Net salient object segmentation, see
+ * PickedDepthCutoutClient). The model sees the whole photo letterboxed into 320x320 (keeping the
+ * aspect ratio and all of the context matters a lot more than resolution), the part of the mask
+ * under the screen crop is scaled up and its edges are snapped to the photo with a guided filter.
+ *
+ * Own cut-out ({@link #apply}): the user picks a photo and a cut-out of its subject (a transparent PNG, e.g. from the
  * gallery's "copy subject"). Cut-outs are usually cropped to the subject, so it is found in the
  * photo by template matching (coarse search on a small copy, then refined at full size). The
  * photo and a same-sized subject layer are then centre-cropped to the screen's aspect ratio and
@@ -44,6 +54,8 @@ final class PickedDepthWallpaperStore {
     static final int ERR_DECODE = 1;
     static final int ERR_NOT_FOUND = 2;
     static final int ERR_SAVE = 3;
+    static final int ERR_CUTOUT = 4;
+    static final int ERR_NO_SUBJECT = 5;
 
     private static final int MAX_DECODE_SIDE = 3000;
     private static final int COARSE_SIDE = 320;
@@ -51,6 +63,34 @@ final class PickedDepthWallpaperStore {
     private static final int FINE_SAMPLES = 2500;
     // Mean absolute luma difference over the subject above which the cut-out is "not found".
     private static final int MAX_MEAN_DIFF = 40;
+
+    // Automatic cut-out.
+    private static final int LETTERBOX_COLOR = 0xff7c7468; // about the ImageNet mean
+    private static final int GUIDE_RADIUS = 8; // at half the screen size
+    private static final float GUIDE_EPS = 1e-3f;
+    // Alpha curve after the guided filter: below LOW is background, above LOW + RANGE subject.
+    private static final float ALPHA_LOW = 0.25f;
+    private static final float ALPHA_RANGE = 0.5f;
+    // At least this share of the screen must be subject.
+    private static final float MIN_SUBJECT_SHARE = 0.003f;
+
+    /** Screen-sized wallpaper and subject layer from {@link #autoCutout}, or an error code. */
+    static final class Cutout {
+        final int code;
+        final Bitmap wallpaper;
+        final Bitmap layer;
+
+        Cutout(int code, Bitmap wallpaper, Bitmap layer) {
+            this.code = code;
+            this.wallpaper = wallpaper;
+            this.layer = layer;
+        }
+
+        void recycle() {
+            if (wallpaper != null) wallpaper.recycle();
+            if (layer != null) layer.recycle();
+        }
+    }
 
     private PickedDepthWallpaperStore() {}
 
@@ -106,6 +146,119 @@ final class PickedDepthWallpaperStore {
         photo.recycle();
         layer.recycle();
 
+        try {
+            return save(context, wallpaper, subjectLayer);
+        } finally {
+            wallpaper.recycle();
+            subjectLayer.recycle();
+        }
+    }
+
+    /**
+     * Finds the subject of the photo automatically. Runs on a background thread. On success the
+     * caller owns the bitmaps: pass them to {@link #save}, then recycle them.
+     */
+    static Cutout autoCutout(Context context, Uri photoUri) {
+        final Bitmap photo;
+        try {
+            photo = decode(context, photoUri, 0, null);
+        } catch (IOException | RuntimeException e) {
+            Log.w(TAG, "Decode failed", e);
+            return new Cutout(ERR_DECODE, null, null);
+        }
+        if (photo == null) return new Cutout(ERR_DECODE, null, null);
+        final int w = photo.getWidth(), h = photo.getHeight();
+        final Point screen = screenSize(context);
+        final Rect crop = centerCrop(w, h, screen.x, screen.y);
+        final Bitmap wallpaper = scaleCrop(photo, crop, screen);
+
+        // Model input: the whole photo letterboxed, as packed RGB.
+        final int size = PickedDepthCutoutClient.SIZE;
+        final float sc = size / (float) Math.max(w, h);
+        final int nw = Math.max(1, Math.round(w * sc)), nh = Math.max(1, Math.round(h * sc));
+        final int ox = (size - nw) / 2, oy = (size - nh) / 2;
+        final Bitmap input = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
+        final Canvas ic = new Canvas(input);
+        ic.drawColor(LETTERBOX_COLOR);
+        ic.drawBitmap(photo, null, new Rect(ox, oy, ox + nw, oy + nh),
+                new Paint(Paint.FILTER_BITMAP_FLAG));
+        photo.recycle();
+        final int[] px = new int[size * size];
+        input.getPixels(px, 0, size, 0, 0, size, size);
+        input.recycle();
+        final byte[] rgb = new byte[size * size * 3];
+        for (int i = 0; i < px.length; i++) {
+            rgb[i * 3] = (byte) (px[i] >> 16);
+            rgb[i * 3 + 1] = (byte) (px[i] >> 8);
+            rgb[i * 3 + 2] = (byte) px[i];
+        }
+
+        final byte[] mask = PickedDepthCutoutClient.run(context, rgb);
+        if (mask == null) {
+            wallpaper.recycle();
+            return new Cutout(ERR_CUTOUT, null, null);
+        }
+
+        // The mask under the screen crop, at half the screen size.
+        final int gw = Math.max(1, screen.x / 2), gh = Math.max(1, screen.y / 2);
+        for (int i = 0; i < px.length; i++) {
+            final int m = mask[i] & 0xff;
+            px[i] = 0xff000000 | (m << 16) | (m << 8) | m;
+        }
+        final Bitmap maskFull = Bitmap.createBitmap(px, size, size, Bitmap.Config.ARGB_8888);
+        final Bitmap maskCrop = Bitmap.createBitmap(gw, gh, Bitmap.Config.ARGB_8888);
+        final Matrix matrix = new Matrix();
+        matrix.setRectToRect(new RectF(ox + crop.left * sc, oy + crop.top * sc,
+                        ox + crop.right * sc, oy + crop.bottom * sc),
+                new RectF(0, 0, gw, gh), Matrix.ScaleToFit.FILL);
+        new Canvas(maskCrop).drawBitmap(maskFull, matrix, new Paint(Paint.FILTER_BITMAP_FLAG));
+        maskFull.recycle();
+
+        final int n = gw * gh;
+        final int[] gpx = new int[n];
+        maskCrop.getPixels(gpx, 0, gw, 0, 0, gw, gh);
+        maskCrop.recycle();
+        final float[] p = new float[n];
+        for (int i = 0; i < n; i++) p[i] = (gpx[i] & 0xff) / 255f;
+        final Bitmap guideBmp = Bitmap.createScaledBitmap(wallpaper, gw, gh, true);
+        guideBmp.getPixels(gpx, 0, gw, 0, 0, gw, gh);
+        if (guideBmp != wallpaper) guideBmp.recycle();
+        final float[] guide = new float[n];
+        for (int i = 0; i < n; i++) {
+            final int c = gpx[i];
+            guide[i] = ((((c >> 16) & 0xff) * 77 + ((c >> 8) & 0xff) * 150 + (c & 0xff) * 29)
+                    >> 8) / 255f;
+        }
+        final float[] q = guidedFilter(guide, p, gw, gh, GUIDE_RADIUS, GUIDE_EPS);
+
+        int subject = 0;
+        for (int i = 0; i < n; i++) {
+            final float a = Math.max(0f, Math.min(1f, (q[i] - ALPHA_LOW) / ALPHA_RANGE));
+            if (a >= 0.5f) subject++;
+            gpx[i] = Math.round(a * 255f) << 24; // black with the mask as alpha
+        }
+        if (subject < n * MIN_SUBJECT_SHARE) {
+            wallpaper.recycle();
+            return new Cutout(ERR_NO_SUBJECT, null, null);
+        }
+
+        // Subject layer: the wallpaper with the mask, scaled up, as alpha.
+        final Bitmap alphaSmall = Bitmap.createBitmap(gpx, gw, gh, Bitmap.Config.ARGB_8888);
+        final Bitmap alpha = Bitmap.createScaledBitmap(alphaSmall, screen.x, screen.y, true);
+        if (alpha != alphaSmall) alphaSmall.recycle();
+        final Bitmap layer = wallpaper.copy(Bitmap.Config.ARGB_8888, true);
+        final Paint dstIn = new Paint(Paint.FILTER_BITMAP_FLAG);
+        dstIn.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+        new Canvas(layer).drawBitmap(alpha, 0, 0, dstIn);
+        alpha.recycle();
+        return new Cutout(OK, wallpaper, layer);
+    }
+
+    /**
+     * Stores the screen-sized subject layer and sets the screen-sized wallpaper as the lockscreen
+     * wallpaper. Runs on a background thread; does not recycle the bitmaps.
+     */
+    static int save(Context context, Bitmap wallpaper, Bitmap subjectLayer) {
         final File file = subjectFile(context);
         final File tmp = new File(file.getParentFile(), "subject.png.tmp");
         try {
@@ -120,14 +273,64 @@ final class PickedDepthWallpaperStore {
             Log.e(TAG, "Saving failed", e);
             tmp.delete();
             return ERR_SAVE;
-        } finally {
-            wallpaper.recycle();
-            subjectLayer.recycle();
         }
         Settings.Secure.putString(context.getContentResolver(), KEY_VERSION,
                 Long.toString(System.currentTimeMillis()));
         setEnabled(context, true);
         return OK;
+    }
+
+    // ---------------------------------------------------------------------------------------
+    // Guided filter (He, Sun and Tang), grey guide
+    // ---------------------------------------------------------------------------------------
+
+    /** Edge-preserving smoothing of {@code p} that follows the edges of {@code guide}. */
+    private static float[] guidedFilter(float[] guide, float[] p, int w, int h, int r,
+            float eps) {
+        final int n = w * h;
+        final double[] integral = new double[(w + 1) * (h + 1)];
+        final float[] tmp = new float[n];
+        final float[] meanI = boxMean(guide, w, h, r, integral);
+        final float[] meanP = boxMean(p, w, h, r, integral);
+        for (int i = 0; i < n; i++) tmp[i] = guide[i] * p[i];
+        final float[] corrIp = boxMean(tmp, w, h, r, integral);
+        for (int i = 0; i < n; i++) tmp[i] = guide[i] * guide[i];
+        final float[] corrII = boxMean(tmp, w, h, r, integral);
+        // a into corrIp, b into meanP
+        for (int i = 0; i < n; i++) {
+            final float varI = corrII[i] - meanI[i] * meanI[i];
+            final float covIp = corrIp[i] - meanI[i] * meanP[i];
+            final float a = covIp / (varI + eps);
+            corrIp[i] = a;
+            meanP[i] = meanP[i] - a * meanI[i];
+        }
+        final float[] meanA = boxMean(corrIp, w, h, r, integral);
+        final float[] meanB = boxMean(meanP, w, h, r, integral);
+        for (int i = 0; i < n; i++) meanA[i] = meanA[i] * guide[i] + meanB[i];
+        return meanA;
+    }
+
+    /** Mean over the (2r+1)^2 window around each pixel, clipped at the edges. */
+    private static float[] boxMean(float[] a, int w, int h, int r, double[] integral) {
+        final int stride = w + 1;
+        for (int y = 0; y < h; y++) {
+            double row = 0;
+            for (int x = 0; x < w; x++) {
+                row += a[y * w + x];
+                integral[(y + 1) * stride + x + 1] = integral[y * stride + x + 1] + row;
+            }
+        }
+        final float[] out = new float[w * h];
+        for (int y = 0; y < h; y++) {
+            final int y0 = Math.max(0, y - r), y1 = Math.min(h, y + r + 1);
+            for (int x = 0; x < w; x++) {
+                final int x0 = Math.max(0, x - r), x1 = Math.min(w, x + r + 1);
+                final double sum = integral[y1 * stride + x1] - integral[y0 * stride + x1]
+                        - integral[y1 * stride + x0] + integral[y0 * stride + x0];
+                out[y * w + x] = (float) (sum / ((y1 - y0) * (x1 - x0)));
+            }
+        }
+        return out;
     }
 
     /**
