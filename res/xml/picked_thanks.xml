@@ -202,6 +202,14 @@
         </Preference>
 
         <Preference
+            android:key="thanks_lineage_cc"
+            android:title="@string/picked_thanks_lineage_cc_title"
+            android:summary="@string/picked_thanks_lineage_cc_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/LineageOS/android_lineage-sdk" />
+        </Preference>
+
+        <Preference
             android:key="thanks_u2net"
             android:title="@string/picked_thanks_u2net_title"
             android:summary="@string/picked_thanks_u2net_summary">

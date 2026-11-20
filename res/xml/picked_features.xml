@@ -384,6 +384,13 @@
             android:summary="@string/picked_bh_summary"
             android:fragment="com.miku.exsettings.fragments.PickedBatteryHealth" />
 
+        <!-- [LineageOS] Charging control (frameworks/base PickedChargingControlService) -->
+        <Preference
+            android:key="picked_charging_control"
+            android:title="@string/picked_cc_title"
+            android:summary="@string/picked_cc_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedChargingControl" />
+
         <!-- [Evolution X / AxionOS] Lockscreen charging info (Settings.System picked_lockscreen_charging_info) -->
         <com.miku.settings.preferences.SystemSettingSwitchPreference
             android:key="picked_lockscreen_charging_info"

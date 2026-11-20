@@ -372,6 +372,10 @@ public class PickedFeatures extends SettingsPreferenceFragment {
     }
 
     private void setupCharging() {
+        final Preference chargingControl = findPreference("picked_charging_control");
+        if (chargingControl != null && !PickedChargingControl.isSupported()) {
+            chargingControl.setVisible(false);
+        }
         final TwoStatePreference fastWireless = findPreference("picked_wireless_fast_charge");
         if (fastWireless != null) {
             if (!PickedCharging.isWirelessFastChargeSupported()) {

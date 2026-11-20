@@ -471,8 +471,25 @@
     <string name="picked_thanks_openmeteo_summary">Free weather and geocoding data for the lockscreen clock weather (CC BY 4.0)</string>
     <string name="picked_thanks_hosts_lists_title">StevenBlack, AdAway and Peter Lowe</string>
     <string name="picked_thanks_hosts_lists_summary">The hosts lists behind the ad blocker</string>
+    <string name="picked_thanks_lineage_cc_title">LineageOS charging control</string>
+    <string name="picked_thanks_lineage_cc_summary">The idea and logic behind Charging control (lineage-sdk ChargingControlController) and the health HAL it drives</string>
     <string name="picked_thanks_u2net_title">U²-Net (Xuebin Qin et al.) and rembg (Daniel Gatis)</string>
     <string name="picked_thanks_u2net_summary">The on-device subject cut-out for the depth wallpaper (Apache 2.0; ONNX export from rembg, MIT)</string>
     <string name="picked_thanks_onnxruntime_title">ONNX Runtime (Microsoft)</string>
     <string name="picked_thanks_onnxruntime_summary">Runs the depth wallpaper cut-out model on device (MIT)</string>
+
+    <!-- [LineageOS] Charging control -->
+    <string name="picked_cc_title">Charging control</string>
+    <string name="picked_cc_summary">Stop charging at a limit, or finish just before you wake up, to slow battery wear</string>
+    <string name="picked_cc_enabled_title">Use charging control</string>
+    <string name="picked_cc_enabled_summary">Keep the battery out of the high charge levels that wear it fastest</string>
+    <string name="picked_cc_mode_title">Mode</string>
+    <string name="picked_cc_mode_limit">Limit</string>
+    <string name="picked_cc_mode_alarm">Overnight, full by my next alarm</string>
+    <string name="picked_cc_mode_custom">Overnight, full by a set time</string>
+    <string name="picked_cc_limit_title">Charging limit</string>
+    <string name="picked_cc_limit_summary">Charging stops at this level and the phone runs on charger power</string>
+    <string name="picked_cc_start_time_title">Start</string>
+    <string name="picked_cc_target_time_title">Fully charged by</string>
+    <string name="picked_cc_footer">While a limit is active, a notification lets you charge to 100% once, until you unplug. In the overnight modes the battery is held at 80% and topped up to 100% about 1.5 hours before the alarm or the time you set.</string>
 </resources>

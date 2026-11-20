@@ -375,4 +375,16 @@
         <item>0</item>
         <item>1</item>
     </string-array>
+
+    <!-- [LineageOS] Charging control mode (Settings.System picked_charging_control_mode) -->
+    <string-array name="picked_cc_mode_entries" translatable="false">
+        <item>@string/picked_cc_mode_limit</item>
+        <item>@string/picked_cc_mode_alarm</item>
+        <item>@string/picked_cc_mode_custom</item>
+    </string-array>
+    <string-array name="picked_cc_mode_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>
