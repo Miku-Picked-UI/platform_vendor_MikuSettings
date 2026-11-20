@@ -332,7 +332,7 @@
     <string name="picked_depth_enabled_title">Depth effect</string>
     <string name="picked_depth_enabled_summary">Draw the subject over the clock. Choose a photo below first</string>
     <string name="picked_depth_pick_title">Choose wallpaper</string>
-    <string name="picked_depth_pick_summary">Any photo of yours. It becomes your lockscreen wallpaper</string>
+    <string name="picked_depth_pick_summary">A built-in wallpaper or any photo of yours. It becomes your lockscreen wallpaper</string>
     <string name="picked_depth_how">You need two images: the photo, and a cut-out of its subject as a transparent PNG. Most galleries make one: long-press the person or object in the photo and save or share the cut-out. Pick the photo first.</string>
     <string name="picked_depth_choose_photo">Choose photo</string>
     <string name="picked_depth_now_subject">Now pick the cut-out (transparent PNG) of the same photo. It is lined up with the photo automatically.</string>
@@ -342,8 +342,10 @@
     <string name="picked_depth_err_not_found">The cut-out does not match the photo. Use a cut-out made from this exact photo</string>
     <string name="picked_depth_err_decode">These images could not be read. The cut-out must be a PNG with transparency</string>
     <string name="picked_depth_err_save">The wallpaper could not be saved</string>
-    <string name="picked_depth_auto_how">Pick any photo with a clear subject, such as a person, a pet or an object in front. The subject is cut out on your phone and stands in front of the clock. Nothing is uploaded.</string>
     <string name="picked_depth_own_cutout">Use my own cut-out</string>
+    <string name="picked_depth_source_builtin">Built-in wallpapers</string>
+    <string name="picked_depth_source_photo">My photo, cut out automatically</string>
+    <string name="picked_depth_source_own">My photo and my own cut-out</string>
     <string name="picked_depth_auto_working">Finding the subject…</string>
     <string name="picked_depth_preview_title">Subject found</string>
     <string name="picked_depth_preview_message">This part of the photo will be drawn in front of the clock.</string>
@@ -493,5 +495,5 @@
     <string name="picked_cc_limit_summary">Charging stops at this level and the phone runs on charger power</string>
     <string name="picked_cc_start_time_title">Start</string>
     <string name="picked_cc_target_time_title">Fully charged by</string>
-    <string name="picked_cc_footer">While a limit is active, a notification lets you charge to 100% once, until you unplug. In the overnight modes the battery is held at 80% and topped up to 100% about 1.5 hours before the alarm or the time you set.</string>
+    <string name="picked_cc_footer" formatted="false">While a limit is active, a notification lets you charge to 100% once, until you unplug. In the overnight modes the battery is held at 80% and topped up to 100% about 1.5 hours before the alarm or the time you set.</string>
 </resources>
