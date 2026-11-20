@@ -493,5 +493,5 @@
     <string name="picked_cc_limit_summary">Charging stops at this level and the phone runs on charger power</string>
     <string name="picked_cc_start_time_title">Start</string>
     <string name="picked_cc_target_time_title">Fully charged by</string>
-    <string name="picked_cc_footer">While a limit is active, a notification lets you charge to 100% once, until you unplug. In the overnight modes the battery is held at 80% and topped up to 100% about 1.5 hours before the alarm or the time you set.</string>
+    <string name="picked_cc_footer" formatted="false">While a limit is active, a notification lets you charge to 100% once, until you unplug. In the overnight modes the battery is held at 80% and topped up to 100% about 1.5 hours before the alarm or the time you set.</string>
 </resources>
