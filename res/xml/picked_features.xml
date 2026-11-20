@@ -339,6 +339,34 @@
             android:title="@string/picked_battery_bar_low_color_title"
             settings:defaultColorValue="0xfff90028"
             android:dependency="statusbar_battery_bar" />
+
+        <!-- [CyanogenMod / crDroid / Evolution X] Status bar brightness control -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_brightness_control"
+            android:title="@string/picked_sb_brightness_title"
+            android:summary="@string/picked_sb_brightness_summary"
+            android:defaultValue="false" />
+
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="status_bar_brightness_control_lockscreen"
+            android:title="@string/picked_sb_brightness_lockscreen_title"
+            android:summary="@string/picked_sb_brightness_lockscreen_summary"
+            android:dependency="status_bar_brightness_control"
+            android:defaultValue="false" />
+
+        <!-- [crDroid / Evolution X] 4G icon instead of LTE -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="show_fourg_icon"
+            android:title="@string/picked_fourg_icon_title"
+            android:summary="@string/picked_fourg_icon_summary"
+            android:defaultValue="false" />
+
+        <!-- [crDroid / Lunaris AOSP] Less boring heads up -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="less_boring_heads_up"
+            android:title="@string/picked_less_boring_heads_up_title"
+            android:summary="@string/picked_less_boring_heads_up_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -503,6 +531,13 @@
             android:title="@string/picked_volume_music_control_title"
             android:summary="@string/picked_volume_music_control_summary"
             android:defaultValue="true" />
+
+        <!-- [Evolution X / crDroid] Notification sound and vibration while the screen is on -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="notification_sound_vib_screen_on"
+            android:title="@string/picked_notif_screen_on_title"
+            android:summary="@string/picked_notif_screen_on_summary"
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -550,6 +585,13 @@
             android:title="@string/picked_screenshot_tester_title"
             android:summary="@string/picked_screenshot_tester_summary"
             android:fragment="com.miku.exsettings.fragments.PickedScreenshotTester" />
+
+        <!-- [Evolution X / POSP] Screenshot sound -->
+        <com.miku.settings.preferences.SystemSettingSwitchPreference
+            android:key="screenshot_shutter_sound"
+            android:title="@string/picked_screenshot_sound_title"
+            android:summary="@string/picked_screenshot_sound_summary"
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <PreferenceCategory
