@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Miku-Picked UI ; SPDX-License-Identifier: Apache-2.0 -->
+<!-- Settings.System picked_charging_control_* (frameworks/base PickedChargingControlService) -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/picked_cc_title">
+
+    <com.miku.settings.preferences.SystemSettingSwitchPreference
+        android:key="picked_charging_control_enabled"
+        android:title="@string/picked_cc_enabled_title"
+        android:summary="@string/picked_cc_enabled_summary"
+        android:defaultValue="false" />
+
+    <com.miku.settings.preferences.SystemSettingListPreference
+        android:key="picked_charging_control_mode"
+        android:title="@string/picked_cc_mode_title"
+        android:summary="%s"
+        android:entries="@array/picked_cc_mode_entries"
+        android:entryValues="@array/picked_cc_mode_values"
+        android:defaultValue="1"
+        android:dependency="picked_charging_control_enabled" />
+
+    <com.miku.exsettings.preferences.CustomSystemSeekBarPreference
+        android:key="picked_charging_control_limit"
+        android:title="@string/picked_cc_limit_title"
+        android:summary="@string/picked_cc_limit_summary"
+        settings:min="60"
+        android:max="95"
+        settings:interval="5"
+        android:defaultValue="80"
+        settings:units="%"
+        android:dependency="picked_charging_control_enabled" />
+
+    <Preference
+        android:key="picked_charging_control_start_time"
+        android:title="@string/picked_cc_start_time_title"
+        android:persistent="false"
+        android:dependency="picked_charging_control_enabled" />
+
+    <Preference
+        android:key="picked_charging_control_target_time"
+        android:title="@string/picked_cc_target_time_title"
+        android:persistent="false"
+        android:dependency="picked_charging_control_enabled" />
+
+    <Preference
+        android:key="picked_charging_control_footer"
+        android:summary="@string/picked_cc_footer"
+        android:selectable="false" />
+</PreferenceScreen>

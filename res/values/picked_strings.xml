@@ -11,9 +11,13 @@
     <string name="picked_thanks_summary">Everyone who made Miku-Picked UI possible</string>
 
     <!-- Categories -->
-    <string name="picked_category_style">Style</string>
+    <string name="picked_category_lockscreen">Lockscreen &amp; wallpaper</string>
+    <string name="picked_category_look">Look &amp; feel</string>
     <string name="picked_category_statusbar">Status bar</string>
-    <string name="picked_category_qs">Quick settings</string>
+    <string name="picked_category_qs_volume">Quick settings &amp; volume panel</string>
+    <string name="picked_category_network">Network &amp; privacy</string>
+    <!-- Picked features menu entry summary: a few setting names, then more. -->
+    <string name="picked_menu_summary_more"><xliff:g id="names">%1$s</xliff:g> and more</string>
     <string name="picked_category_power">Power and sleep</string>
     <string name="picked_category_display">Display</string>
 
@@ -184,7 +188,6 @@
     <string name="picked_glass_tab_bars_summary">Turn apps\' bottom navigation bars into a glass capsule with liquid motion (from PenguinOS). Reopen apps to apply</string>
     <string name="picked_glass_tab_bars_float_title">Float tab bars over the page</string>
     <string name="picked_glass_tab_bars_float_summary">Let content scroll under the glass tab bar in apps built with Compose</string>
-    <string name="picked_category_gpu">GPU</string>
 
     <!-- Games -->
     <string name="picked_ls_widgets_title">Lockscreen widgets</string>
@@ -278,7 +281,6 @@
     <string name="picked_thanks_viperfx_re_title">ViPERFX_RE (Iscle / AndroidAudioMods)</string>
     <string name="picked_thanks_viperfx_re_summary">The reverse engineered ViPER4Android FX: AxionFx Clarity, Dynamic System and Speaker optimization, used with permission (via WSTxda\'s fork)</string>
     <!-- [Miku-Picked UI] Screenshots: FLAG_SECURE and screenshot detection -->
-    <string name="picked_category_screenshots">Screenshots</string>
     <string name="picked_disable_secure_windows_title">Allow screenshots in secure apps</string>
     <string name="picked_disable_secure_windows_summary">Apps that block screenshots (banking, private browsing, passwords) can be captured in screenshots, screen recordings and recents. Protected video still shows black</string>
     <string name="picked_hide_screenshot_detection_title">Hide screenshots from apps</string>
@@ -471,8 +473,25 @@
     <string name="picked_thanks_openmeteo_summary">Free weather and geocoding data for the lockscreen clock weather (CC BY 4.0)</string>
     <string name="picked_thanks_hosts_lists_title">StevenBlack, AdAway and Peter Lowe</string>
     <string name="picked_thanks_hosts_lists_summary">The hosts lists behind the ad blocker</string>
+    <string name="picked_thanks_lineage_cc_title">LineageOS charging control</string>
+    <string name="picked_thanks_lineage_cc_summary">The idea and logic behind Charging control (lineage-sdk ChargingControlController) and the health HAL it drives</string>
     <string name="picked_thanks_u2net_title">U²-Net (Xuebin Qin et al.) and rembg (Daniel Gatis)</string>
     <string name="picked_thanks_u2net_summary">The on-device subject cut-out for the depth wallpaper (Apache 2.0; ONNX export from rembg, MIT)</string>
     <string name="picked_thanks_onnxruntime_title">ONNX Runtime (Microsoft)</string>
     <string name="picked_thanks_onnxruntime_summary">Runs the depth wallpaper cut-out model on device (MIT)</string>
+
+    <!-- [LineageOS] Charging control -->
+    <string name="picked_cc_title">Charging control</string>
+    <string name="picked_cc_summary">Stop charging at a limit, or finish just before you wake up, to slow battery wear</string>
+    <string name="picked_cc_enabled_title">Use charging control</string>
+    <string name="picked_cc_enabled_summary">Keep the battery out of the high charge levels that wear it fastest</string>
+    <string name="picked_cc_mode_title">Mode</string>
+    <string name="picked_cc_mode_limit">Limit</string>
+    <string name="picked_cc_mode_alarm">Overnight, full by my next alarm</string>
+    <string name="picked_cc_mode_custom">Overnight, full by a set time</string>
+    <string name="picked_cc_limit_title">Charging limit</string>
+    <string name="picked_cc_limit_summary">Charging stops at this level and the phone runs on charger power</string>
+    <string name="picked_cc_start_time_title">Start</string>
+    <string name="picked_cc_target_time_title">Fully charged by</string>
+    <string name="picked_cc_footer">While a limit is active, a notification lets you charge to 100% once, until you unplug. In the overnight modes the battery is held at 80% and topped up to 100% about 1.5 hours before the alarm or the time you set.</string>
 </resources>
