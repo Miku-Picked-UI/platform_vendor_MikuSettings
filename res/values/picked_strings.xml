@@ -113,9 +113,9 @@
     <string name="picked_thanks_uwu_title">uwuAOSP</string>
     <string name="picked_thanks_uwu_summary">Deep sleep time in uptime, auto brightness tile, full screen apps for display cutouts</string>
     <string name="picked_thanks_evolution_title">Evolution X</string>
-    <string name="picked_thanks_evolution_summary">Custom lockscreen clocks (with crDroid and risingOS), fingerprint icons, selectable emoji, sleep mode, QS tile toggle animations, custom carrier label, volume slider haptics switch, pocket mode (Carlo Savignano), performance overlay, Game Space (by chaldeaprjkt)</string>
+    <string name="picked_thanks_evolution_summary">Custom lockscreen clocks (with crDroid and risingOS), fingerprint icons, selectable emoji, sleep mode, QS tile toggle animations, custom carrier label, volume slider haptics switch, pocket mode (Carlo Savignano), performance overlay, Game Space (by chaldeaprjkt), status bar brightness control (CyanogenMod, Alberto97, Pranav Vashi), 4G icon (Pranav Vashi), notification sound with screen on (ezio84), screenshot sound (Ashwin R C, POSP)</string>
     <string name="picked_thanks_lunaris_title">Lunaris AOSP</string>
-    <string name="picked_thanks_lunaris_summary">Separate notifications and quick settings shade, landscape split shade switch, screenshot flash and status bar options, Edge Aurora and lockscreen app widgets (Ghosuto), performance overlay</string>
+    <string name="picked_thanks_lunaris_summary">Separate notifications and quick settings shade, landscape split shade switch, screenshot flash and status bar options, Edge Aurora and lockscreen app widgets (Ghosuto), performance overlay, less boring heads up (crDroid)</string>
     <string name="picked_thanks_oneuisland_title">OneUisland</string>
     <string name="picked_thanks_oneuisland_summary">The dynamic island, by Spottq, with additions by csabaikende-ctrl</string>
     <string name="picked_thanks_devices_category">Device trees</string>
@@ -496,4 +496,18 @@
     <string name="picked_cc_start_time_title">Start</string>
     <string name="picked_cc_target_time_title">Fully charged by</string>
     <string name="picked_cc_footer" formatted="false">While a limit is active, a notification lets you charge to 100% once, until you unplug. In the overnight modes the battery is held at 80% and topped up to 100% about 1.5 hours before the alarm or the time you set.</string>
+
+    <!-- Ported from crDroid / Evolution X / Lunaris AOSP / POSP -->
+    <string name="picked_sb_brightness_title">Status bar brightness control</string>
+    <string name="picked_sb_brightness_summary">Slide sideways along the status bar, or long-press it, to change the brightness</string>
+    <string name="picked_sb_brightness_lockscreen_title">Brightness control on the lock screen</string>
+    <string name="picked_sb_brightness_lockscreen_summary">Also allow it while the phone is locked</string>
+    <string name="picked_fourg_icon_title">4G icon</string>
+    <string name="picked_fourg_icon_summary">Show 4G instead of LTE in the status bar</string>
+    <string name="picked_less_boring_heads_up_title">Less boring heads up</string>
+    <string name="picked_less_boring_heads_up_summary">Only calls, alarms, the phone app and messaging apps pop up on screen. Other notifications still arrive in the shade.</string>
+    <string name="picked_notif_screen_on_title">Notification sound with screen on</string>
+    <string name="picked_notif_screen_on_summary">Play notification sounds and vibration while you are using the phone. Turn off to only hear them when the screen is off.</string>
+    <string name="picked_screenshot_sound_title">Screenshot sound</string>
+    <string name="picked_screenshot_sound_summary">Play a sound when taking a screenshot (silent mode mutes it, vibrate mode gives a short buzz). Countries that require a shutter sound always get it.</string>
 </resources>
