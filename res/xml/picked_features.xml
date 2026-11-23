@@ -9,6 +9,20 @@
     android:key="picked_features"
     android:title="@string/picked_features_title">
 
+    <!-- [PenguinOS] Penguin Laboratory (vendor/miku/picked/penguin_laboratory): edge lighting,
+         Wonderland wallpapers, Liquid Glass, COS experience, styles and experiments. Shown at
+         the top of the menu, hidden inside a category. -->
+    <Preference
+        android:key="picked_penguin_laboratory"
+        android:title="@string/picked_penguin_laboratory_title"
+        android:summary="@string/picked_penguin_laboratory_summary"
+        android:icon="@drawable/picked_ic_laboratory"
+        android:order="0">
+        <intent
+            android:targetPackage="com.penguin.laboratory"
+            android:targetClass="com.penguin.laboratory.LaboratoryActivity" />
+    </Preference>
+
     <PreferenceCategory
         android:key="picked_category_lockscreen"
         android:title="@string/picked_category_lockscreen">
