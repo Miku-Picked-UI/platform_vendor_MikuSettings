@@ -226,6 +226,14 @@
         </Preference>
 
         <Preference
+            android:key="thanks_librepods"
+            android:title="@string/picked_thanks_librepods_title"
+            android:summary="@string/picked_thanks_librepods_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/librepods-org/librepods" />
+        </Preference>
+
+        <Preference
             android:key="thanks_compose_icons"
             android:title="@string/picked_thanks_compose_icons_title"
             android:summary="@string/picked_thanks_compose_icons_summary">

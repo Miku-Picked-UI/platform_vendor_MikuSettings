@@ -484,6 +484,8 @@
     <string name="picked_thanks_u2net_summary">The on-device subject cut-out for the depth wallpaper (Apache 2.0; ONNX export from rembg, MIT)</string>
     <string name="picked_thanks_onnxruntime_title">ONNX Runtime (Microsoft)</string>
     <string name="picked_thanks_onnxruntime_summary">Runs the depth wallpaper cut-out model on device (MIT)</string>
+    <string name="picked_thanks_librepods_title">LibrePods (kavishdevar and contributors)</string>
+    <string name="picked_thanks_librepods_summary">The AirPods protocol behind the AirPods controls in Bluetooth device details (GPL-3.0)</string>
     <string name="picked_thanks_compose_icons_title">Compose Icons (Composable Horizons)</string>
     <string name="picked_thanks_compose_icons_summary">Material Symbols icons in Penguin Laboratory (MIT; the symbols are Google\'s, Apache 2.0)</string>
 
