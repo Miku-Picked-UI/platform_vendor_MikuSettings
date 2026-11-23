@@ -6,6 +6,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Entry points -->
     <string name="picked_features_title">Picked features</string>
+    <!-- [PenguinOS] Penguin Laboratory entry -->
+    <string name="picked_penguin_laboratory_title">Penguin Laboratory</string>
+    <string name="picked_penguin_laboratory_summary">Edge lighting, Wonderland wallpapers, Liquid Glass, styles and experiments</string>
     <string name="picked_features_summary">Features picked from Infinity X, AxionOS, uwuAOSP and Evolution X</string>
     <string name="picked_thanks_title">Thanks to</string>
     <string name="picked_thanks_summary">Everyone who made Miku-Picked UI possible</string>
@@ -277,7 +280,7 @@
     <string name="picked_thanks_colorcc_title">ColorCC (Guest)</string>
     <string name="picked_thanks_colorcc_summary">The ColorOS-style control centre (Quick Settings style \"ColorCC\"), originally an LSPosed module for One UI, ported to Android 16 with permission</string>
     <string name="picked_thanks_penguinos_title">PenguinOS (redducc, Saikiran)</string>
-    <string name="picked_thanks_penguinos_summary">System-wide Liquid Glass (SurfaceFlinger\'s renderengine) and the glass Quick Settings, PIN pad and notifications, the volume panel styles (One UI, MyUI, ColorOS, expandable), backported to Android 16 with permission</string>
+    <string name="picked_thanks_penguinos_summary">System-wide Liquid Glass (SurfaceFlinger\'s renderengine) and the glass Quick Settings, PIN pad and notifications, the volume panel styles (One UI, MyUI, ColorOS, expandable), and Penguin Laboratory with its edge lighting, Wonderland wallpapers and glass tab bars, backported to Android 16 with permission</string>
     <string name="picked_thanks_viperfx_re_title">ViPERFX_RE (Iscle / AndroidAudioMods)</string>
     <string name="picked_thanks_viperfx_re_summary">The reverse engineered ViPER4Android FX: AxionFx Clarity, Dynamic System and Speaker optimization, used with permission (via WSTxda\'s fork)</string>
     <!-- [Miku-Picked UI] Screenshots: FLAG_SECURE and screenshot detection -->
@@ -481,6 +484,8 @@
     <string name="picked_thanks_u2net_summary">The on-device subject cut-out for the depth wallpaper (Apache 2.0; ONNX export from rembg, MIT)</string>
     <string name="picked_thanks_onnxruntime_title">ONNX Runtime (Microsoft)</string>
     <string name="picked_thanks_onnxruntime_summary">Runs the depth wallpaper cut-out model on device (MIT)</string>
+    <string name="picked_thanks_compose_icons_title">Compose Icons (Composable Horizons)</string>
+    <string name="picked_thanks_compose_icons_summary">Material Symbols icons in Penguin Laboratory (MIT; the symbols are Google\'s, Apache 2.0)</string>
 
     <!-- [LineageOS] Charging control -->
     <string name="picked_cc_title">Charging control</string>

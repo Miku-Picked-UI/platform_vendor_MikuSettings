@@ -226,6 +226,14 @@
         </Preference>
 
         <Preference
+            android:key="thanks_compose_icons"
+            android:title="@string/picked_thanks_compose_icons_title"
+            android:summary="@string/picked_thanks_compose_icons_summary">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/composablehorizons/composeicons" />
+        </Preference>
+
+        <Preference
             android:key="thanks_claude"
             android:title="@string/picked_thanks_claude_title"
             android:summary="@string/picked_thanks_claude_summary">

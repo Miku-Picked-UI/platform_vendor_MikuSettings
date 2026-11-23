@@ -51,6 +51,7 @@ public class PickedFeatures extends SettingsPreferenceFragment {
 
     /** Fragment argument: key of the only PreferenceCategory to show. */
     private static final String ARG_CATEGORY = "picked_category";
+    private static final String KEY_PENGUIN_LABORATORY = "picked_penguin_laboratory";
     /** How many setting names a menu entry lists as its summary. */
     private static final int MENU_SUMMARY_ITEMS = 3;
 
@@ -74,6 +75,11 @@ public class PickedFeatures extends SettingsPreferenceFragment {
             "persist.sys.penguin.liquid_glass_refraction";
     private static final String KEY_LIQUID_GLASS_STYLE = "picked_liquid_glass_style";
     private static final String PROP_LIQUID_GLASS_STYLE = "persist.sys.penguin.liquid_glass_style";
+    // Settings.Secure keys of the same, as PenguinOS keeps them (WindowManagerService syncs them
+    // into the properties above)
+    private static final String SECURE_LIQUID_GLASS = "penguin_liquid_glass";
+    private static final String SECURE_LIQUID_GLASS_STYLE = "penguin_liquid_glass_style";
+    private static final String SECURE_LIQUID_GLASS_REFRACTION = "penguin_liquid_glass_refraction";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -143,6 +149,10 @@ public class PickedFeatures extends SettingsPreferenceFragment {
         if (liquidGlass != null) {
             liquidGlass.setChecked(SystemProperties.getBoolean(PROP_LIQUID_GLASS, true));
             liquidGlass.setOnPreferenceChangeListener((pref, newValue) -> {
+                // Settings.Secure is the source of truth (Penguin Laboratory writes it too);
+                // WindowManagerService mirrors it into the property.
+                Settings.Secure.putInt(getContentResolver(), SECURE_LIQUID_GLASS,
+                        (Boolean) newValue ? 1 : 0);
                 SystemProperties.set(PROP_LIQUID_GLASS, (Boolean) newValue ? "1" : "0");
                 return true;
             });
@@ -152,6 +162,8 @@ public class PickedFeatures extends SettingsPreferenceFragment {
             glassStyle.setValue(
                     "cos".equals(SystemProperties.get(PROP_LIQUID_GLASS_STYLE)) ? "cos" : "ios");
             glassStyle.setOnPreferenceChangeListener((pref, newValue) -> {
+                Settings.Secure.putInt(getContentResolver(), SECURE_LIQUID_GLASS_STYLE,
+                        "cos".equals(newValue) ? 1 : 0);
                 SystemProperties.set(PROP_LIQUID_GLASS_STYLE, (String) newValue);
                 return true;
             });
@@ -161,6 +173,8 @@ public class PickedFeatures extends SettingsPreferenceFragment {
             refraction.setValue(Math.max(0, Math.min(100,
                     SystemProperties.getInt(PROP_LIQUID_GLASS_REFRACTION, 60))));
             refraction.setOnPreferenceChangeListener((pref, newValue) -> {
+                Settings.Secure.putInt(getContentResolver(), SECURE_LIQUID_GLASS_REFRACTION,
+                        (Integer) newValue);
                 SystemProperties.set(PROP_LIQUID_GLASS_REFRACTION,
                         Integer.toString((Integer) newValue));
                 return true;
@@ -193,6 +207,11 @@ public class PickedFeatures extends SettingsPreferenceFragment {
                 categories.add((PreferenceCategory) screen.getPreference(i));
             }
         }
+        final Preference lab = findPreference(KEY_PENGUIN_LABORATORY);
+        if (lab != null) {
+            lab.setVisible(only == null && lab.getIntent() != null
+                    && getPackageManager().resolveActivity(lab.getIntent(), 0) != null);
+        }
         if (only != null) {
             for (PreferenceCategory category : categories) {
                 final boolean show = only.equals(category.getKey());
@@ -202,7 +221,7 @@ public class PickedFeatures extends SettingsPreferenceFragment {
             }
             return;
         }
-        int order = 0;
+        int order = 1; // 0 is Penguin Laboratory
         for (PreferenceCategory category : categories) {
             final boolean wasVisible = category.isVisible();
             category.setVisible(false);
