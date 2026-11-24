@@ -215,6 +215,14 @@
             android:summary="@string/picked_cos_app_motion_summary"
             android:defaultValue="true" />
 
+        <!-- [Miku-Picked UI] Water back arrow: the back gesture bubble wobbles like water
+             (Settings.Secure picked_back_water, read by SystemUI BackPanel on each swipe) -->
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_back_water"
+            android:title="@string/picked_back_water_title"
+            android:summary="@string/picked_back_water_summary"
+            android:defaultValue="true" />
+
         <!-- [Miku-Picked UI] Shade blur strength (Settings.System picked_shade_blur, %) -->
         <com.miku.exsettings.preferences.CustomSystemSeekBarPreference
             android:key="picked_shade_blur"

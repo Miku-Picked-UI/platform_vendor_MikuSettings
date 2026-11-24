@@ -243,6 +243,8 @@
     <string name="picked_volume_panel_style_myui">MyUI</string>
     <string name="picked_volume_panel_style_cos">ColorOS</string>
     <string name="picked_cos_app_motion_summary">Apps grow out of their icon and fly back into it on ColorOS / OxygenOS springs, with a little bounce as they land (from PenguinOS)</string>
+    <string name="picked_back_water_title">Water back arrow</string>
+    <string name="picked_back_water_summary">The back gesture bubble wobbles like water: it bounces when it pops out and jiggles when you move your finger up and down</string>
     <string name="picked_clock_fly_title">Clock flies home on unlock</string>
     <string name="picked_clock_fly_summary">When you unlock to the home screen, the lockscreen clock flies onto a Lockscreen clock widget while the home screen zooms in. Turning this on adds the widget to your home screen</string>
     <string name="picked_liquid_glass_style_ios">Liquid Glass (clear, refracting rims)</string>
