@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Miku-Picked UI ; SPDX-License-Identifier: Apache-2.0 -->
+<!-- Native Glass Layer (DrDisagree's Glass Layer, GPL-3.0): Settings.Secure picked_glass_layer
+     and picked_glass_layer_*, read live by the framework's
+     com.android.internal.graphics.picked.GlassLayer in SystemUI, Settings and the installer. -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/picked_glass_layer_title">
+
+    <com.miku.settings.preferences.SecureSettingSwitchPreference
+        android:key="picked_glass_layer"
+        android:title="@string/picked_glass_layer_title"
+        android:summary="@string/picked_glass_layer_summary"
+        android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:key="picked_glass_layer_surfaces"
+        android:title="@string/picked_glass_layer_surfaces_title">
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_layer_toasts"
+            android:title="@string/picked_glass_layer_toasts"
+            android:defaultValue="true"
+            android:dependency="picked_glass_layer" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_layer_dialogs"
+            android:title="@string/picked_glass_layer_dialogs"
+            android:defaultValue="true"
+            android:dependency="picked_glass_layer" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_layer_power_menu"
+            android:title="@string/picked_glass_layer_power_menu"
+            android:defaultValue="true"
+            android:dependency="picked_glass_layer" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_layer_volume"
+            android:title="@string/picked_glass_layer_volume"
+            android:summary="@string/picked_glass_layer_volume_summary"
+            android:defaultValue="true"
+            android:dependency="picked_glass_layer" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_layer_status_bar_chips"
+            android:title="@string/picked_glass_layer_status_bar_chips"
+            android:defaultValue="true"
+            android:dependency="picked_glass_layer" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_layer_lockscreen_shortcuts"
+            android:title="@string/picked_glass_layer_lockscreen_shortcuts"
+            android:defaultValue="true"
+            android:dependency="picked_glass_layer" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_layer_settings_cards"
+            android:title="@string/picked_glass_layer_settings_cards"
+            android:defaultValue="true"
+            android:dependency="picked_glass_layer" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_layer_installer_dialogs"
+            android:title="@string/picked_glass_layer_installer_dialogs"
+            android:defaultValue="true"
+            android:dependency="picked_glass_layer" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="picked_glass_layer_look"
+        android:title="@string/picked_glass_layer_look_title">
+
+        <com.miku.exsettings.preferences.CustomSecureSeekBarPreference
+            android:key="picked_glass_layer_tint"
+            android:title="@string/picked_glass_layer_tint_title"
+            android:summary="@string/picked_glass_layer_tint_summary"
+            settings:min="0"
+            android:max="200"
+            android:defaultValue="100"
+            settings:units="%"
+            android:dependency="picked_glass_layer" />
+
+        <com.miku.exsettings.preferences.CustomSecureSeekBarPreference
+            android:key="picked_glass_layer_blur"
+            android:title="@string/picked_glass_layer_blur_title"
+            android:summary="@string/picked_glass_layer_blur_summary"
+            settings:min="0"
+            android:max="40"
+            android:defaultValue="12"
+            settings:units="dp"
+            android:dependency="picked_glass_layer" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_layer_rim"
+            android:title="@string/picked_glass_layer_rim_title"
+            android:summary="@string/picked_glass_layer_rim_summary"
+            android:defaultValue="true"
+            android:dependency="picked_glass_layer" />
+    </PreferenceCategory>
+</PreferenceScreen>

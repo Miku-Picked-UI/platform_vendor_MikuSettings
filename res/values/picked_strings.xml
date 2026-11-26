@@ -544,4 +544,28 @@
     <string name="picked_notif_screen_on_summary">Play notification sounds and vibration while you are using the phone. Turn off to only hear them when the screen is off.</string>
     <string name="picked_screenshot_sound_title">Screenshot sound</string>
     <string name="picked_screenshot_sound_summary">Play a sound when taking a screenshot (silent mode mutes it, vibrate mode gives a short buzz). Countries that require a shutter sound always get it.</string>
+
+    <!-- Native Glass Layer (DrDisagree's Glass Layer) -->
+    <string name="picked_glass_layer_title">Glass Layer</string>
+    <string name="picked_glass_layer_summary">Turn system surfaces into live glass: blur, refraction (with Liquid Glass on) and a lit rim over whatever is behind them</string>
+    <string name="picked_glass_layer_page_summary">Glass toasts, dialogs, power menu, volume dialog, status bar chips, lockscreen shortcuts, Settings cards and installer dialogs</string>
+    <string name="picked_glass_layer_surfaces_title">Surfaces</string>
+    <string name="picked_glass_layer_toasts">Toasts</string>
+    <string name="picked_glass_layer_dialogs">System dialogs</string>
+    <string name="picked_glass_layer_power_menu">Power menu</string>
+    <string name="picked_glass_layer_volume">Volume dialog</string>
+    <string name="picked_glass_layer_volume_summary">The default volume panel style; the other styles have their own glass</string>
+    <string name="picked_glass_layer_status_bar_chips">Status bar chips</string>
+    <string name="picked_glass_layer_lockscreen_shortcuts">Lockscreen shortcuts</string>
+    <string name="picked_glass_layer_settings_cards">Settings cards</string>
+    <string name="picked_glass_layer_installer_dialogs">App installer dialogs</string>
+    <string name="picked_glass_layer_look_title">Look</string>
+    <string name="picked_glass_layer_tint_title">Tint</string>
+    <string name="picked_glass_layer_tint_summary">How much of each surface\'s own color stays on the glass (100 % = Glass Layer\'s defaults)</string>
+    <string name="picked_glass_layer_blur_title">Blur</string>
+    <string name="picked_glass_layer_blur_summary">How blurred the content behind the glass is</string>
+    <string name="picked_glass_layer_rim_title">Rim light</string>
+    <string name="picked_glass_layer_rim_summary">A lit edge and a soft sheen along the top of each glass shape</string>
+    <string name="picked_thanks_glasslayer_title">Glass Layer by DrDisagree</string>
+    <string name="picked_thanks_glasslayer_summary">Glass toasts, dialogs, power menu, volume, status bar chips, lockscreen shortcuts, Settings cards and installer dialogs (GPL-3.0), ported natively</string>
 </resources>

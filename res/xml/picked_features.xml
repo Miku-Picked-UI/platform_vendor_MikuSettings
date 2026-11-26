@@ -197,6 +197,14 @@
             android:persistent="false"
             android:dependency="picked_liquid_glass" />
 
+        <!-- [Glass Layer] Native Glass Layer: glass toasts, dialogs, power menu, volume, status
+             bar chips, lockscreen shortcuts, Settings cards, installer (page PickedGlassLayer) -->
+        <Preference
+            android:key="picked_glass_layer_page"
+            android:title="@string/picked_glass_layer_title"
+            android:summary="@string/picked_glass_layer_page_summary"
+            android:fragment="com.miku.exsettings.fragments.PickedGlassLayer" />
+
         <!-- [PenguinOS] Liquid Glass tab bars in apps (Settings.Secure penguin_glass_tab_bars) -->
         <com.miku.settings.preferences.SecureSettingSwitchPreference
             android:key="penguin_glass_tab_bars"

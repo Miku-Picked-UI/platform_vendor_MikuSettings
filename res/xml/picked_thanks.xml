@@ -124,6 +124,15 @@
         </Preference>
 
         <Preference
+            android:key="thanks_glasslayer"
+            android:title="@string/picked_thanks_glasslayer_title"
+            android:summary="@string/picked_thanks_glasslayer_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Mahmud0808/GlassLayer" />
+        </Preference>
+
+        <Preference
             android:key="thanks_colorcc"
             android:title="@string/picked_thanks_colorcc_title"
             android:summary="@string/picked_thanks_colorcc_summary">
