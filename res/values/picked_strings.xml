@@ -307,7 +307,7 @@
     <string name="picked_thanks_colorcc_title">ColorCC (Guest)</string>
     <string name="picked_thanks_colorcc_summary">The ColorOS-style control centre (Quick Settings style \"ColorCC\"), originally an LSPosed module for One UI, ported to Android 16 with permission</string>
     <string name="picked_thanks_penguinos_title">PenguinOS (redducc, Saikiran)</string>
-    <string name="picked_thanks_penguinos_summary">System-wide Liquid Glass (SurfaceFlinger\'s renderengine) and the glass Quick Settings, PIN pad and notifications, the volume panel styles (One UI, MyUI, ColorOS, expandable), and Penguin Laboratory with its edge lighting, Wonderland wallpapers and glass tab bars, backported to Android 16 with permission</string>
+    <string name="picked_thanks_penguinos_summary">System-wide Liquid Glass (SurfaceFlinger\'s renderengine) and the glass Quick Settings, PIN pad and notifications, the volume panel styles (One UI, MyUI, ColorOS, expandable), Penguin Laboratory with its edge lighting, Wonderland wallpapers and glass tab bars, and DeX (PenguinDex: dock, Launchpad, Control Centre, phone as touchpad), backported to Android 16 with permission</string>
     <string name="picked_thanks_viperfx_re_title">ViPERFX_RE (Iscle / AndroidAudioMods)</string>
     <string name="picked_thanks_viperfx_re_summary">The reverse engineered ViPER4Android FX: AxionFx Clarity, Dynamic System and Speaker optimization, used with permission (via WSTxda\'s fork)</string>
     <!-- [Miku-Picked UI] Screenshots: FLAG_SECURE and screenshot detection -->
