@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Miku-Picked UI ; SPDX-License-Identifier: Apache-2.0 -->
+<!-- Water back arrow: Settings.Secure picked_back_water and picked_back_water_*, read by SystemUI
+     BackPanel (WaterTunable) on each swipe. Same sliders as the BackWaterSim desktop preview;
+     values are stored as ints (shown divided in PickedBackWater). Defaults = BackPanel defaults. -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/picked_back_water_title">
+
+    <com.miku.settings.preferences.SecureSettingSwitchPreference
+        android:key="picked_back_water"
+        android:title="@string/picked_back_water_title"
+        android:summary="@string/picked_back_water_summary"
+        android:defaultValue="true" />
+
+    <PreferenceCategory
+        android:key="picked_back_water_tuning"
+        android:title="@string/picked_back_water_tuning_title">
+
+        <com.miku.exsettings.preferences.CustomSecureDecimalSeekBarPreference
+            android:key="picked_back_water_arrow"
+            android:title="@string/picked_back_water_arrow_title"
+            android:summary="@string/picked_back_water_arrow_summary"
+            settings:min="0"
+            android:max="300"
+            settings:interval="5"
+            android:defaultValue="100"
+            settings:units="×"
+            android:dependency="picked_back_water" />
+
+        <com.miku.exsettings.preferences.CustomSecureDecimalSeekBarPreference
+            android:key="picked_back_water_wobble"
+            android:title="@string/picked_back_water_wobble_title"
+            android:summary="@string/picked_back_water_wobble_summary"
+            settings:min="150"
+            android:max="1000"
+            settings:interval="5"
+            android:defaultValue="255"
+            settings:units="Hz"
+            android:dependency="picked_back_water" />
+
+        <com.miku.exsettings.preferences.CustomSecureDecimalSeekBarPreference
+            android:key="picked_back_water_viscosity"
+            android:title="@string/picked_back_water_viscosity_title"
+            android:summary="@string/picked_back_water_viscosity_summary"
+            settings:min="20"
+            android:max="500"
+            android:defaultValue="174"
+            android:dependency="picked_back_water" />
+
+        <com.miku.exsettings.preferences.CustomSecureDecimalSeekBarPreference
+            android:key="picked_back_water_pop_bounce"
+            android:title="@string/picked_back_water_pop_bounce_title"
+            android:summary="@string/picked_back_water_pop_bounce_summary"
+            settings:min="12"
+            android:max="100"
+            android:defaultValue="38"
+            android:dependency="picked_back_water" />
+
+        <com.miku.exsettings.preferences.CustomSecureDecimalSeekBarPreference
+            android:key="picked_back_water_pop_splash"
+            android:title="@string/picked_back_water_pop_splash_title"
+            android:summary="@string/picked_back_water_pop_splash_summary"
+            settings:min="0"
+            android:max="250"
+            android:defaultValue="123"
+            android:dependency="picked_back_water" />
+
+        <com.miku.exsettings.preferences.CustomSecureDecimalSeekBarPreference
+            android:key="picked_back_water_jiggle"
+            android:title="@string/picked_back_water_jiggle_title"
+            android:summary="@string/picked_back_water_jiggle_summary"
+            settings:min="0"
+            android:max="300"
+            android:defaultValue="114"
+            android:dependency="picked_back_water" />
+
+        <com.miku.exsettings.preferences.CustomSecureDecimalSeekBarPreference
+            android:key="picked_back_water_follow_stiffness"
+            android:title="@string/picked_back_water_follow_stiffness_title"
+            android:summary="@string/picked_back_water_follow_stiffness_summary"
+            settings:min="150"
+            android:max="30000"
+            android:defaultValue="701"
+            android:dependency="picked_back_water" />
+
+        <com.miku.exsettings.preferences.CustomSecureDecimalSeekBarPreference
+            android:key="picked_back_water_follow_damping"
+            android:title="@string/picked_back_water_follow_damping_title"
+            android:summary="@string/picked_back_water_follow_damping_summary"
+            settings:min="150"
+            android:max="1000"
+            android:defaultValue="488"
+            android:dependency="picked_back_water" />
+
+        <com.miku.exsettings.preferences.CustomSecureDecimalSeekBarPreference
+            android:key="picked_back_water_drag_stretch"
+            android:title="@string/picked_back_water_drag_stretch_title"
+            android:summary="@string/picked_back_water_drag_stretch_summary"
+            settings:min="0"
+            android:max="150"
+            android:defaultValue="52"
+            android:dependency="picked_back_water" />
+
+        <Preference
+            android:key="picked_back_water_reset"
+            android:title="@string/picked_back_water_reset_title"
+            android:summary="@string/picked_back_water_reset_summary"
+            android:dependency="picked_back_water" />
+    </PreferenceCategory>
+</PreferenceScreen>
