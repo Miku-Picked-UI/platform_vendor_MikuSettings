@@ -165,6 +165,9 @@
     <string name="picked_now_bar_title">Now Bar</string>
     <string name="picked_now_bar_summary">Show music and ongoing activities (flashlight, timers, calls) on the lock screen. Tap the music to open a large player</string>
     <string name="picked_now_bar_style_title">Now Bar style</string>
+    <string name="picked_now_bar_layout_title">Music on the lock screen</string>
+    <string name="picked_now_bar_layout_oneui">Now Bar (One UI pill)</string>
+    <string name="picked_now_bar_layout_ios">iOS player (card with scrubber and volume)</string>
     <!-- [Miku-Picked UI] Lockscreen media art background + music visualizer -->
     <string name="picked_ls_media_art_title">Media art background</string>
     <string name="picked_ls_media_art_summary">While music is playing, use the album art as a blurred lock screen background</string>

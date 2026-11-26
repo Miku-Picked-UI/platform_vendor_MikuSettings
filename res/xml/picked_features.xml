@@ -85,6 +85,17 @@
             android:defaultValue="0"
             android:dependency="now_bar_enabled" />
 
+        <!-- [Miku-Picked UI] Now Bar music layout: One UI pill or iOS lock screen player
+             (Settings.System now_bar_layout, read by SystemUI NowBarView) -->
+        <com.miku.settings.preferences.SystemSettingListPreference
+            android:key="now_bar_layout"
+            android:title="@string/picked_now_bar_layout_title"
+            android:summary="%s"
+            android:entries="@array/picked_now_bar_layout_entries"
+            android:entryValues="@array/picked_now_bar_layout_values"
+            android:defaultValue="0"
+            android:dependency="now_bar_enabled" />
+
         <!-- [Miku-Picked UI] Lockscreen media art background (Settings.Secure
              picked_lockscreen_media_art) -->
         <com.miku.settings.preferences.SecureSettingSwitchPreference

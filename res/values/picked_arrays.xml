@@ -257,6 +257,15 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+    <!-- Now Bar music layout (Settings.System now_bar_layout) -->
+    <string-array name="picked_now_bar_layout_entries" translatable="false">
+        <item>@string/picked_now_bar_layout_oneui</item>
+        <item>@string/picked_now_bar_layout_ios</item>
+    </string-array>
+    <string-array name="picked_now_bar_layout_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
     <!-- Glass style (persist.sys.penguin.liquid_glass_style) -->
     <string-array name="picked_liquid_glass_style_entries" translatable="false">
         <item>@string/picked_liquid_glass_style_ios</item>
