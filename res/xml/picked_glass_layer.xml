@@ -55,6 +55,20 @@
             android:dependency="picked_glass_layer" />
 
         <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_layer_sliders"
+            android:title="@string/picked_glass_layer_sliders"
+            android:summary="@string/picked_glass_layer_sliders_summary"
+            android:defaultValue="true"
+            android:dependency="picked_glass_layer" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_layer_buttons"
+            android:title="@string/picked_glass_layer_buttons"
+            android:summary="@string/picked_glass_layer_buttons_summary"
+            android:defaultValue="true"
+            android:dependency="picked_glass_layer" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
             android:key="picked_glass_layer_settings_cards"
             android:title="@string/picked_glass_layer_settings_cards"
             android:defaultValue="true"
