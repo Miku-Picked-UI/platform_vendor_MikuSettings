@@ -568,4 +568,36 @@
     <string name="picked_glass_layer_rim_summary">A lit edge and a soft sheen along the top of each glass shape</string>
     <string name="picked_thanks_glasslayer_title">Glass Layer by DrDisagree</string>
     <string name="picked_thanks_glasslayer_summary">Glass toasts, dialogs, power menu, volume, status bar chips, lockscreen shortcuts, Settings cards and installer dialogs (GPL-3.0), ported natively</string>
+
+    <!-- System update: local updater (PickedSystemUpdate) -->
+    <string name="picked_update_current_title">Installed version</string>
+    <string name="picked_update_patch">Security patch: %1$s</string>
+    <string name="picked_update_local_title">Update from a file</string>
+    <string name="picked_update_choose_title">Choose update zip</string>
+    <string name="picked_update_choose_summary">Pick a Miku-Picked UI zip built for this phone</string>
+    <string name="picked_update_install">Install and reboot</string>
+    <string name="picked_update_install_summary">Copies the zip, checks its signature, then the phone restarts into recovery and installs it</string>
+    <string name="picked_update_install_none">Choose a zip first</string>
+    <string name="picked_update_install_blocked">This zip can\'t be installed</string>
+    <string name="picked_update_full">Full update</string>
+    <string name="picked_update_incremental">Incremental update</string>
+    <string name="picked_update_wipe">Installing this update erases all data on the phone</string>
+    <string name="picked_update_reading">Reading the zip…</string>
+    <string name="picked_update_copying">Copying the update…</string>
+    <string name="picked_update_verifying">Checking the signature…</string>
+    <string name="picked_update_rebooting">Restarting into recovery…</string>
+    <string name="picked_update_not_ota">This isn\'t a ROM update zip (no OTA metadata)</string>
+    <string name="picked_update_unreadable">Couldn\'t read this file</string>
+    <string name="picked_update_ab">This is an A/B update, which this phone doesn\'t use</string>
+    <string name="picked_update_wrong_device">Made for %1$s, this phone is %2$s</string>
+    <string name="picked_update_downgrade">This build is older than the installed one; recovery won\'t install it</string>
+    <string name="picked_update_wrong_base">This incremental update was made for a different build than the installed one</string>
+    <string name="picked_update_battery">Charge the phone to at least %1$d %% or plug it in before updating</string>
+    <string name="picked_update_space">Not enough free storage: the update needs %1$s</string>
+    <string name="picked_update_confirm_title">Install update?</string>
+    <string name="picked_update_confirm">The phone restarts into recovery and installs the update. This takes a few minutes; don\'t turn the phone off.</string>
+    <string name="picked_update_confirm_wipe">The phone restarts into recovery and installs the update. This update ERASES ALL DATA on the phone.</string>
+    <string name="picked_update_bad_signature">The zip isn\'t signed with this build\'s keys, so recovery would refuse it. Use a zip from the same build setup (same signing keys).</string>
+    <string name="picked_update_failed">The update couldn\'t be prepared: %1$s</string>
+    <string name="picked_update_footer">Your apps and data are kept (unless the zip says otherwise). The update is installed by recovery; keep the phone charged.</string>
 </resources>

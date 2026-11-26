@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Miku-Picked UI ; SPDX-License-Identifier: Apache-2.0 -->
+<!-- Settings > System > System update: local updater (PickedSystemUpdate), opened through
+     packages/apps/Settings picked.SystemUpdateActivity (android.settings.SYSTEM_UPDATE_SETTINGS) -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/system_update_settings_list_item_title">
+
+    <Preference
+        android:key="picked_update_current"
+        android:title="@string/picked_update_current_title"
+        android:selectable="false" />
+
+    <PreferenceCategory
+        android:key="picked_update_local"
+        android:title="@string/picked_update_local_title">
+
+        <Preference
+            android:key="picked_update_choose"
+            android:title="@string/picked_update_choose_title"
+            android:summary="@string/picked_update_choose_summary" />
+
+        <Preference
+            android:key="picked_update_selected"
+            android:selectable="false" />
+
+        <Preference
+            android:key="picked_update_install"
+            android:title="@string/picked_update_install" />
+    </PreferenceCategory>
+
+    <Preference
+        android:key="picked_update_footer"
+        android:summary="@string/picked_update_footer"
+        android:selectable="false" />
+</PreferenceScreen>
