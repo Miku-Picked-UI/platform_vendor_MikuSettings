@@ -138,6 +138,10 @@ public class PickedFeatures extends SettingsPreferenceFragment {
                         on ? 1 : 0);
                 Settings.Global.putInt(getContentResolver(),
                         Settings.Global.DEVELOPMENT_ENABLE_FREEFORM_WINDOWS_SUPPORT, on ? 1 : 0);
+                // The monitor gets its desktop while it doesn't mirror the phone (also Penguin
+                // Laboratory's DeX switch; frameworks PickedDexSync)
+                Settings.Secure.putInt(getContentResolver(),
+                        "mirror_built_in_display", on ? 0 : 1);
                 showRebootDialog(R.string.picked_google_spoof_wear_reboot_title,
                         R.string.picked_google_spoof_wear_reboot_message);
                 return true;
