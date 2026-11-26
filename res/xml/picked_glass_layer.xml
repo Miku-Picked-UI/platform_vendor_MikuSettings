@@ -62,6 +62,13 @@
             android:dependency="picked_glass_layer" />
 
         <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_layer_switches"
+            android:title="@string/picked_glass_layer_switches"
+            android:summary="@string/picked_glass_layer_switches_summary"
+            android:defaultValue="true"
+            android:dependency="picked_glass_layer" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
             android:key="picked_glass_layer_buttons"
             android:title="@string/picked_glass_layer_buttons"
             android:summary="@string/picked_glass_layer_buttons_summary"
