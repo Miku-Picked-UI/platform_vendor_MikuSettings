@@ -390,6 +390,7 @@
     <string name="picked_charging_animation_liquid">Liquid</string>
     <string name="picked_charging_animation_ring">Ring</string>
     <string name="picked_charging_animation_wave">Wave</string>
+    <string name="picked_animation_water">Water (Glass Layer)</string>
     <!-- [Miku-Picked UI] Unlock animation -->
     <string name="picked_unlock_animation_title">Unlock animation</string>
     <string name="picked_unlock_animation_stock">Ripple (stock)</string>

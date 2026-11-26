@@ -347,12 +347,14 @@
         <item>@string/picked_charging_animation_liquid</item>
         <item>@string/picked_charging_animation_ring</item>
         <item>@string/picked_charging_animation_wave</item>
+        <item>@string/picked_animation_water</item>
     </string-array>
     <string-array name="picked_charging_animation_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
     </string-array>
     <string-array name="picked_unlock_animation_entries" translatable="false">
         <item>@string/picked_unlock_animation_stock</item>
@@ -360,6 +362,7 @@
         <item>@string/picked_unlock_animation_rings</item>
         <item>@string/picked_unlock_animation_shockwave</item>
         <item>@string/picked_unlock_animation_none</item>
+        <item>@string/picked_animation_water</item>
     </string-array>
     <string-array name="picked_unlock_animation_values" translatable="false">
         <item>0</item>
@@ -367,6 +370,7 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="picked_sas_device_entries" translatable="false">
         <item>@string/picked_sas_device_speaker</item>
