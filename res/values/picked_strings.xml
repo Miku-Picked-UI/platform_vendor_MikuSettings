@@ -568,6 +568,8 @@
     <string name="picked_glass_layer_installer_dialogs">App installer dialogs</string>
     <string name="picked_glass_layer_launcher">Launcher</string>
     <string name="picked_glass_layer_launcher_summary">Open folders, app drawer scrim and Recents backdrop</string>
+    <string name="picked_glass_layer_camera">Camera</string>
+    <string name="picked_glass_layer_camera_summary">Aperture lens pill, status island and quick settings drawer</string>
     <string name="picked_glass_sidebar_title">Glass Sidebar</string>
     <string name="picked_glass_sidebar_summary">Liquid Glass edge handle to open apps in floating freeform windows; long-press an icon for fullscreen, hold and drag the handle to move it</string>
     <string name="picked_glass_sidebar_side_title">Sidebar edge</string>
