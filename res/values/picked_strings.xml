@@ -559,9 +559,9 @@
     <string name="picked_glass_layer_status_bar_chips">Status bar chips</string>
     <string name="picked_glass_layer_lockscreen_shortcuts">Lockscreen shortcuts</string>
     <string name="picked_glass_layer_sliders">Sliders</string>
-    <string name="picked_glass_layer_sliders_summary">Thin sliders get a glass thumb that swells into a lens when grabbed, wobbles as you drag and springs back when let go (System UI, Settings, installer)</string>
+    <string name="picked_glass_layer_sliders_summary">Thin sliders get a glass thumb that swells into a lens when grabbed, stretches as you drag and shrinks back when let go (System UI, Settings, installer)</string>
     <string name="picked_glass_layer_switches">Switches</string>
-    <string name="picked_glass_layer_switches_summary">Glass switches whose thumb swells into a lens, wobbles as it moves and springs back (System UI, Settings, installer)</string>
+    <string name="picked_glass_layer_switches_summary">Glass switches whose thumb can be dragged, swells into a lens and stretches as it moves (System UI, Settings, installer)</string>
     <string name="picked_glass_layer_buttons">Buttons</string>
     <string name="picked_glass_layer_buttons_summary">Glass buttons that grow a little and light up under your finger when pressed (System UI, Settings, installer)</string>
     <string name="picked_glass_layer_settings_cards">Settings cards</string>
