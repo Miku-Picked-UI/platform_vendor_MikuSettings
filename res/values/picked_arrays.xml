@@ -400,4 +400,14 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+
+    <!-- [Miku-Picked UI] Glass Sidebar edge (Settings.Secure picked_glass_sidebar_side) -->
+    <string-array name="picked_glass_sidebar_side_entries" translatable="false">
+        <item>@string/picked_glass_sidebar_side_left</item>
+        <item>@string/picked_glass_sidebar_side_right</item>
+    </string-array>
+    <string-array name="picked_glass_sidebar_side_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 </resources>

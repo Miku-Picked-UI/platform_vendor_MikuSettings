@@ -86,6 +86,13 @@
             android:title="@string/picked_glass_layer_installer_dialogs"
             android:defaultValue="true"
             android:dependency="picked_glass_layer" />
+
+        <com.miku.settings.preferences.SecureSettingSwitchPreference
+            android:key="picked_glass_layer_launcher"
+            android:title="@string/picked_glass_layer_launcher"
+            android:summary="@string/picked_glass_layer_launcher_summary"
+            android:defaultValue="true"
+            android:dependency="picked_glass_layer" />
     </PreferenceCategory>
 
     <PreferenceCategory
